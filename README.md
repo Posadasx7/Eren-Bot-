@@ -1,2 +1,2 @@
 # killua-Bot
-> website developed by Deylin 
+> website developed by Cholito 
