@@ -13,11 +13,14 @@
       background-color: #0d0d1b;
       color: #f0f0f0;
       line-height: 1.6;
-      margin: 20px auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, main {
       max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
-      border: 5px solid #00e0ff;
-      border-radius: 10px;
       text-align: center;
     }
 
@@ -124,7 +127,6 @@
       font-size: 1.2rem;
       color: #ffffff;
       margin: 0;
-      text-transform: none;
     }
 
     .text-box p {
@@ -140,10 +142,85 @@
       color: #a0a0a0;
       font-size: 0.8rem;
     }
+
+    /* --- Menú Hamburguesa --- */
+    .top-bar {
+      background: #0d0d1b;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #00e0ff;
+    }
+
+    .menu-toggle {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #00e0ff;
+    }
+
+    .menu-title {
+      margin-left: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #00e0ff;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #111122;
+      padding-top: 60px;
+      transition: 0.3s;
+      z-index: 1000;
+      box-shadow: 2px 0 10px rgba(0, 224, 255, 0.2);
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: #f0f0f0;
+      text-decoration: none;
+      border-bottom: 1px solid #1f1f2f;
+    }
+
+    .sidebar a:hover {
+      background-color: #1a1a2a;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .welcome-message {
+      font-size: 1.1rem;
+      color: #00e0ff;
+      margin: 20px auto 30px;
+      max-width: 700px;
+    }
   </style>
 </head>
 <body>
+  <div class="top-bar">
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <span class="menu-title">Killua Bot WhatsApp!</span>
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <a href="https://wa.me/50493374445" target="_blank">Contacto</a>
+    <a href="comprar.html">Tienda / Precios</a>
+    <a href="#features">Ver funciones</a>
+    <a href="planes.html">Planes</a>
+    <a href="#">Soporte</a>
+  </div>
+
   <header>
+    <p class="welcome-message">
+      👋 ¡Bienvenido al sitio oficial de KILLUA BOT! Aquí podrás conocer todas sus funciones, ver planes y contactar al creador.
+    </p>
     <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
     <h1>KILLUA BOT</h1>
     <p class="bot-description">
@@ -156,7 +233,7 @@
   </header>
 
   <main>
-    <section class="features-section">
+    <section class="features-section" id="features">
       <h2>Características principales</h2>
       <div class="features-grid">
         <div class="feature-item">
@@ -196,5 +273,12 @@
     <p>&copy; 2025 KILLUA BOT. Optimizado para grupos de WhatsApp. Todos los derechos reservados.</p>
     <p style="font-size: 0.7rem; color: #777;">Website developed by Cholito</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
