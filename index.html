@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KILLUA BOT</title>
-  <meta name="description" content="Recommended for developer convenience...">
-  <link rel="icon" href="https://i.postimg.cc/s2C7CrHT/IMG-20250805-WA0332-1.jpg">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <link rel="icon" href="https://i.postimg.cc/s2C7CrHT/IMG-20250805-WA0332-1.jpg">
   <style>
     * {
       box-sizing: border-box;
@@ -18,50 +17,53 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d1b;
       color: #f0f0f0;
-      line-height: 1.6;
       max-width: 1200px;
       margin: auto;
-      padding: 20px;
+      padding: 0 20px 40px;
       text-align: center;
     }
 
-    /* NAVBAR */
-    .navbar {
+    /* === BARRA SUPERIOR === */
+    .topbar {
+      background-color: #1a1a2b;
+      padding: 1rem 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #1a1a2b;
-      padding: 1rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
       position: relative;
+      border-radius: 0 0 10px 10px;
     }
 
     .menu-toggle {
       font-size: 2rem;
       color: #00e0ff;
       cursor: pointer;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
     }
 
-    .brand-title {
-      font-size: 1.3rem;
+    .title-center {
+      flex: 1;
+      text-align: center;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #00e0ff;
       text-shadow: 0 0 5px #00e0ff;
-      margin-left: 10px;
     }
 
+    /* === MENÚ DESPLEGABLE === */
     .nav-menu {
       display: none;
       flex-direction: column;
       position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
+      top: 70px;
+      left: 10px;
       background-color: #121224;
-      border-radius: 0 0 10px 10px;
+      border-radius: 10px;
       padding: 1rem;
-      z-index: 100;
+      z-index: 10;
+      width: 220px;
     }
 
     .nav-menu a {
@@ -73,7 +75,7 @@
       text-decoration: none;
       font-size: 1rem;
       font-weight: bold;
-      padding: 0.8rem 1.2rem;
+      padding: 0.8rem 1rem;
       margin-bottom: 0.5rem;
       border-radius: 8px;
       transition: all 0.3s ease;
@@ -89,6 +91,7 @@
       font-size: 1.3rem;
     }
 
+    /* === CONTENIDO PRINCIPAL === */
     .bot-image {
       width: 150px;
       height: 150px;
@@ -96,6 +99,7 @@
       border: 3px solid #00e0ff;
       box-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
       object-fit: cover;
+      margin-top: 2rem;
       margin-bottom: 1rem;
     }
 
@@ -130,6 +134,7 @@
       background-color: #00b3cc;
     }
 
+    /* === CARACTERÍSTICAS === */
     .features-section {
       padding: 2rem 0;
       background-color: #1a1a2b;
@@ -206,31 +211,19 @@
       color: #a0a0a0;
       font-size: 0.8rem;
     }
-
-    @media (min-width: 768px) {
-      .nav-menu {
-        display: none;
-        position: absolute;
-        width: auto;
-        left: 1rem;
-        top: 60px;
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <i class="uil uil-bars"></i>
-      </div>
-      <div class="brand-title">KILLUA BOT WHATSAPP</div>
+  <!-- BARRA SUPERIOR -->
+  <div class="topbar">
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="uil uil-bars"></i>
     </div>
+    <div class="title-center">KILLUA BOT WHATSAPP</div>
   </div>
 
-  <!-- MENU DESPLEGABLE -->
+  <!-- MENÚ DESPLEGABLE -->
   <nav class="nav-menu" id="navMenu">
     <a href="comprar.html"><i class="uil uil-shopping-cart-alt"></i> Tienda / Precios</a>
     <a href="planes.html"><i class="uil uil-box"></i> Ver opciones</a>
@@ -239,7 +232,7 @@
     <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-megaphone"></i> Canal Oficial</a>
   </nav>
 
-  <!-- CONTENIDO PRINCIPAL -->
+  <!-- CONTENIDO -->
   <header>
     <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
     <h1>KILLUA BOT</h1>
