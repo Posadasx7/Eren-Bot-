@@ -24,6 +24,7 @@
       position: relative;
       padding: 20px;
       background-color: #0d0d1b;
+      border-bottom: 1px solid #00e0ff;
       display: flex;
       align-items: center;
       gap: 15px;
@@ -96,14 +97,15 @@
       border-radius: 10px;
       text-align: center;
       background-color: #0d0d1b;
-      box-shadow: 0 0 20px rgba(0, 224, 255, 0.05);
+      /* Borde eliminado */
     }
 
     .bot-image {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      box-shadow: 0 0 12px rgba(0, 224, 255, 0.5);
+      border: 3px solid #00e0ff;
+      box-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
       object-fit: cover;
       margin-bottom: 1rem;
     }
@@ -142,7 +144,7 @@
     }
 
     .cta-button:hover {
-      background-color: #00c0dd;
+      background-color: #00b3cc;
       transform: scale(1.05);
     }
 
@@ -151,7 +153,6 @@
       background-color: #1a1a2b;
       border-radius: 8px;
       margin-top: 2rem;
-      box-shadow: 0 0 20px rgba(0, 224, 255, 0.05);
     }
 
     .features-section h2 {
@@ -170,29 +171,30 @@
 
     .feature-item {
       background-color: #0c0c1c;
+      border: 1px solid #00e0ff;
       border-radius: 12px;
       padding: 1.5rem;
       display: flex;
       align-items: center;
       gap: 1rem;
-      box-shadow: 0 0 12px rgba(0, 224, 255, 0.15);
+      box-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .feature-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 18px rgba(0, 224, 255, 0.3);
+      box-shadow: 0 0 18px rgba(0, 224, 255, 0.5);
     }
 
     .icon-box {
       width: 60px;
       height: 60px;
       min-width: 60px;
+      border: 2px solid #00e0ff;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 224, 255, 0.05);
     }
 
     .icon-box i {
