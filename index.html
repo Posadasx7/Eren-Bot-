@@ -7,6 +7,10 @@
   <link rel="icon" href="https://i.postimg.cc/s2C7CrHT/IMG-20250805-WA0332-1.jpg">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d1b;
@@ -21,6 +25,75 @@
       margin: 0 auto;
       padding: 20px;
       text-align: center;
+    }
+
+    .top-bar {
+      background: #0d0d1b;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #00e0ff;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .menu-toggle {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #00e0ff;
+    }
+
+    .menu-title {
+      margin-left: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #00e0ff;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #111122;
+      padding-top: 60px;
+      transition: left 0.3s ease-in-out;
+      z-index: 1002;
+      box-shadow: 2px 0 10px rgba(0, 224, 255, 0.2);
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: #f0f0f0;
+      text-decoration: none;
+      border-bottom: 1px solid #1f1f2f;
+      transition: background-color 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #1a1a2a;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
     }
 
     .bot-image {
@@ -44,8 +117,8 @@
     .bot-description {
       font-size: 1rem;
       color: #a0a0a0;
-      max-width: 600px;
-      margin: 0 auto 1rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
     }
 
     .cta-button {
@@ -62,6 +135,13 @@
 
     .cta-button:hover {
       background-color: #00b3cc;
+    }
+
+    .welcome-message {
+      font-size: 1.1rem;
+      color: #00e0ff;
+      margin: 20px auto 30px;
+      max-width: 700px;
     }
 
     .features-section {
@@ -141,89 +221,16 @@
       color: #a0a0a0;
       font-size: 0.8rem;
     }
-
-    .top-bar {
-      background: #0d0d1b;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      border-bottom: 2px solid #00e0ff;
-      position: relative;
-      z-index: 1001;
-    }
-
-    .menu-toggle {
-      font-size: 2rem;
-      cursor: pointer;
-      color: #00e0ff;
-    }
-
-    .menu-title {
-      margin-left: 15px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #00e0ff;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #111122;
-      padding-top: 60px;
-      transition: 0.3s;
-      z-index: 1002;
-      box-shadow: 2px 0 10px rgba(0, 224, 255, 0.2);
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 15px 20px;
-      color: #f0f0f0;
-      text-decoration: none;
-      border-bottom: 1px solid #1f1f2f;
-    }
-
-    .sidebar a:hover {
-      background-color: #1a1a2a;
-    }
-
-    .sidebar.active {
-      left: 0;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1000;
-      display: none;
-    }
-
-    .overlay.active {
-      display: block;
-    }
-
-    .welcome-message {
-      font-size: 1.1rem;
-      color: #00e0ff;
-      margin: 20px auto 30px;
-      max-width: 700px;
-    }
   </style>
 </head>
 <body>
+  <!-- Menú hamburguesa -->
   <div class="top-bar">
     <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     <span class="menu-title">Killua Bot WhatsApp!</span>
   </div>
 
+  <!-- Menú lateral -->
   <div id="sidebar" class="sidebar">
     <a href="https://wa.me/50493374445" target="_blank">Contacto</a>
     <a href="comprar.html">Tienda / Precios</a>
@@ -232,17 +239,19 @@
     <a href="#">Soporte</a>
   </div>
 
+  <!-- Fondo oscuro -->
   <div id="overlay" class="overlay" onclick="closeMenu()"></div>
 
+  <!-- Contenido principal -->
   <header>
     <p class="welcome-message">
-      👋 ¡Bienvenido al sitio oficial de KILLUA BOT! Aquí podrás conocer todas sus funciones, ver planes y contactar al creador.
+      👋 ¡Bienvenido al sitio oficial de KILLUA BOT! Explora sus funciones, conoce sus planes y comunícate con el creador fácilmente.
     </p>
     <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
     <h1>KILLUA BOT</h1>
     <p class="bot-description">
-      Tu asistente definitivo para automatizar tareas, gestionar grupos y optimizar tu experiencia en WhatsApp.
-      KILLUA BOT está diseñado para hacer tus grupos más dinámicos, seguros y entretenidos.
+      Killua Bot es tu asistente ideal para WhatsApp: automatiza tareas, protege tus grupos y los hace más dinámicos, seguros y entretenidos.
+      Diseñado para ofrecer una experiencia completa, eficiente y divertida.
     </p>
     <a href="comprar.html" class="cta-button">Comprar</a>
     <a href="planes.html" class="cta-button">Ver opciones</a>
@@ -291,14 +300,16 @@
     <p style="font-size: 0.7rem; color: #777;">Website developed by Cholito</p>
   </footer>
 
+  <!-- Script de interacción -->
   <script>
     const sidebar = document.getElementById("sidebar");
     const overlay = document.getElementById("overlay");
     const menuLinks = sidebar.querySelectorAll("a");
 
     function toggleMenu() {
-      sidebar.classList.toggle("active");
-      overlay.classList.toggle("active");
+      sidebar.classList.add("active");
+      overlay.classList.add("active");
+      history.pushState({ menuOpen: true }, "");
     }
 
     function closeMenu() {
@@ -306,11 +317,19 @@
       overlay.classList.remove("active");
     }
 
-    // Cierra el menú al hacer clic en un enlace
+    // Cierra al hacer clic en enlace del menú
     menuLinks.forEach(link => {
       link.addEventListener("click", () => {
         closeMenu();
       });
+    });
+
+    // Soporte para botón atrás (back)
+    window.addEventListener("popstate", (event) => {
+      if (event.state && event.state.menuOpen) {
+        closeMenu();
+        history.replaceState(null, ""); // Limpia estado
+      }
     });
   </script>
 </body>
