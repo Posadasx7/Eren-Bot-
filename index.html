@@ -4,58 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KILLUA BOT</title>
+  <meta name="description" content="Recommended for developer convenience...">
   <link rel="icon" href="https://i.postimg.cc/s2C7CrHT/IMG-20250805-WA0332-1.jpg">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d1b;
       color: #f0f0f0;
+      margin: 0;
+      padding: 0;
     }
 
-    /* NAVBAR estilo captura */
+    /* Navbar superior */
     .navbar {
-      background-color: #0d0d1b;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      background-color: #0d0d1b;
+      color: #00e0ff;
+      padding: 1rem;
+      position: relative;
+      z-index: 1001;
     }
 
     .menu-icon {
-      font-size: 1.8rem;
-      color: #00e0ff;
+      font-size: 2rem;
       cursor: pointer;
-    }
-
-    .navbar-title {
-      flex: 1;
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: bold;
       color: #00e0ff;
     }
 
-    .profile-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 2px solid #00e0ff;
-      object-fit: cover;
+    .bot-title {
+      font-weight: bold;
+      font-size: 1.3rem;
     }
 
-    /* MENU lateral oculto */
+    /* Menú hamburguesa lateral */
     .sidebar {
       position: fixed;
       top: 0;
       left: -250px;
       width: 250px;
       height: 100%;
-      background-color: #121222;
+      background-color: #111123;
+      padding-top: 3rem;
       transition: left 0.3s ease;
-      padding-top: 4rem;
       z-index: 1000;
     }
 
@@ -68,48 +61,137 @@
       padding: 1rem 1.5rem;
       color: #00e0ff;
       text-decoration: none;
-      font-weight: bold;
-      border-bottom: 1px solid #1f1f2e;
-      transition: background 0.3s ease;
+      font-size: 1rem;
+      border-bottom: 1px solid #00e0ff44;
+      transition: background 0.2s;
     }
 
     .sidebar a:hover {
       background-color: #1a1a2b;
     }
 
-    .main-content {
-      padding: 2rem;
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    /* Contenido principal */
+    main {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .bot-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #00e0ff;
+      box-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #00e0ff;
+      text-shadow: 0 0 10px #00e0ff;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .bot-description {
+      font-size: 1rem;
+      color: #a0a0a0;
+      max-width: 600px;
+      margin: 0 auto 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #00e0ff;
+      color: #0d0d1b;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      margin: 1rem 0.5rem 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #00b3cc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+      color: #a0a0a0;
+      font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
+  <!-- Overlay para cerrar menú tocando fuera -->
+  <div class="overlay" onclick="closeMenu()"></div>
 
-  <!-- NAV superior estilo captura -->
+  <!-- Menú superior -->
   <div class="navbar">
-    <i class="uil uil-bars menu-icon" onclick="toggleSidebar()"></i>
-    <div class="navbar-title">KILLUA BOT WHATSAPP</div>
-    <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Icon" class="profile-icon">
+    <div class="menu-icon" onclick="toggleMenu()"><i class="uil uil-bars"></i></div>
+    <div class="bot-title">KILLUA BOT WHATSAPP</div>
+    <div style="width: 2rem;"></div>
   </div>
 
-  <!-- MENÚ LATERAL -->
+  <!-- Menú lateral -->
   <div class="sidebar" id="sidebar">
     <a href="comprar.html"><i class="uil uil-store"></i> Tienda / Precios</a>
-    <a href="planes.html"><i class="uil uil-list-ul"></i> Ver Opciones</a>
-    <a href="https://wa.me/50493374445" target="_blank"><i class="uil uil-headphones"></i> Soporte</a>
-    <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB?mode=ac_t" target="_blank"><i class="uil uil-users-alt"></i> Grupo Oficial</a>
-    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-broadcast"></i> Canal Oficial</a>
+    <a href="planes.html"><i class="uil uil-list-ul"></i> Ver opciones</a>
+    <a href="soporte.html"><i class="uil uil-headphones"></i> Soporte</a>
+    <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB?mode=ac_t"><i class="uil uil-users-alt"></i> Grupo oficial</a>
+    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W"><i class="uil uil-broadcast"></i> Canal</a>
   </div>
 
-  <!-- CONTENIDO -->
-  <div class="main-content">
-    <h1>Bienvenido a KILLUA BOT</h1>
-    <p>Este es un ejemplo de diseño con barra superior al estilo que pediste.</p>
-  </div>
+  <main>
+    <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
+    <h1>KILLUA BOT</h1>
+    <p class="bot-description">
+      Tu asistente definitivo para automatizar tareas, gestionar grupos y optimizar tu experiencia en WhatsApp.
+      KILLUA BOT está diseñado para hacer tus grupos más dinámicos, seguros y entretenidos.
+    </p>
+    <a href="comprar.html" class="cta-button">Comprar</a>
+    <a href="planes.html" class="cta-button">Ver opciones</a>
+    <button onclick="window.open('https://wa.me/50493374445')" class="cta-button">Creador del Bot</button>
+  </main>
 
-  <!-- JS: menú hamburguesa -->
+  <footer>
+    <p>&copy; 2025 KILLUA BOT. Optimizado para grupos de WhatsApp. Todos los derechos reservados.</p>
+    <p style="font-size: 0.7rem; color: #777;">Website developed by Cholito</p>
+  </footer>
+
   <script>
-    function toggleSidebar() {
-      document.getElementById("sidebar").classList.toggle("open");
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.querySelector('.overlay');
+
+    function toggleMenu() {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+
+    function closeMenu() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
     }
   </script>
 </body>
