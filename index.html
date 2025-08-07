@@ -10,6 +10,8 @@
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
@@ -17,15 +19,74 @@
       background-color: #0d0d1b;
       color: #f0f0f0;
       line-height: 1.6;
-      margin: 0 auto;
       max-width: 1200px;
+      margin: auto;
       padding: 20px;
-      border-radius: 10px;
       text-align: center;
     }
 
-    header {
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #1a1a2b;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
       position: relative;
+    }
+
+    .menu-toggle {
+      font-size: 2rem;
+      color: #00e0ff;
+      cursor: pointer;
+    }
+
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #00e0ff;
+      text-shadow: 0 0 5px #00e0ff;
+      margin-left: 10px;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #121224;
+      border-radius: 0 0 10px 10px;
+      padding: 1rem;
+      z-index: 100;
+    }
+
+    .nav-menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #00e0ff15;
+      color: #f0f0f0;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      background-color: #00e0ff30;
+      transform: translateX(5px);
+    }
+
+    .nav-menu i {
+      color: #00e0ff;
+      font-size: 1.3rem;
     }
 
     .bot-image {
@@ -67,52 +128,6 @@
 
     .cta-button:hover {
       background-color: #00b3cc;
-    }
-
-    /* Hamburger menu styles */
-    .menu-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      font-size: 2rem;
-      color: #00e0ff;
-      z-index: 10;
-    }
-
-    .nav-menu {
-      display: none;
-      flex-direction: column;
-      gap: 1rem;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background: #1a1a2b;
-      border: 2px solid #00e0ff;
-      border-radius: 10px;
-      padding: 1rem;
-      z-index: 5;
-    }
-
-    .nav-menu a {
-      color: #f0f0f0;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      background-color: #00e0ff10;
-      transition: background 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .nav-menu a:hover {
-      background-color: #00e0ff33;
-    }
-
-    .nav-menu i {
-      font-size: 1.2rem;
-      color: #00e0ff;
     }
 
     .features-section {
@@ -158,7 +173,6 @@
     .icon-box {
       width: 60px;
       height: 60px;
-      min-width: 60px;
       background-color: transparent;
       border: 2px solid #00e0ff;
       border-radius: 10px;
@@ -193,28 +207,40 @@
       font-size: 0.8rem;
     }
 
-    @media screen and (max-width: 768px) {
+    @media (min-width: 768px) {
       .nav-menu {
-        right: 10px;
-        top: 55px;
-        width: 200px;
+        display: none;
+        position: absolute;
+        width: auto;
+        left: 1rem;
+        top: 60px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <i class="uil uil-bars"></i>
-    </div>
-    <nav class="nav-menu" id="navMenu">
-      <a href="comprar.html"><i class="uil uil-shopping-cart-alt"></i> Tienda / Precios</a>
-      <a href="planes.html"><i class="uil uil-box"></i> Ver opciones</a>
-      <a href="https://wa.me/50493374445" target="_blank"><i class="uil uil-wrench"></i> Soporte</a>
-      <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB?mode=ac_t" target="_blank"><i class="uil uil-users-alt"></i> Grupo Oficial</a>
-      <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-megaphone"></i> Canal Oficial</a>
-    </nav>
 
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="uil uil-bars"></i>
+      </div>
+      <div class="brand-title">KILLUA BOT WHATSAPP</div>
+    </div>
+  </div>
+
+  <!-- MENU DESPLEGABLE -->
+  <nav class="nav-menu" id="navMenu">
+    <a href="comprar.html"><i class="uil uil-shopping-cart-alt"></i> Tienda / Precios</a>
+    <a href="planes.html"><i class="uil uil-box"></i> Ver opciones</a>
+    <a href="https://wa.me/50493374445" target="_blank"><i class="uil uil-headphones-alt"></i> Soporte</a>
+    <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB?mode=ac_t" target="_blank"><i class="uil uil-users-alt"></i> Grupo Oficial</a>
+    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-megaphone"></i> Canal Oficial</a>
+  </nav>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <header>
     <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
     <h1>KILLUA BOT</h1>
     <p class="bot-description">
