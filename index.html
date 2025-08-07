@@ -4,293 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KILLUA BOT</title>
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="icon" href="https://i.postimg.cc/s2C7CrHT/IMG-20250805-WA0332-1.jpg">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d1b;
       color: #f0f0f0;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px 40px;
-      text-align: center;
     }
 
-    /* === BARRA SUPERIOR === */
-    .topbar {
-      background-color: #1a1a2b;
-      padding: 1rem 1rem;
+    /* NAVBAR estilo captura */
+    .navbar {
+      background-color: #0d0d1b;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-      border-radius: 0 0 10px 10px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
-    .menu-toggle {
-      font-size: 2rem;
-      color: #00e0ff;
-      cursor: pointer;
-      position: absolute;
-      left: 1rem;
-      top: 1rem;
-    }
-
-    .title-center {
-      flex: 1;
-      text-align: center;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #00e0ff;
-      text-shadow: 0 0 5px #00e0ff;
-    }
-
-    /* === MENÚ DESPLEGABLE === */
-    .nav-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 70px;
-      left: 10px;
-      background-color: #121224;
-      border-radius: 10px;
-      padding: 1rem;
-      z-index: 10;
-      width: 220px;
-    }
-
-    .nav-menu a {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: #00e0ff15;
-      color: #f0f0f0;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 0.8rem 1rem;
-      margin-bottom: 0.5rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-    }
-
-    .nav-menu a:hover {
-      background-color: #00e0ff30;
-      transform: translateX(5px);
-    }
-
-    .nav-menu i {
-      color: #00e0ff;
-      font-size: 1.3rem;
-    }
-
-    /* === CONTENIDO PRINCIPAL === */
-    .bot-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 3px solid #00e0ff;
-      box-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
-      object-fit: cover;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #00e0ff;
-      text-shadow: 0 0 10px #00e0ff;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
-
-    .bot-description {
-      font-size: 1rem;
-      color: #a0a0a0;
-      max-width: 600px;
-      margin: 0 auto 1rem;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #00e0ff;
-      color: #0d0d1b;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      margin: 1rem 0.5rem 0;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #00b3cc;
-    }
-
-    /* === CARACTERÍSTICAS === */
-    .features-section {
-      padding: 2rem 0;
-      background-color: #1a1a2b;
-      border-radius: 8px;
-      margin-top: 2rem;
-    }
-
-    .features-section h2 {
-      color: #00e0ff;
-      text-shadow: 0 0 5px #00e0ff;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      font-size: 2rem;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      padding: 0 20px;
-    }
-
-    .feature-item {
-      background-color: #0c0c1c;
-      border: 1px solid #00e0ff;
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      box-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-    }
-
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 18px rgba(0, 224, 255, 0.5);
-    }
-
-    .icon-box {
-      width: 60px;
-      height: 60px;
-      background-color: transparent;
-      border: 2px solid #00e0ff;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
-    }
-
-    .icon-box i {
+    .menu-icon {
       font-size: 1.8rem;
       color: #00e0ff;
+      cursor: pointer;
     }
 
-    .text-box h3 {
-      font-size: 1.2rem;
-      color: #ffffff;
-      margin: 0;
-    }
-
-    .text-box p {
-      font-size: 0.9rem;
-      color: #a0a0a0;
-      margin: 0.3rem 0 0;
-    }
-
-    footer {
+    .navbar-title {
+      flex: 1;
       text-align: center;
-      padding: 1rem 0;
-      margin-top: 2rem;
-      color: #a0a0a0;
-      font-size: 0.8rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #00e0ff;
+    }
+
+    .profile-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid #00e0ff;
+      object-fit: cover;
+    }
+
+    /* MENU lateral oculto */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: #121222;
+      transition: left 0.3s ease;
+      padding-top: 4rem;
+      z-index: 1000;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 1rem 1.5rem;
+      color: #00e0ff;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #1f1f2e;
+      transition: background 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: #1a1a2b;
+    }
+
+    .main-content {
+      padding: 2rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- BARRA SUPERIOR -->
-  <div class="topbar">
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <i class="uil uil-bars"></i>
-    </div>
-    <div class="title-center">KILLUA BOT WHATSAPP</div>
+  <!-- NAV superior estilo captura -->
+  <div class="navbar">
+    <i class="uil uil-bars menu-icon" onclick="toggleSidebar()"></i>
+    <div class="navbar-title">KILLUA BOT WHATSAPP</div>
+    <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Icon" class="profile-icon">
   </div>
 
-  <!-- MENÚ DESPLEGABLE -->
-  <nav class="nav-menu" id="navMenu">
-    <a href="comprar.html"><i class="uil uil-shopping-cart-alt"></i> Tienda / Precios</a>
-    <a href="planes.html"><i class="uil uil-box"></i> Ver opciones</a>
-    <a href="https://wa.me/50493374445" target="_blank"><i class="uil uil-headphones-alt"></i> Soporte</a>
+  <!-- MENÚ LATERAL -->
+  <div class="sidebar" id="sidebar">
+    <a href="comprar.html"><i class="uil uil-store"></i> Tienda / Precios</a>
+    <a href="planes.html"><i class="uil uil-list-ul"></i> Ver Opciones</a>
+    <a href="https://wa.me/50493374445" target="_blank"><i class="uil uil-headphones"></i> Soporte</a>
     <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB?mode=ac_t" target="_blank"><i class="uil uil-users-alt"></i> Grupo Oficial</a>
-    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-megaphone"></i> Canal Oficial</a>
-  </nav>
+    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-broadcast"></i> Canal Oficial</a>
+  </div>
 
   <!-- CONTENIDO -->
-  <header>
-    <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
-    <h1>KILLUA BOT</h1>
-    <p class="bot-description">
-      Tu asistente definitivo para automatizar tareas, gestionar grupos y optimizar tu experiencia en WhatsApp.
-      KILLUA BOT está diseñado para hacer tus grupos más dinámicos, seguros y entretenidos.
-    </p>
-    <a href="comprar.html" class="cta-button">Comprar</a>
-    <a href="planes.html" class="cta-button">Ver opciones</a>
-    <button onclick="window.open('https://wa.me/50493374445')" class="cta-button">Creador del Bot</button>
-  </header>
+  <div class="main-content">
+    <h1>Bienvenido a KILLUA BOT</h1>
+    <p>Este es un ejemplo de diseño con barra superior al estilo que pediste.</p>
+  </div>
 
-  <main>
-    <section class="features-section">
-      <h2>Características principales</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <div class="icon-box"><i class="uil uil-robot"></i></div>
-          <div class="text-box">
-            <h3>Automatización en grupos</h3>
-            <p>Ejecuta comandos útiles para admins, responde automáticamente y mantiene el orden en el grupo.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="icon-box"><i class="uil uil-chart-line"></i></div>
-          <div class="text-box">
-            <h3>Estadísticas de uso</h3>
-            <p>Consulta cuántos comandos se han usado, miembros activos y más.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="icon-box"><i class="uil uil-shield-check"></i></div>
-          <div class="text-box">
-            <h3>Protección automática</h3>
-            <p>Elimina spam, bloquea links no deseados y protege el grupo las 24h.</p>
-          </div>
-        </div>
-        <div class="feature-item">
-          <div class="icon-box"><i class="uil uil-comment-alt-dots"></i></div>
-          <div class="text-box">
-            <h3>Respuestas inteligentes</h3>
-            <p>Interactúa con los miembros con IA, comandos divertidos, tags y más.</p>
-          </div>
-        </div>
-      </div>
-      <a href="planes.html" class="cta-button">Ver planes de pago</a>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 KILLUA BOT. Optimizado para grupos de WhatsApp. Todos los derechos reservados.</p>
-    <p style="font-size: 0.7rem; color: #777;">Website developed by Cholito</p>
-  </footer>
-
+  <!-- JS: menú hamburguesa -->
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('navMenu');
-      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
     }
   </script>
 </body>
