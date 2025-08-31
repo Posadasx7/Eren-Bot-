@@ -1,102 +1,157 @@
-import { useState } from "react";
-import { Sun, Moon, MessageCircle, Info, Tag, Users } from "lucide-react";
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ElderBot - Hosting y Servicios</title>
+  <style>
+    :root {
+      --bg-dark: #0a0a0f;
+      --bg-light: #f5f5f5;
+      --text-dark: #ffffff;
+      --text-light: #1a1a1a;
+      --primary: #2563eb;
+      --secondary: #9333ea;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(147,51,234,0.2));
+    }
+    header img {
+      width: 300px;
+      border-radius: 1rem;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 1rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btns {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .comentarios {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 15px;
+      margin: 1rem 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: rgba(0,0,0,0.4);
+    }
+    /* Switch modo oscuro */
+    .switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="switch" onclick="toggleMode()">🌙 Modo</div>
 
-export default function Landing() {
-  const [darkMode, setDarkMode] = useState(true);
-
-  return (
-    <div className={darkMode ? "bg-gray-900 text-white" : "bg-gray-50 text-gray-900"}>
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-6 py-4 shadow-lg">
-        <h1 className="text-2xl font-bold">⚡ Elder Hosting</h1>
-        <div className="flex gap-3">
-          <button 
-            onClick={() => setDarkMode(!darkMode)} 
-            className="p-2 rounded-full bg-gray-700 hover:bg-gray-600 transition"
-          >
-            {darkMode ? <Sun size={18}/> : <Moon size={18}/>}
-          </button>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="text-center px-6 py-16 relative">
-        <img 
-          src="https://cdn.russellxz.click/b3fa23e9.jpeg" 
-          alt="Hero" 
-          className="mx-auto rounded-2xl shadow-2xl w-full max-w-4xl"
-        />
-        <h2 className="text-4xl font-extrabold mt-8">Hosting profesional para Bots y Páginas Web</h2>
-        <p className="mt-4 text-lg opacity-80">
-          Especialistas en <b>Bots de WhatsApp, Telegram y Discord</b>, además de <b>páginas web</b> y <b>juegos</b>. 
-          Ofrecemos un servicio confiable, seguro y rápido 🚀
-        </p>
-
-        {/* Botones principales */}
-        <div className="mt-6 flex flex-wrap justify-center gap-4">
-          <a className="px-5 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 shadow-lg">
-            Soporte
-          </a>
-          <a className="px-5 py-3 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-700 shadow">
-            Información
-          </a>
-          <a className="px-5 py-3 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-700 shadow">
-            Precios
-          </a>
-          <a className="px-5 py-3 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-700 shadow">
-            Grupo
-          </a>
-          <a className="px-5 py-3 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-700 shadow">
-            Canal
-          </a>
-        </div>
-      </section>
-
-      {/* Sección información */}
-      <section className="px-8 py-16 max-w-5xl mx-auto">
-        <h3 className="text-3xl font-bold mb-4">✨ ¿Por qué elegirnos?</h3>
-        <p className="mb-6">
-          ✅ Servidores estables <br/>
-          ✅ Atención al cliente 24/7 <br/>
-          ✅ Panel de control fácil de usar <br/>
-          ✅ Escalabilidad garantizada
-        </p>
-      </section>
-
-      {/* Comentarios de clientes */}
-      <section className="px-8 py-16 bg-gray-800 dark:bg-gray-100 dark:text-gray-900">
-        <h3 className="text-3xl font-bold mb-8">💬 Opiniones de Clientes</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-5 bg-gray-700 dark:bg-white rounded-xl shadow">
-            ⭐⭐⭐⭐⭐ <br/> “El mejor hosting para mi bot de WhatsApp.”
-          </div>
-          <div className="p-5 bg-gray-700 dark:bg-white rounded-xl shadow">
-            ⭐⭐⭐⭐⭐ <br/> “Soporte rápido y muy profesionales.”
-          </div>
-          <div className="p-5 bg-gray-700 dark:bg-white rounded-xl shadow">
-            ⭐⭐⭐⭐⭐ <br/> “Mi página web va rapidísima con ellos.”
-          </div>
-        </div>
-      </section>
-
-      {/* Sección Legal */}
-      <section className="px-8 py-16 max-w-4xl mx-auto">
-        <h3 className="text-2xl font-bold mb-4">📜 Términos y Condiciones</h3>
-        <p className="mb-6 text-sm opacity-80">
-          Al usar nuestros servicios aceptas nuestras políticas de uso. Tu seguridad y la de tus proyectos 
-          son nuestra prioridad.
-        </p>
-
-        <h3 className="text-2xl font-bold mb-4">🔒 Política de Privacidad</h3>
-        <p className="text-sm opacity-80">
-          Protegemos tus datos y nunca los compartimos con terceros. Transparencia y confianza nos definen.
-        </p>
-      </section>
-
-      {/* Footer */}
-      <footer className="text-center px-6 py-8 bg-gray-950 dark:bg-gray-200 dark:text-gray-800">
-        <p>© 2025 Elder Hosting. Todos los derechos reservados.</p>
-      </footer>
+  <header>
+    <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Banner ElderBot">
+    <h1>Hosting y Bots Profesionales</h1>
+    <p>Especialistas en <b>WhatsApp, Telegram, Discord</b> y páginas web.  
+    Ofrecemos <i>hosting gestionado</i> seguro y estable.</p>
+    <div class="btns">
+      <button class="btn">📞 Soporte</button>
+      <button class="btn">ℹ️ Información</button>
+      <button class="btn">💰 Precios</button>
+      <button class="btn">👥 Grupo</button>
+      <button class="btn">📢 Canal</button>
     </div>
-  );
-}
+  </header>
+
+  <section>
+    <h2>🚀 Nuestras Especialidades</h2>
+    <p>Ofrecemos lo último en tecnología para que tu bot o servidor funcione siempre al máximo rendimiento.  
+    Optimización, seguridad, monitoreo y soporte personalizado 24/7.</p>
+  </section>
+
+  <section>
+    <h2>⭐ Opiniones de Clientes</h2>
+    <div class="comentarios">“Excelente servicio, mi bot nunca se cae.” - Juan P.</div>
+    <div class="comentarios">“El soporte es rapidísimo y profesional.” - Ana R.</div>
+    <div class="comentarios">“Los precios son justos y la calidad es de primera.” - Carlos G.</div>
+    <p><i>Deja tu comentario:</i></p>
+    <textarea rows="3" style="width:90%; border-radius:10px; padding:0.5rem;"></textarea><br>
+    <button class="btn">Enviar</button>
+  </section>
+
+  <section>
+    <h2>📜 Términos y Condiciones</h2>
+    <p>Al usar nuestros servicios aceptas nuestras condiciones de uso, políticas de privacidad y lineamientos de la comunidad.</p>
+  </section>
+
+  <section>
+    <h2>🔒 Política de Privacidad</h2>
+    <p>Protegemos tus datos y nunca los compartimos con terceros sin tu consentimiento.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 ElderBot Hosting. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
