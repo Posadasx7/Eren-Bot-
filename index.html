@@ -1,115 +1,486 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Killua Bot - Hosting</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sky Ultra Plus — Hosting para Bots, Minecraft y Web</title>
+  <meta name="description" content="Hosting para bots de WhatsApp, Telegram y Discord, servidores Minecraft y páginas web. Rápido, moderno y estable." />
+  <meta property="og:title" content="Sky Ultra Plus — Hosting para Bots, Minecraft y Web" />
+  <meta property="og:description" content="Gestiona tus servicios y lanza tus proyectos con nosotros." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://skyultraplus.com" />
+  <meta property="og:image" content="/assets/og-image.jpg" />
+  <link rel="icon" href="https://qu.ax/BsSHb.jpg" type="image/jpeg" />
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white transition duration-500" id="body">
-
-  <!-- Barra de navegación -->
-  <header class="flex justify-between items-center p-4 bg-black/40 backdrop-blur-md sticky top-0 z-50">
-    <h1 class="text-2xl font-bold">⚡ Killua Bot</h1>
-    <div>
-      <button onclick="toggleMode()" class="px-3 py-1 rounded bg-white/10 hover:bg-white/20 transition">🌙/☀️</button>
-    </div>
-  </header>
-
-  <!-- Mensaje de bienvenida -->
-  <section class="text-center py-10 px-4">
-    <h2 class="text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-      Bienvenido a Killua Bot
-    </h2>
-    <p class="text-gray-300 mt-4 max-w-3xl mx-auto text-lg">
-      Somos tu mejor aliado en la creación y administración de bots para WhatsApp, Telegram, Discord y más.  
-      Con Killua Bot tendrás herramientas modernas, seguras y rápidas que harán crecer tu comunidad y automatizarán tus proyectos.  
-      Nos enfocamos en brindar soporte estable, precios accesibles y un servicio confiable pensado para ti.
-    </p>
-  </section>
-
-  <!-- Botones principales -->
-  <section class="flex flex-wrap justify-center gap-4 px-4">
-    <a href="#soporte" class="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700">Soporte</a>
-    <a href="#info" class="px-5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">Información</a>
-    <a href="precios.html" class="px-5 py-2 rounded-lg bg-green-600 hover:bg-green-700">Precios</a>
-    <a href="#grupo" class="px-5 py-2 rounded-lg bg-pink-600 hover:bg-pink-700">Grupo</a>
-    <a href="#canal" class="px-5 py-2 rounded-lg bg-orange-600 hover:bg-orange-700">Canal</a>
-  </section>
-
-  <!-- Imagen central -->
-  <section class="flex justify-center mt-10">
-    <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Banner" class="rounded-2xl shadow-lg w-11/12 md:w-2/3">
-  </section>
-
-  <!-- Servicios -->
-  <section id="servicios" class="max-w-6xl mx-auto mt-16 px-4">
-    <h3 class="text-3xl font-bold text-center mb-8">Nuestros Servicios</h3>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-
-      <div class="p-6 bg-white/10 rounded-2xl shadow-lg text-center">
-        <h4 class="text-xl font-bold mb-2">🤖 Bot de WhatsApp</h4>
-        <p class="text-gray-300 mb-4">Automatiza tu grupo con comandos y funciones exclusivas.</p>
-        <a href="precios.html" class="px-3 py-1 text-sm rounded bg-green-600 hover:bg-green-700">Contratar servicio</a>
-      </div>
-
-      <div class="p-6 bg-white/10 rounded-2xl shadow-lg text-center">
-        <h4 class="text-xl font-bold mb-2">🎁 Cuentas Free</h4>
-        <p class="text-gray-300 mb-4">Accede a cuentas premium gratis por tiempo limitado.</p>
-        <a href="precios.html" class="px-3 py-1 text-sm rounded bg-green-600 hover:bg-green-700">Contratar servicio</a>
-      </div>
-
-      <div class="p-6 bg-white/10 rounded-2xl shadow-lg text-center">
-        <h4 class="text-xl font-bold mb-2">📩 Servicio Spam</h4>
-        <p class="text-gray-300 mb-4">Envío masivo de mensajes con rapidez y efectividad.</p>
-        <a href="precios.html" class="px-3 py-1 text-sm rounded bg-green-600 hover:bg-green-700">Contratar servicio</a>
-      </div>
-
-      <div class="p-6 bg-white/10 rounded-2xl shadow-lg text-center">
-        <h4 class="text-xl font-bold mb-2">🌐 Hosting & Web</h4>
-        <p class="text-gray-300 mb-4">Hospedaje de bots, juegos y creación de páginas web modernas.</p>
-        <a href="precios.html" class="px-3 py-1 text-sm rounded bg-green-600 hover:bg-green-700">Contratar servicio</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Información -->
-  <section id="info" class="max-w-4xl mx-auto mt-16 text-center px-4">
-    <h3 class="text-3xl font-bold mb-4">¿Por qué elegirnos?</h3>
-    <p class="text-gray-300">
-      Nos enfocamos en la calidad, estabilidad y confianza. Miles de usuarios ya disfrutan de nuestras herramientas, 
-      y seguimos innovando para que siempre tengas la mejor experiencia.
-    </p>
-  </section>
-
-  <!-- Testimonios -->
-  <section class="max-w-4xl mx-auto mt-16 text-center px-4">
-    <h3 class="text-3xl font-bold mb-6">Lo que dicen nuestros clientes</h3>
-    <blockquote class="italic text-gray-300">"Killua Bot cambió la forma en que administro mis grupos. ¡Recomendado al 100%!"</blockquote>
-    <p class="mt-2 font-semibold">— Cliente satisfecho</p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="mt-20 p-6 bg-black/40 backdrop-blur-lg text-center text-gray-400 text-sm">
-    <a href="#terminos" class="mx-2 hover:text-white">Términos y Condiciones</a> |
-    <a href="#politica" class="mx-2 hover:text-white">Política de Privacidad</a>
-    <p class="mt-2">© 2025 Killua Bot - Todos los derechos reservados</p>
-  </footer>
-
-  <!-- Script para modo oscuro/claro -->
+  
   <script>
-    function toggleMode() {
-      const body = document.getElementById('body');
-      if (body.classList.contains('bg-white')) {
-        body.classList.remove('bg-white', 'text-black');
-        body.classList.add('bg-gradient-to-br','from-black','via-gray-900','to-black','text-white');
-      } else {
-        body.classList.remove('bg-gradient-to-br','from-black','via-gray-900','to-black','text-white');
-        body.classList.add('bg-white','text-black');
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            skyplus: { DEFAULT: '#2563eb' },
+            brandBlack: '#0b0b0d',
+            brandPink: '#ec4899'
+          },
+          boxShadow: { glow: '0 0 40px rgba(59,130,246,0.35)' },
+          backdropBlur: { xs: '2px' }
+        }
       }
     }
   </script>
+  <style>
+    .shine { background: linear-gradient(110deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.05) 40%); background-size: 200% 100%; animation: shine 6s linear infinite; }
+    @keyframes shine { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
+    .grid-bg { background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 16px 16px; }
+  </style>
+</head>
+<body class="min-h-screen bg-brandBlack text-white selection:bg-skyplus/40 selection:text-white">
+  <!-- Top Bar -->
+  <div class="w-full bg-gradient-to-r from-skyplus to-brandPink text-sm text-white py-2">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+      <p class="font-medium">Killua Bot IA</p>
+      <div class="flex items-center gap-3">
+        <a href="https://dashomega.skyultraplus.com" class="underline underline-offset-4 font-semibold hover:opacity-90">Ir a la dash →</a>
+        <a href="/terms" class="hidden sm:inline underline underline-offset-4 hover:opacity-90">Términos</a>
+        <a href="/privacy" class="hidden sm:inline underline underline-offset-4 hover:opacity-90">Privacidad</a>
+        <a href="/docs" class="hidden sm:inline underline underline-offset-4 hover:opacity-90">Docs</a>
+        <a href="/about" class="hidden sm:inline underline underline-offset-4 hover:opacity-90">Sobre nosotros</a>
+      </div>
+    </div>
+  </div>
 
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 backdrop-blur-xs bg-brandBlack/70 border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="/assets/skyultraplus-logo.svg" alt="Sky Ultra Plus" class="h-8 w-auto" onerror="this.style.display='none'" />
+        <span class="text-lg font-bold tracking-wide">Sky Ultra Plus</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#servicios" class="hover:text-skyplus">Servicios</a>
+        <a href="#planes" class="hover:text-skyplus">Planes</a>
+        <a href="#integraciones" class="hover:text-skyplus">Integraciones</a>
+        <a href="#faq" class="hover:text-skyplus">FAQ</a>
+        <a href="/terms" class="hover:text-skyplus">Términos</a>
+        <a href="/privacy" class="hover:text-skyplus">Privacidad</a>
+        <a href="/about" class="hover:text-skyplus">Sobre nosotros</a>
+        <a href="/docs" class="hover:text-skyplus">Centro de Ayuda</a>
+         <a href="/status" class="hover:text-skyplus">Estado</a>
+        <a href="https://dashomega.skyultraplus.com" class="px-4 py-2 rounded-xl bg-skyplus hover:bg-skyplus/90 font-semibold shadow-glow">Entrar a Dash</a>
+      </div>
+      <button aria-label="Abrir menú" class="md:hidden p-2 rounded-lg border border-white/10" onclick="document.getElementById('mobileNav').classList.toggle('hidden')">☰</button>
+    </nav>
+    <div id="mobileNav" class="md:hidden hidden border-t border-white/10">
+      <ul class="px-4 py-3 space-y-3">
+        <li><a href="#servicios" class="block">Servicios</a></li>
+        <li><a href="#planes" class="block">Planes</a></li>
+        <li><a href="#integraciones" class="block">Integraciones</a></li>
+        <li><a href="#faq" class="block">FAQ</a></li>
+        <li><a href="/terms" class="block">Términos</a></li>
+        <li><a href="/privacy" class="block">Privacidad</a></li>
+        <li><a href="/docs" class="block">Centro de Ayuda</a></li>
+        <li><a href="/status" class="block">Estado</a></li>
+        <li><a href="https://dashomega.skyultraplus.com" class="block">Entrar a Dash</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30 grid-bg"></div>
+    <div class="absolute -top-40 -left-40 w-[540px] h-[540px] rounded-full bg-brandPink blur-3xl opacity-20"></div>
+    <div class="absolute -bottom-40 -right-40 w-[540px] h-[540px] rounded-full bg-skyplus blur-3xl opacity-20"></div>
+
+    <div class="max-w-7xl mx-auto px-4 py-16 lg:py-24 relative">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl lg:text-6xl font-black leading-tight">Hosting <span class="text-skyplus">para bots y juegos</span></h1>
+          <p class="mt-5 text-white/80 text-lg max-w-2xl">Especialistas en <span class="font-semibold">bots de WhatsApp, Telegram y Discord</span>, además de <span class="font-semibold">Minecraft</span> y <span class="font-semibold">páginas web</span>. Ofrecemos <em>hosting gestionado</em> simple y estable.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://dashomega.skyultraplus.com" class="px-6 py-3 rounded-2xl bg-skyplus hover:bg-skyplus/90 font-semibold shadow-glow">Comenzar ahora</a>
+            <a href="#servicios" class="px-6 py-3 rounded-2xl border border-white/15 hover:border-white/30">Ver servicios</a>
+            <a href="/terms" class="px-6 py-3 rounded-2xl border border-white/15 hover:border-white/30">Términos</a>
+          </div>
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+            <a href="https://dashomega.skyultraplus.com/tickets" target="_blank" class="px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center">🎫 Tickets</a>
+            <a href="https://youtu.be/xH_gQrqw4HI?si=HX8_m7KvU95wdkfE" target="_blank" class="px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center">🎥 Tutorial</a>
+            <a href="https://chat.whatsapp.com/E6iWpvGuJ8zJNPbN3zOr0D?mode=ems_copy_c" target="_blank" class="px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center">📱 Grupo WA</a>
+            <a href="https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g" target="_blank" class="px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center">📢 Canal WA</a>
+            <a href="https://discord.gg/sj6T56CKSq" target="_blank" class="px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center">🌀 Discord</a>
+            <a href="https://t.me/skyultraplus" target="_blank" class="px-4 py-2 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-center">📡 Telegram</a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-white/5 backdrop-blur shine shadow-glow overflow-hidden">
+            <img src="https://qu.ax/pMMJz.jpg" alt="Sky Ultra Plus" class="w-full h-full object-cover"/>
+          </div>
+          <div class="absolute -bottom-6 -right-6 p-4 rounded-2xl bg-brandBlack/70 border border-white/10">
+<!--
+  <p class="text-sm">
+    Tip: Desde la Dash puedes <span class="text-skyplus font-semibold">poner nombre</span> a cada servidor.
+  </p>
+-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="py-20 bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Estadísticas</h2>
+      <div id="stats-grid" class="grid sm:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-white/10 bg-brandBlack/70 p-6">
+          <div class="text-2xl">🖥️</div>
+          <h3 class="mt-2 text-lg font-bold">Servidores</h3>
+          <p id="servers" class="mt-2 text-3xl font-black text-skyplus">0</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-brandBlack/70 p-6">
+          <div class="text-2xl">👤</div>
+          <h3 class="mt-2 text-lg font-bold">Usuarios</h3>
+          <p id="users" class="mt-2 text-3xl font-black text-skyplus">0</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-brandBlack/70 p-6">
+          <div class="text-2xl">⏳</div>
+          <h3 class="mt-2 text-lg font-bold">Años</h3>
+          <p id="years" class="mt-2 text-3xl font-black text-skyplus">0</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    async function loadStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+        document.getElementById('servers').textContent = data.servers;
+        document.getElementById('users').textContent = data.users;
+        document.getElementById('years').textContent = data.years;
+      } catch (err) {
+        console.error("Error cargando stats:", err);
+      }
+    }
+    loadStats();
+  </script>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between mb-10">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">Servicios</h2>
+        <a href="https://dashomega.skyultraplus.com" class="text-skyplus hover:underline">Contratar →</a>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-skyplus/40 transition">
+          <div class="text-2xl">🤖</div>
+          <h3 class="mt-3 text-xl font-bold">Bots de WhatsApp</h3>
+          <p class="mt-2 text-white/70 text-sm">Hosting estable para bots de WhatsApp con conexión segura 24/7.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-skyplus/40 transition">
+          <div class="text-2xl">📣</div>
+          <h3 class="mt-3 text-xl font-bold">Bots de Telegram & Discord</h3>
+          <p class="mt-2 text-white/70 text-sm">Entornos listos para bots con monitoreo y logs bonitos.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-skyplus/40 transition">
+          <div class="text-2xl">🎮</div>
+          <h3 class="mt-3 text-xl font-bold">Servidores Minecraft</h3>
+          <p class="mt-2 text-white/70 text-sm">Rendimiento estable para SMP, minijuegos y modpacks.</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-skyplus/40 transition">
+          <div class="text-2xl">🌐</div>
+          <h3 class="mt-3 text-xl font-bold">Páginas Web</h3>
+          <p class="mt-2 text-white/70 text-sm">Hosting para sitios estáticos y apps JS/Python. Fácil deploy.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES (ÚNICA SECCIÓN) -->
+  <section id="planes" class="py-20 bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-10">Planes</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Plan 1 -->
+        <div class="rounded-3xl border border-white/10 bg-brandBlack/70 p-6 flex flex-col">
+          <h3 class="text-xl font-bold">Plan 1</h3>
+          <p class="mt-1 text-white/70 text-sm">Para pruebas y bots pequeños</p>
+          <div class="mt-6 text-4xl font-black">$1<span class="text-base font-semibold text-white/70">/mes</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>1 GB RAM</li>
+            <li>125 CPU</li>
+            <li>3 GB Disco</li>
+          </ul>
+          <a href="https://dashomega.skyultraplus.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-white/15 hover:border-skyplus/50">Elegir</a>
+        </div>
+        <!-- Plan 2 (Popular) -->
+        <div class="rounded-3xl border-2 border-skyplus bg-white/5 p-6 shadow-glow flex flex-col relative">
+          <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-skyplus">Popular</span>
+          <h3 class="text-xl font-bold">Plan 2</h3>
+          <p class="mt-1 text-white/70 text-sm">El balance perfecto</p>
+          <div class="mt-6 text-4xl font-black">$2<span class="text-base font-semibold text-white/70">/mes</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>2 GB RAM</li>
+            <li>150 CPU</li>
+            <li>5 GB Disco</li>
+          </ul>
+          <a href="https://dashomega.skyultraplus.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-skyplus hover:bg-skyplus/90 font-semibold">Elegir</a>
+        </div>
+        <!-- Plan 3 -->
+        <div class="rounded-3xl border border-white/10 bg-brandBlack/70 p-6 flex flex-col">
+          <h3 class="text-xl font-bold">Plan 3</h3>
+          <p class="mt-1 text-white/70 text-sm">Para alto rendimiento</p>
+          <div class="mt-6 text-4xl font-black">$3<span class="text-base font-semibold text-white/70">/mes</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>3 GB RAM</li>
+            <li>175 CPU</li>
+            <li>5 GB Disco</li>
+          </ul>
+          <a href="https://dashomega.skyultraplus.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-white/15 hover:border-skyplus/50">Elegir</a>
+        </div>
+        <!-- Plan 4 -->
+        <div class="rounded-3xl border border-white/10 bg-brandBlack/70 p-6 flex flex-col">
+          <h3 class="text-xl font-bold">Plan 4</h3>
+          <p class="mt-1 text-white/70 text-sm">Más recursos</p>
+          <div class="mt-6 text-4xl font-black">$4<span class="text-base font-semibold text-white/70">/mes</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>4 GB RAM</li>
+            <li>200 CPU</li>
+            <li>7 GB Disco</li>
+          </ul>
+          <a href="https://dashomega.skyultraplus.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-white/15 hover:border-skyplus/50">Elegir</a>
+        </div>
+        <!-- Plan 5 -->
+        <div class="rounded-3xl border border-white/10 bg-brandBlack/70 p-6 flex flex-col">
+          <h3 class="text-xl font-bold">Plan 5</h3>
+          <p class="mt-1 text-white/70 text-sm">Para proyectos serios</p>
+          <div class="mt-6 text-4xl font-black">$5<span class="text-base font-semibold text-white/70">/mes</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>5 GB RAM</li>
+            <li>250 CPU</li>
+            <li>9 GB Disco</li>
+          </ul>
+          <a href="https://dashomega.skyultraplus.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-white/15 hover:border-skyplus/50">Elegir</a>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-white/50">*Precios de referencia ($1 ≈ 1 GB RAM).</p>
+    </div>
+  </section>
+
+  <!-- INTEGRACIONES -->
+  <section id="integraciones" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-6">Stack que amamos</h2>
+      <p class="text-white/70 max-w-2xl">Compatible con Node.js, JavaScript, python,WhatsApp (Baileys), Telegram, Discord, Minecraft,etc.</p>
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Node.js</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">JavaScript</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Minecraft</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">WhatsApp</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Telegram</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Discord</div>
+      </div>
+    </div>
+  </section>
+
+<!-- TESTIMONIOS -->
+<section class="py-20 bg-white/5 border-y border-white/10">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 text-center">Lo que dice la comunidad, próximamente...</h2>
+    
+    <!-- Slider container 
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 
+        <div class="swiper-slide">
+          <figure class="rounded-2xl border border-white/10 p-5 bg-brandBlack/70 max-w-sm mx-auto">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="https://qu.ax/gfnnT.jpg" class="w-10 h-10 rounded-full" alt="avatar"/>
+              <figcaption class="text-sm text-white/80">Laura M.</figcaption>
+            </div>
+            <blockquote class="text-white/80">“Panel rápido y estable god”</blockquote>
+          </figure>
+        </div>
+        <!-- Slide 2 
+        <div class="swiper-slide">
+          <figure class="rounded-2xl border border-white/10 p-5 bg-brandBlack/70 max-w-sm mx-auto">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="https://qu.ax/yLldp.jpg" class="w-10 h-10 rounded-full" alt="avatar"/>
+              <figcaption class="text-sm text-white/80">Carlos G.</figcaption>
+            </div>
+            <blockquote class="text-white/80">“Los bots de WhatsApp quedaron estables con los subbots.”</blockquote>
+          </figure>
+        </div>
+        <!-- Slide 3 
+        <div class="swiper-slide">
+          <figure class="rounded-2xl border border-white/10 p-5 bg-brandBlack/70 max-w-sm mx-auto">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="https://qu.ax/XlyEE.jpg" class="w-10 h-10 rounded-full" alt="avatar"/>
+              <figcaption class="text-sm text-white/80">Ana R.</figcaption>
+            </div>
+            <blockquote class="text-white/80">“Facturación clara y soporte atento. Fácil de recomendar.”</blockquote>
+          </figure>
+        </div>
+        <!-- Slide 4 
+        <div class="swiper-slide">
+          <figure class="rounded-2xl border border-white/10 p-5 bg-brandBlack/70 max-w-sm mx-auto">
+            <div class="flex items-center gap-3 mb-3">
+              <img src="https://qu.ax/sfQmt.jpg" class="w-10 h-10 rounded-full" alt="avatar"/>
+              <figcaption class="text-sm text-white/80">Diego S.</figcaption>
+            </div>
+            <blockquote class="text-white/80">“Hosting god para mis bots.”</blockquote>
+          </figure>
+        </div>
+      </div> -->
+
+      <!-- Paginación -->
+      <div class="swiper-pagination mt-6"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SwiperJS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    autoplay: { delay: 4000 },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
+</script>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Preguntas frecuentes</h2>
+      <div class="space-y-4">
+        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">¿Qué es un hosting?<span class="text-white/40 group-open:rotate-180 transition">⌄</span></summary>
+          <p class="mt-3 text-white/70">Servicio para alojar y ejecutar tus proyectos en servidores remotos. Ideal para bots y sitios que necesitan estar online 24/7.</p>
+        </details>
+        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">¿Qué servicios ofrece Sky?<span class="text-white/40 group-open:rotate-180 transition">⌄</span></summary>
+          <p class="mt-3 text-white/70">Bots (WhatsApp, Telegram, Discord), servidores Minecraft y páginas web.</p>
+        </details>
+        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">¿Sky es caro?<span class="text-white/40 group-open:rotate-180 transition">⌄</span></summary>
+          <p class="mt-3 text-white/70">Buscamos ser accesibles. Referencia $1 = 1 GB de RAM.</p>
+        </details>
+        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">¿Multicuentas?<span class="text-white/40 group-open:rotate-180 transition">⌄</span></summary>
+          <p class="mt-3 text-white/70">Prohibidas. Una cuenta por persona.</p>
+        </details>
+        <details class="group rounded-2xl border border-white/10 bg-white/5 p-5">
+          <summary class="cursor-pointer font-semibold flex items-center justify-between">¿Varios servers free?<span class="text-white/40 group-open:rotate-180 transition">⌄</span></summary>
+          <p class="mt-3 text-white/70">No. Solo 1 servidor free por persona.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESARROLLADORES (avatars grandes) -->
+  <section id="devs" class="py-20 bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Desarrolladores</h2>
+      <p class="text-white/70 mb-6">Información de nuestro equipo.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+          <img src="https://files.catbox.moe/0acpx5.jpg" class="w-24 h-24 rounded-full mb-3 object-cover" alt="Russell XZ"/>
+          <h3 class="font-bold">𝗥𝘂𝘀𝘀𝗲𝗹𝗹 𝗫𝗭</h3>
+          <p class="text-sm text-white/60">Dueño, Developer, Soporte</p>
+          <a href="https://wa.me/15167096032" target="_blank" class="text-skyplus text-sm">WhatsApp</a>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+          <img src="https://files.catbox.moe/ecaicm.jpg" class="w-24 h-24 rounded-full mb-3 object-cover" alt="Elrebelde"/>
+          <h3 class="font-bold">Elrebelde</h3>
+          <p class="text-sm text-white/60">Dueño, Developer, Soporte</p>
+          <div class="text-sm space-x-2">
+            <a href="https://wa.me/573226873710" target="_blank" class="text-skyplus">WhatsApp</a>
+            <a href="https://github.com/elrebelde21" target="_blank" class="text-skyplus">GitHub</a>
+            <a href="https://www.facebook.com/elrebelde21" target="_blank" class="text-skyplus">Facebook</a>
+          </div>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+          <img src="https://files.catbox.moe/jn1yg6.jpg" class="w-24 h-24 rounded-full mb-3 object-cover" alt="GataDios"/>
+          <h3 class="font-bold">GataDios</h3>
+          <p class="text-sm text-white/60">Dueña, Developer, Soporte, Colaboradora</p>
+          <div class="text-sm space-x-2">
+            <a href="https://wa.me/524531287294" target="_blank" class="text-skyplus">WhatsApp</a>
+            <a href="https://github.com/GataNina-Li" target="_blank" class="text-skyplus">GitHub</a>
+            <a href="https://instagram.com/gata_dios" target="_blank" class="text-skyplus">Instagram</a>
+            <a href="https://www.facebook.com/gatadios" target="_blank" class="text-skyplus">Facebook</a>
+          </div>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+          <img src="https://files.catbox.moe/qg3lyj.jpg" class="w-24 h-24 rounded-full mb-3 object-cover" alt="DIEGO-OFC"/>
+          <h3 class="font-bold">DIEGO-OFC</h3>
+          <p class="text-sm text-white/60">Administrador, Developer, Soporte</p>
+          <div class="text-sm space-x-2">
+            <a href="https://wa.me/573017501838" target="_blank" class="text-skyplus">WhatsApp</a>
+            <a href="https://github.com/DIEGO-OFC" target="_blank" class="text-skyplus">GitHub</a>
+            <a href="https://youtube.com/@diegogameplays82" target="_blank" class="text-skyplus">YouTube</a>
+          </div>
+        </div>
+        <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+          <img src="https://files.catbox.moe/6tqcdg.jpg" class="w-24 h-24 rounded-full mb-3 object-cover" alt="Lucas"/>
+          <h3 class="font-bold">Lucas</h3>
+          <p class="text-sm text-white/60">Administrador, Developer, Soporte, Colaborador</p>
+          <a href="https://wa.me/573161325891" target="_blank" class="text-skyplus text-sm">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="/assets/skyultraplus-logo.svg" alt="Sky Ultra Plus" class="h-7 w-auto" onerror="this.style.display='none'" />
+          <span class="font-bold">Sky Ultra Plus</span>
+        </div>
+        <p class="mt-3 text-white/60 text-sm">Tecnología para crecer: hosting para bots, juegos y web.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Producto</h4>
+        <ul class="mt-3 space-y-2 text-white/70 text-sm">
+          <li><a href="#servicios" class="hover:text-skyplus">Servicios</a></li>
+          <li><a href="#planes" class="hover:text-skyplus">Planes</a></li>
+          <li><a href="#integraciones" class="hover:text-skyplus">Integraciones</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Empresa</h4>
+        <ul class="mt-3 space-y-2 text-white/70 text-sm">
+          <li><a href="https://dashomega.skyultraplus.com" class="hover:text-skyplus">Dash Omega</a></li>
+          <li><a href="/status" class="hover:text-skyplus">Estado</a></li>
+          <li><a href="/terms" class="hover:text-skyplus">Términos</a></li>
+          <li><a href="/privacy" class="hover:text-skyplus">Privacidad</a></li>
+          <li><a href="/about" class="hover:text-skyplus">Sobre nosotros</a></li>
+          <li><a href="/docs" class="hover:text-skyplus">Centro de Ayuda</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#a8dbddd8d8c7dadce8dbc3d1ddc4dcdac9d8c4dddb86cbc7c5" class="hover:text-skyplus">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Redes</h4>
+        <ul class="mt-3 space-y-2 text-white/70 text-sm">
+          <li><a href="https://t.me/skyultraplus" target="_blank" class="hover:text-skyplus">Telegram</a></li>
+          <li><a href="https://discord.gg/sj6T56CKSq" target="_blank" class="hover:text-skyplus">Discord</a></li>
+          <li><a href="https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g" target="_blank" class="hover:text-skyplus">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-10 text-xs text-white/50">© <span id="y"></span> Sky Ultra Plus. Todos los derechos reservados.</div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
