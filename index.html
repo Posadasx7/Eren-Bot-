@@ -1,32 +1,56 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Killua Bot - WhatsApp</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Config Tailwind para modo oscuro con class
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <script>
+    // Script para guardar preferencia de modo oscuro
+    function toggleDarkMode() {
+      const html = document.documentElement
+      html.classList.toggle('dark')
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light')
+    }
+
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark')
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 font-sans transition-colors duration-500">
+
   <!-- NAVBAR -->
-  <header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 flex justify-between items-center py-4">
-      <h1 class="text-xl font-bold text-indigo-600">⚡ Killua Bot</h1>
-      <nav class="space-x-6 text-gray-600 font-medium">
-        <a href="#info" class="hover:text-indigo-500">Información</a>
-        <a href="#precios" class="hover:text-indigo-500">Precios</a>
-        <a href="#soporte" class="hover:text-indigo-500">Soporte</a>
-        <a href="#grupo" class="hover:text-indigo-500">Grupo</a>
-        <a href="#canal" class="hover:text-indigo-500">Canal</a>
+  <header class="w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm fixed top-0 left-0 z-50 transition-colors">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center py-4">
+      <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">⚡ Killua Bot</h1>
+      <nav class="space-x-6 text-gray-600 dark:text-gray-300 font-medium hidden md:block">
+        <a href="#info" class="hover:text-indigo-500 dark:hover:text-indigo-400">Información</a>
+        <a href="#precios" class="hover:text-indigo-500 dark:hover:text-indigo-400">Precios</a>
+        <a href="#soporte" class="hover:text-indigo-500 dark:hover:text-indigo-400">Soporte</a>
+        <a href="#grupo" class="hover:text-indigo-500 dark:hover:text-indigo-400">Grupo</a>
+        <a href="#canal" class="hover:text-indigo-500 dark:hover:text-indigo-400">Canal</a>
       </nav>
+      <button onclick="toggleDarkMode()" class="ml-4 p-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition">
+        🌙 / ☀️
+      </button>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-br from-indigo-50 to-purple-100">
-    <h2 class="text-4xl md:text-5xl font-bold text-indigo-700">Killua Bot para WhatsApp</h2>
-    <p class="mt-4 text-lg text-gray-600 max-w-2xl">
-      Automatiza tu grupo de WhatsApp con un bot inteligente, rápido y seguro.  
-      Diseñado para brindarte entretenimiento, moderación y herramientas únicas.
+  <section class="h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
+    <h2 class="text-4xl md:text-5xl font-bold text-indigo-700 dark:text-indigo-400">Killua Bot para WhatsApp</h2>
+    <p class="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
+      Automatiza tu grupo con un bot rápido, seguro y lleno de funciones:  
+      moderación, entretenimiento y herramientas inteligentes.
     </p>
     <a href="#precios" class="mt-6 px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition">
       🚀 Comenzar Ahora
@@ -34,37 +58,46 @@
   </section>
 
   <!-- INFORMACIÓN -->
-  <section id="info" class="max-w-6xl mx-auto py-16 px-6">
-    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">ℹ️ Información</h3>
-    <p class="text-gray-700 leading-relaxed">
-      Killua Bot es un sistema automatizado para WhatsApp con comandos de administración, diversión y utilidades.  
-      Ideal para grupos que buscan organización y entretenimiento con estilo.
+  <section id="info" class="max-w-6xl mx-auto py-20 px-6">
+    <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">ℹ️ Información</h3>
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+      Killua Bot es un sistema inteligente para WhatsApp que ofrece comandos de administración, juegos, descargas y más.  
+      Perfecto para grupos que buscan organización y entretenimiento.
     </p>
   </section>
 
   <!-- PRECIOS -->
-  <section id="precios" class="max-w-6xl mx-auto py-16 px-6 bg-white">
-    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">💰 Planes y Precios</h3>
-    <ul class="space-y-3 text-gray-700">
-      <li>✅ <b>Gratis:</b> Comandos básicos y soporte limitado</li>
-      <li>💎 <b>Premium:</b> Acceso completo + soporte prioritario</li>
-      <li>🏆 <b>Empresarial:</b> Personalización avanzada y funciones extra</li>
-    </ul>
+  <section id="precios" class="max-w-6xl mx-auto py-20 px-6">
+    <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">💰 Planes y Precios</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 border rounded-xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow">
+        <h4 class="text-lg font-bold">Gratis</h4>
+        <p class="text-gray-600 dark:text-gray-400 mt-2">Comandos básicos y soporte limitado.</p>
+      </div>
+      <div class="p-6 border-2 border-indigo-500 rounded-xl bg-white dark:bg-gray-800 shadow-lg">
+        <h4 class="text-lg font-bold text-indigo-600 dark:text-indigo-400">Premium</h4>
+        <p class="text-gray-600 dark:text-gray-400 mt-2">Acceso completo + soporte prioritario.</p>
+      </div>
+      <div class="p-6 border rounded-xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow">
+        <h4 class="text-lg font-bold">Empresarial</h4>
+        <p class="text-gray-600 dark:text-gray-400 mt-2">Funciones avanzadas y personalización.</p>
+      </div>
+    </div>
   </section>
 
   <!-- SOPORTE -->
-  <section id="soporte" class="max-w-6xl mx-auto py-16 px-6">
-    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">🛠️ Soporte</h3>
-    <p class="text-gray-700">¿Necesitas ayuda? Escríbenos en cualquier momento para asistencia personalizada.</p>
+  <section id="soporte" class="max-w-6xl mx-auto py-20 px-6">
+    <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">🛠️ Soporte</h3>
+    <p class="text-gray-700 dark:text-gray-300">¿Necesitas ayuda? Escríbenos en cualquier momento.</p>
     <a href="https://wa.me/50200000000" target="_blank" class="mt-4 inline-block px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
       📲 Contactar Soporte
     </a>
   </section>
 
   <!-- GRUPO Y CANAL -->
-  <section id="grupo" class="max-w-6xl mx-auto py-16 px-6">
-    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">👥 Comunidad</h3>
-    <p class="text-gray-700">Únete a nuestro grupo y canal para estar al día con actualizaciones y novedades.</p>
+  <section id="grupo" class="max-w-6xl mx-auto py-20 px-6">
+    <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">👥 Comunidad</h3>
+    <p class="text-gray-700 dark:text-gray-300">Únete a nuestro grupo y canal para estar al día con novedades.</p>
     <div class="space-x-4 mt-4">
       <a href="#" class="px-5 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600">Grupo</a>
       <a href="#" class="px-5 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600">Canal</a>
@@ -72,24 +105,24 @@
   </section>
 
   <!-- COMENTARIOS -->
-  <section class="max-w-6xl mx-auto py-16 px-6 bg-gray-100">
-    <h3 class="text-2xl font-semibold text-indigo-600 mb-4">💬 Opiniones de clientes</h3>
-    <blockquote class="italic text-gray-600">“Excelente bot, muy útil para mi grupo de estudio.” – Carlos</blockquote>
-    <blockquote class="italic text-gray-600 mt-2">“El mejor bot que he probado en WhatsApp.” – Mariana</blockquote>
+  <section class="max-w-6xl mx-auto py-20 px-6 bg-gray-100 dark:bg-gray-800 rounded-xl">
+    <h3 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-400 mb-4">💬 Opiniones</h3>
+    <blockquote class="italic text-gray-600 dark:text-gray-300">“Excelente bot, muy útil para mi grupo.” – Carlos</blockquote>
+    <blockquote class="italic text-gray-600 dark:text-gray-300 mt-2">“El mejor bot que he probado.” – Mariana</blockquote>
     <form class="mt-6">
-      <textarea placeholder="Deja tu comentario..." class="w-full p-3 border rounded-lg"></textarea>
+      <textarea placeholder="Deja tu comentario..." class="w-full p-3 border dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200"></textarea>
       <button class="mt-3 px-5 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Enviar</button>
     </form>
   </section>
 
-  <!-- TÉRMINOS Y POLÍTICAS -->
-  <footer class="bg-white border-t mt-12 py-8">
-    <div class="max-w-6xl mx-auto px-6 text-center text-gray-600 text-sm space-x-4">
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-gray-900 border-t dark:border-gray-700 mt-12 py-8">
+    <div class="max-w-6xl mx-auto px-6 text-center text-gray-600 dark:text-gray-400 text-sm space-x-4">
       <a href="#">📜 Términos y condiciones</a> | 
       <a href="#">🔒 Política de privacidad</a> | 
       <a href="#">💡 Especialidades</a>
     </div>
-    <p class="text-gray-400 mt-4 text-xs">© 2025 Killua Bot. Todos los derechos reservados.</p>
+    <p class="text-gray-400 dark:text-gray-500 mt-4 text-xs">© 2025 Killua Bot. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
