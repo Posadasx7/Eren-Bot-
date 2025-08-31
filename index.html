@@ -223,5 +223,99 @@
           </ul>
           <a href="https://dash.killua-bot.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-skyplus hover:bg-skyplus/90 font-semibold">Elegir</a>
         </div>
-        <!-- Plan 3 -->
-        <div class="rounded-3
+<!-- Plan 3 -->
+        <div class="rounded-3xl border border-white/10 bg-brandBlack/70 p-6 flex flex-col">
+          <h3 class="text-xl font-bold">Plan Premium</h3>
+          <p class="mt-1 text-white/70 text-sm">Para grupos grandes y alto rendimiento</p>
+          <div class="mt-6 text-4xl font-black">$5<span class="text-base font-semibold text-white/70">/mes</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>5 Sub-bots</li>
+            <li>Comandos ilimitados</li>
+            <li>Logs completos + Estadísticas</li>
+          </ul>
+          <a href="https://dash.killua-bot.com" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-white/15 hover:border-skyplus/50">Elegir</a>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-white/50">*Precios de referencia. Cada plan incluye soporte básico y acceso a Dash web.</p>
+    </div>
+  </section>
+
+  <!-- INTEGRACIONES -->
+  <section id="integraciones" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-6">Compatibilidad y stack</h2>
+      <p class="text-white/70 max-w-2xl">Killua Bot funciona con Node.js, JavaScript, Python, y está integrado con WhatsApp (Baileys), Telegram, Discord y más.</p>
+      <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Node.js</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">JavaScript</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Python</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">WhatsApp</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Telegram</div>
+        <div class="rounded-2xl border border-white/10 p-4 bg-white/5 text-center">Discord</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="py-20 bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 text-center">Lo que dice la comunidad</h2>
+      <p class="text-white/70 text-center">Próximamente añadiremos testimonios de usuarios satisfechos con Killua Bot.</p>
+    </div>
+  </section>
+
+  <!-- SwiperJS (si quieres añadir testimonios dinámicos) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: { delay: 4000 },
+      pagination: { el: ".swiper-pagination", clickable: true },
+      breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+  </script>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-10">Preguntas frecuentes</h2>
+      <div class="space-y-4">
+        <details class="p-4 border border-white/10 rounded-xl">
+          <summary class="cursor-pointer font-semibold">¿Cómo agrego Killua Bot a mi grupo?</summary>
+          <p class="mt-2 text-white/70 text-sm">Usa el enlace de invitación desde nuestra Dash web o directamente desde WhatsApp.</p>
+        </details>
+        <details class="p-4 border border-white/10 rounded-xl">
+          <summary class="cursor-pointer font-semibold">¿Qué comandos tiene Killua Bot?</summary>
+          <p class="mt-2 text-white/70 text-sm">Comandos de juegos, utilidad, moderación, estadísticas y más. Puedes ver la lista completa en nuestra Dash o Docs.</p>
+        </details>
+        <details class="p-4 border border-white/10 rounded-xl">
+          <summary class="cursor-pointer font-semibold">¿Qué planes ofrecen?</summary>
+          <p class="mt-2 text-white/70 text-sm">Tenemos planes desde Básico ($1/mes) hasta Premium ($5/mes) con más bots, comandos y estadísticas.</p>
+        </details>
+        <details class="p-4 border border-white/10 rounded-xl">
+          <summary class="cursor-pointer font-semibold">¿Tienen soporte?</summary>
+          <p class="mt-2 text-white/70 text-sm">Sí, contamos con tickets, grupo de WhatsApp, canal y Discord para soporte rápido.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brandBlack/80 border-t border-white/10 py-10 mt-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-white/70 mb-4">© 2025 Killua Bot IA. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://dash.killua-bot.com" class="text-skyplus hover:underline">Dash Web</a>
+        <a href="/docs" class="text-white/70 hover:underline">Docs</a>
+        <a href="/terms" class="text-white/70 hover:underline">Términos</a>
+        <a href="/privacy" class="text-white/70 hover:underline">Privacidad</a>
+        <a href="https://discord.gg/sj6T56CKSq" class="text-white/70 hover:underline">Discord</a>
+        <a href="https://t.me/skyultraplus" class="text-white/70 hover:underline">Telegram</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
