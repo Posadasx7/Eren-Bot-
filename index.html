@@ -4,268 +4,225 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KILLUA BOT</title>
-  <meta name="description" content="Recommended for developer convenience...">
+  <meta name="description" content="Killua Bot IA - Hosting y automatización para WhatsApp">
   <link rel="icon" href="https://i.postimg.cc/s2C7CrHT/IMG-20250805-WA0332-1.jpg">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d1b;
-      color: #f0f0f0;
-      position: relative;
+      background: linear-gradient(135deg, #0a0a1a 0%, #161628 100%);
+      color: #f5f5f5;
       overflow-x: hidden;
     }
 
     #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
+      position: fixed; width: 100%; height: 100%;
+      top: 0; left: 0; z-index: -1;
     }
 
+    /* NAVBAR */
     .navbar {
-      background-color: #0d0d1b;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1rem 1.5rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      position: sticky;
-      top: 0;
-      z-index: 1001;
+      background: rgba(10, 10, 25, 0.9);
+      border-bottom: 1px solid rgba(0, 224, 255, 0.3);
+      backdrop-filter: blur(10px);
+      position: sticky; top: 0; z-index: 1001;
     }
 
     .menu-icon {
       font-size: 1.8rem;
-      color: #00e0ff;
+      color: #00d9ff;
       cursor: pointer;
     }
 
     .navbar-title {
-      flex: 1;
-      text-align: center;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       font-weight: bold;
-      color: #00e0ff;
+      background: linear-gradient(90deg, #00e0ff, #9c27ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .profile-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
+      width: 36px; height: 36px; border-radius: 50%;
       border: 2px solid #00e0ff;
       object-fit: cover;
     }
 
+    /* SIDEBAR */
     .sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background-color: #121222;
+      position: fixed; top: 0; left: -260px;
+      width: 260px; height: 100%;
+      background: #141428;
       transition: left 0.3s ease;
       padding-top: 4rem;
       z-index: 1000;
+      border-right: 1px solid rgba(0,224,255,0.2);
     }
 
-    .sidebar.open {
-      left: 0;
-    }
+    .sidebar.open { left: 0; }
 
     .sidebar a {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       padding: 1rem 1.5rem;
-      color: #00e0ff;
+      color: #ddd;
       text-decoration: none;
-      font-weight: bold;
-      border-bottom: 1px solid #1f1f2e;
-      transition: background 0.3s ease;
+      font-weight: 500;
+      border-bottom: 1px solid #1f1f3a;
+      transition: all 0.3s;
     }
 
     .sidebar a:hover {
-      background-color: #1a1a2b;
+      background: linear-gradient(90deg,#00e0ff22,#9c27ff22);
+      color: #fff;
     }
 
     .sidebar a i {
-      margin-right: 10px;
-      min-width: 22px;
-      font-size: 1.3rem;
+      margin-right: 10px; font-size: 1.3rem;
       color: #00e0ff;
-      display: inline-block;
-      text-align: center;
     }
 
+    .overlay {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999; display: none;
+    }
+    .overlay.active { display: block; }
+
+    /* CONTENIDO */
     .main-content {
-      margin: 20px auto;
-      max-width: 1200px;
-      padding: 20px;
-      border-radius: 10px;
+      max-width: 1100px;
+      margin: 2rem auto; padding: 20px;
       text-align: center;
-      background-color: transparent;
     }
 
     .bot-image {
-      width: 150px;
-      height: 150px;
+      width: 160px; height: 160px;
       border-radius: 50%;
       border: 3px solid #00e0ff;
-      box-shadow: 0 0 10px rgba(0, 224, 255, 0.7);
-      object-fit: cover;
+      box-shadow: 0 0 20px rgba(0, 224, 255, 0.7);
       margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #00e0ff;
-      text-shadow: 0 0 10px #00e0ff;
+      font-size: 2.8rem;
+      font-weight: bold;
+      background: linear-gradient(90deg,#00e0ff,#9c27ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 0.5rem;
-      text-transform: uppercase;
     }
 
     .bot-description {
-      font-size: 1rem;
-      color: #a0a0a0;
-      max-width: 600px;
-      margin: 0 auto 1rem;
+      font-size: 1.1rem;
+      color: #b5b5c9;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
     }
 
+    /* BOTONES */
     .cta-button {
       display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #00e0ff;
-      color: #0d0d1b;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      margin: 1rem 0.5rem 0;
-      transition: background-color 0.3s ease;
-      cursor: pointer;
+      padding: 0.9rem 2rem;
+      margin: 0.5rem;
+      border-radius: 8px;
       border: none;
+      font-weight: bold;
+      cursor: pointer;
+      background: linear-gradient(90deg,#00e0ff,#9c27ff);
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.3s;
     }
 
     .cta-button:hover {
-      background-color: #00b3cc;
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(0,224,255,0.6);
     }
 
+    /* FEATURES */
     .features-section {
-      padding: 2rem 0;
-      background-color: #1a1a2b;
-      border-radius: 8px;
-      margin-top: 2rem;
+      margin-top: 3rem;
+      padding: 2rem;
+      border-radius: 10px;
+      background: rgba(20,20,40,0.8);
+      border: 1px solid rgba(0,224,255,0.2);
     }
 
     .features-section h2 {
-      color: #00e0ff;
-      text-shadow: 0 0 5px #00e0ff;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
       font-size: 2rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg,#00e0ff,#9c27ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
       gap: 1.5rem;
-      padding: 0 20px;
     }
 
     .feature-item {
-      background-color: #0c0c1c;
-      border: 1px solid #00e0ff;
+      background: #0f0f20;
+      border: 1px solid rgba(0,224,255,0.2);
       border-radius: 12px;
       padding: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      box-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: left;
+      transition: all 0.3s ease;
     }
 
     .feature-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 18px rgba(0, 224, 255, 0.5);
+      box-shadow: 0 0 15px rgba(0,224,255,0.5);
     }
 
     .icon-box {
-      width: 60px;
-      height: 60px;
-      min-width: 60px;
-      border: 2px solid #00e0ff;
+      width: 55px; height: 55px;
+      display: flex; align-items: center; justify-content: center;
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+      background: linear-gradient(135deg,#00e0ff33,#9c27ff33);
+      margin-bottom: 1rem;
     }
 
-    .icon-box i {
-      font-size: 1.8rem;
-      color: #00e0ff;
-    }
+    .icon-box i { font-size: 1.6rem; color: #00e0ff; }
 
-    .text-box h3 {
-      font-size: 1.2rem;
-      color: #ffffff;
-      margin: 0;
-    }
+    .text-box h3 { color: #fff; margin-bottom: 0.5rem; }
 
-    .text-box p {
-      font-size: 0.9rem;
-      color: #a0a0a0;
-      margin: 0.3rem 0 0;
-    }
+    .text-box p { font-size: 0.9rem; color: #bbb; }
 
     footer {
-      text-align: center;
-      padding: 1rem 0;
-      margin-top: 2rem;
-      color: #a0a0a0;
-      font-size: 0.8rem;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.3);
-      z-index: 999;
-      display: none;
-    }
-
-    .overlay.active {
-      display: block;
+      margin-top: 2rem; padding: 1rem;
+      text-align: center; font-size: 0.8rem; color: #888;
     }
   </style>
 </head>
 <body>
-
-  <!-- FONDO CON PARTICULAS -->
   <div id="particles-js"></div>
 
   <!-- NAVBAR -->
   <div class="navbar">
     <i class="uil uil-bars menu-icon" onclick="toggleSidebar()"></i>
-    <div class="navbar-title">KILLUA BOT WHATSAPP!</div>
+    <div class="navbar-title">KILLUA BOT</div>
     <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Icon" class="profile-icon">
   </div>
 
-  <!-- MENU LATERAL -->
+  <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
     <a href="comprar.html"><i class="uil uil-store"></i> Tienda / Precios</a>
     <a href="planes.html"><i class="uil uil-list-ul"></i> Ver Opciones</a>
     <a href="https://wa.me/50493374445" target="_blank"><i class="uil uil-headphones"></i> Soporte</a>
-    <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB?mode=ac_t" target="_blank"><i class="uil uil-users-alt"></i> Grupo Oficial</a> 
-    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-users-alt"></i> Canal Oficial</a>
+    <a href="https://chat.whatsapp.com/JWF8AHfKHYd43P2KMGXVFB" target="_blank"><i class="uil uil-users-alt"></i> Grupo Oficial</a> 
+    <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank"><i class="uil uil-megaphone"></i> Canal Oficial</a>
   </div>
-
   <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
   <!-- CONTENIDO -->
@@ -274,7 +231,7 @@
       <img src="https://i.postimg.cc/vBQjsMN3/IMG-20250805-WA0332.jpg" alt="Imagen del bot Killua" class="bot-image" />
       <h1>KILLUA BOT</h1>
       <p class="bot-description">
-        𝗞𝗶𝗹𝗹𝘂𝗮•𝗕𝗼𝘁 𝗜𝗔 Tu asistente definitivo para automatizar tareas, gestionar grupos y optimizar tu experiencia en WhatsApp.
+        🚀 𝗞𝗶𝗹𝗹𝘂𝗮•𝗕𝗼𝘁 𝗜𝗔 – Tu asistente definitivo para automatizar tareas, gestionar grupos y optimizar tu experiencia en WhatsApp.
       </p>
     </header>
 
@@ -286,45 +243,44 @@
             <div class="icon-box"><i class="uil uil-robot"></i></div>
             <div class="text-box">
               <h3>Automatización en grupos</h3>
-              <p>Ejecuta comandos útiles para admins, responde automáticamente y mantiene el orden en el grupo.</p>
+              <p>Comandos útiles para admins, respuestas automáticas y orden en el grupo.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="icon-box"><i class="uil uil-chart-line"></i></div>
             <div class="text-box">
-              <h3>Estadísticas de uso</h3>
-              <p>Consulta cuántos comandos se han usado, miembros activos y más.</p>
+              <h3>Estadísticas</h3>
+              <p>Visualiza uso de comandos, actividad de miembros y más.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="icon-box"><i class="uil uil-shield-check"></i></div>
             <div class="text-box">
-              <h3>Protección automática</h3>
-              <p>Elimina spam, bloquea links no deseados y protege el grupo las 24h.</p>
+              <h3>Protección 24/7</h3>
+              <p>Anti-spam, bloqueo de links no deseados y seguridad total.</p>
             </div>
           </div>
           <div class="feature-item">
             <div class="icon-box"><i class="uil uil-comment-alt-dots"></i></div>
             <div class="text-box">
-              <h3>Respuestas inteligentes</h3>
-              <p>Interactúa con los miembros con IA, comandos divertidos, tags y más.</p>
+              <h3>Respuestas IA</h3>
+              <p>Responde de forma divertida e inteligente a tus usuarios.</p>
             </div>
           </div>
         </div>
 
-        <!-- BOTONES FINAL -->
+        <!-- BOTONES -->
         <div style="margin-top: 2rem;">
-          <a href="planes.html" class="cta-button">Más información</a>
+          <a href="planes.html" class="cta-button">Ver Opciones</a>
           <a href="comprar.html" class="cta-button">Comprar</a>
-          <a href="planes.html" class="cta-button">Ver opciones</a>
           <button onclick="window.open('https://wa.me/50493374445')" class="cta-button">Creador del Bot</button>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; Killua Bot IA. Optimizado para grupos de WhatsApp. Todos los derechos reservados.</p>
-      <p style="font-size: 0.7rem; color: #777;">® Website developed by Cholito</p>
+      <p>&copy; 2025 Killua Bot IA – Todos los derechos reservados.</p>
+      <p style="font-size: 0.7rem; color: #666;">Web diseñada por Elder</p>
     </footer>
   </div>
 
@@ -332,12 +288,9 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const overlay = document.getElementById("overlay");
-      sidebar.classList.toggle("open");
-      overlay.classList.toggle("active");
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("active");
     }
-
     function closeSidebar() {
       document.getElementById("sidebar").classList.remove("open");
       document.getElementById("overlay").classList.remove("active");
@@ -350,8 +303,8 @@
         "shape": { "type": "circle" },
         "opacity": { "value": 0.5 },
         "size": { "value": 3 },
-        "line_linked": { "enable": true, "distance": 150, "color": "#00e0ff", "opacity": 0.4, "width": 1 },
-        "move": { "enable": true, "speed": 3 }
+        "line_linked": { "enable": true, "distance": 150, "color": "#9c27ff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 2 }
       },
       "interactivity": {
         "events": { "onhover": { "enable": true, "mode": "grab" } },
