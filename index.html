@@ -3,155 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ElderBot - Hosting y Servicios</title>
-  <style>
-    :root {
-      --bg-dark: #0a0a0f;
-      --bg-light: #f5f5f5;
-      --text-dark: #ffffff;
-      --text-light: #1a1a1a;
-      --primary: #2563eb;
-      --secondary: #9333ea;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-dark);
-      transition: background 0.3s, color 0.3s;
-    }
-    body.light {
-      background: var(--bg-light);
-      color: var(--text-light);
-    }
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(147,51,234,0.2));
-    }
-    header img {
-      width: 300px;
-      border-radius: 1rem;
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 1rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .btns {
-      margin: 2rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .btn {
-      padding: 0.8rem 1.8rem;
-      border-radius: 30px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.05);
-      color: inherit;
-      font-weight: 500;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .comentarios {
-      background: rgba(255,255,255,0.05);
-      padding: 1rem;
-      border-radius: 15px;
-      margin: 1rem 0;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background: rgba(0,0,0,0.4);
-    }
-    /* Switch modo oscuro */
-    .switch {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(255,255,255,0.1);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-  </style>
+  <title>Killua Bot - Hosting</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="switch" onclick="toggleMode()">🌙 Modo</div>
-
-  <header>
-    <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Banner ElderBot">
-    <h1>Hosting y Bots Profesionales</h1>
-    <p>Especialistas en <b>WhatsApp, Telegram, Discord</b> y páginas web.  
-    Ofrecemos <i>hosting gestionado</i> seguro y estable.</p>
-    <div class="btns">
-      <button class="btn">📞 Soporte</button>
-      <button class="btn">ℹ️ Información</button>
-      <button class="btn">💰 Precios</button>
-      <button class="btn">👥 Grupo</button>
-      <button class="btn">📢 Canal</button>
+<body class="bg-gradient-to-br from-black via-gray-900 to-black text-white transition duration-500" id="body">
+  
+  <!-- Barra de navegación -->
+  <header class="flex justify-between items-center p-4 bg-black/40 backdrop-blur-md sticky top-0 z-50">
+    <h1 class="text-2xl font-bold">⚡ Killua Bot</h1>
+    <div>
+      <button onclick="toggleMode()" class="px-3 py-1 rounded bg-white/10 hover:bg-white/20 transition">🌙/☀️</button>
     </div>
   </header>
 
-  <section>
-    <h2>🚀 Nuestras Especialidades</h2>
-    <p>Ofrecemos lo último en tecnología para que tu bot o servidor funcione siempre al máximo rendimiento.  
-    Optimización, seguridad, monitoreo y soporte personalizado 24/7.</p>
+  <!-- Mensaje de bienvenida -->
+  <section class="text-center py-10">
+    <h2 class="text-4xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+      Bienvenido a Killua Bot
+    </h2>
+    <p class="text-gray-300 mt-3">Tu mejor aliado en bots de WhatsApp, Telegram y más.</p>
   </section>
 
-  <section>
-    <h2>⭐ Opiniones de Clientes</h2>
-    <div class="comentarios">“Excelente servicio, mi bot nunca se cae.” - Juan P.</div>
-    <div class="comentarios">“El soporte es rapidísimo y profesional.” - Ana R.</div>
-    <div class="comentarios">“Los precios son justos y la calidad es de primera.” - Carlos G.</div>
-    <p><i>Deja tu comentario:</i></p>
-    <textarea rows="3" style="width:90%; border-radius:10px; padding:0.5rem;"></textarea><br>
-    <button class="btn">Enviar</button>
+  <!-- Botones principales -->
+  <section class="flex flex-wrap justify-center gap-4 px-4">
+    <a href="#soporte" class="px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700">Soporte</a>
+    <a href="#info" class="px-5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700">Información</a>
+    <a href="#precios" class="px-5 py-2 rounded-lg bg-green-600 hover:bg-green-700">Precios</a>
+    <a href="#grupo" class="px-5 py-2 rounded-lg bg-pink-600 hover:bg-pink-700">Grupo</a>
+    <a href="#canal" class="px-5 py-2 rounded-lg bg-orange-600 hover:bg-orange-700">Canal</a>
   </section>
 
-  <section>
-    <h2>📜 Términos y Condiciones</h2>
-    <p>Al usar nuestros servicios aceptas nuestras condiciones de uso, políticas de privacidad y lineamientos de la comunidad.</p>
+  <!-- Imagen central -->
+  <section class="flex justify-center mt-10">
+    <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Banner" class="rounded-2xl shadow-lg w-11/12 md:w-2/3">
   </section>
 
-  <section>
-    <h2>🔒 Política de Privacidad</h2>
-    <p>Protegemos tus datos y nunca los compartimos con terceros sin tu consentimiento.</p>
+  <!-- Información -->
+  <section id="info" class="max-w-4xl mx-auto mt-16 text-center">
+    <h3 class="text-3xl font-bold mb-4">¿Qué ofrecemos?</h3>
+    <p class="text-gray-300">Especialistas en bots de WhatsApp, Telegram y Discord. También páginas web y hosting para juegos como Minecraft. Todo con estabilidad, velocidad y seguridad garantizada.</p>
   </section>
 
-  <footer>
-    <p>© 2025 ElderBot Hosting. Todos los derechos reservados.</p>
+  <!-- Precios -->
+  <section id="precios" class="max-w-5xl mx-auto mt-16 text-center">
+    <h3 class="text-3xl font-bold mb-6">Planes y Precios</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 bg-white/10 rounded-2xl shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Básico</h4>
+        <p class="text-2xl font-extrabold text-green-400">$5/mes</p>
+        <p class="mt-2 text-gray-300">Ideal para iniciar con tu bot.</p>
+      </div>
+      <div class="p-6 bg-white/10 rounded-2xl shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Pro</h4>
+        <p class="text-2xl font-extrabold text-blue-400">$10/mes</p>
+        <p class="mt-2 text-gray-300">Más recursos y soporte premium.</p>
+      </div>
+      <div class="p-6 bg-white/10 rounded-2xl shadow-lg">
+        <h4 class="text-xl font-bold mb-2">Empresarial</h4>
+        <p class="text-2xl font-extrabold text-purple-400">$20/mes</p>
+        <p class="mt-2 text-gray-300">Todo ilimitado para grandes proyectos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="max-w-4xl mx-auto mt-16 text-center">
+    <h3 class="text-3xl font-bold mb-6">Lo que dicen nuestros clientes</h3>
+    <blockquote class="italic text-gray-300">"Killua Bot me ayudó a automatizar mi grupo de WhatsApp. ¡Un servicio increíble!"</blockquote>
+    <p class="mt-2 font-semibold">— Cliente satisfecho</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-20 p-6 bg-black/40 backdrop-blur-lg text-center text-gray-400 text-sm">
+    <a href="#terminos" class="mx-2 hover:text-white">Términos y Condiciones</a> |
+    <a href="#politica" class="mx-2 hover:text-white">Política de Privacidad</a>
+    <p class="mt-2">© 2025 Killua Bot - Todos los derechos reservados</p>
   </footer>
 
+  <!-- Script para modo oscuro/claro -->
   <script>
     function toggleMode() {
-      document.body.classList.toggle('light');
+      const body = document.getElementById('body');
+      if (body.classList.contains('bg-white')) {
+        body.classList.remove('bg-white', 'text-black');
+        body.classList.add('bg-gradient-to-br','from-black','via-gray-900','to-black','text-white');
+      } else {
+        body.classList.remove('bg-gradient-to-br','from-black','via-gray-900','to-black','text-white');
+        body.classList.add('bg-white','text-black');
+      }
     }
   </script>
+
 </body>
 </html>
