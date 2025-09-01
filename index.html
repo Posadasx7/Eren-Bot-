@@ -241,7 +241,20 @@
     </div>
   </section>
 
-<footer class="py-10 bg-dark border-t border-white/10 text-white/50 text-center">
+<section id="contacto" class="py-20">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">¿Tienes alguna pregunta?</h2>
+    <p class="text-lg text-white/80 max-w-2xl mx-auto">
+      Si necesitas más información o soporte técnico, no dudes en contactarnos por WhatsApp en el siguiente botón que dejaré aquí.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="mailto:posadaselder2806@gmail.com" class="px-6 py-3 hover:underline">Enviar un correo</a>
+      <a href="https://wa.me/50493374445" class="px-6 py-3 font-semibold hover:underline">Contactar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="py-10 text-center text-white/50">
   <p class="text-sm">
     &copy; 2025 Killua Bot IA. Todos los derechos reservados.
   </p>
@@ -252,36 +265,36 @@
   </div>
 </footer>
 
-  <script>
-    const menuButton = document.getElementById('menu-button');
-    const mobileNav = document.getElementById('mobilenav');
-    const navLinks = document.querySelectorAll('#mobilenav a');
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const mobileNav = document.getElementById('mobilenav');
+  const navLinks = document.querySelectorAll('#mobilenav a');
 
-    const closeMenu = () => {
-      mobileNav.classList.add('hidden');
-    };
+  const closeMenu = () => {
+    mobileNav.classList.add('hidden');
+  };
 
-    menuButton.addEventListener('click', (event) => {
-      event.stopPropagation(); 
-      mobileNav.classList.toggle('hidden');
-    });
+  menuButton.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+    mobileNav.classList.toggle('hidden');
+  });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 
-    document.addEventListener('click', (event) => {
-      if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) {
-        closeMenu();
-      }
-    });
+  document.addEventListener('click', (event) => {
+    if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) {
+      closeMenu();
+    }
+  });
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) { 
-        closeMenu();
-      }
-    });
-  </script>
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) { 
+      closeMenu();
+    }
+  });
+</script>
 
 </body>
 </html>
