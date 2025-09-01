@@ -35,23 +35,21 @@
 </head>
 <body class="min-h-screen bg-dark text-white selection:bg-primary/40 selection:text-white">
 
-  <!-- Banner superior -->
   <div class="w-full bg-gradient-to-r from-primary to-secondary text-sm text-white py-2">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-center">
       <p class="font-medium">✨ ¡Automatiza tu WhatsApp con Killua Bot IA!</p>
     </div>
   </div>
 
-  <!-- Header con menú -->
   <header class="sticky top-0 z-40 backdrop-blur-xs bg-dark/70 border-b border-white/10">
-    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-start gap-4">
-      <!-- Botón hamburguesa a la izquierda -->
-      <button id="hamburgerBtn" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg border border-white/10">☰</button>
-      <a href="#" class="flex items-center gap-3 ml-2">
+    <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
         <span class="text-xl font-bold tracking-wide">Killua Bot IA</span>
       </a>
-      <!-- Menú principal en desktop -->
-      <div class="hidden md:flex items-center gap-6 ml-auto">
+
+      <button id="menu-button" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg border border-white/10">☰</button>
+
+      <div class="hidden md:flex items-center gap-6">
         <a href="#caracteristicas" class="hover:text-primary">Características</a>
         <a href="#precios" class="hover:text-primary">Precios</a>
         <a href="#testimonios" class="hover:text-primary">Testimonios</a>
@@ -61,7 +59,6 @@
         <a href="#politicas" class="hover:text-primary">Políticas</a>
       </div>
     </nav>
-    <!-- Menú mobile -->
     <div id="mobilenav" class="md:hidden hidden border-t border-white/10">
       <ul class="px-4 py-3 space-y-3">
         <li><a href="#caracteristicas" class="block">Características</a></li>
@@ -75,28 +72,6 @@
     </div>
   </header>
 
-  <!-- Script menú hamburguesa -->
-  <script>
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobileNav = document.getElementById('mobilenav');
-
-    hamburgerBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); 
-      mobileNav.classList.toggle('hidden');
-    });
-
-    document.addEventListener('click', () => {
-      if (!mobileNav.classList.contains('hidden')) {
-        mobileNav.classList.add('hidden');
-      }
-    });
-
-    mobileNav.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-  </script>
-
-  <!-- Hero -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 opacity-30 grid-bg"></div>
     <div class="absolute -top-40 -left-40 w-[540px] h-[540px] rounded-full bg-secondary blur-3xl opacity-20"></div>
@@ -123,7 +98,6 @@
     </div>
   </section>
 
-  <!-- Características -->
   <section id="caracteristicas" class="py-20">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-end justify-between mb-10">
@@ -152,98 +126,72 @@
         </article>
         <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
           <div class="text-2xl">🔒</div>
-<h3 class="mt-3 text-xl font-bold">Seguridad Avanzada</h3>
+          <h3 class="mt-3 text-xl font-bold">Seguridad Avanzada</h3>
           <p class="mt-2 text-white/70 text-sm">Protege tu bot y tus datos con medidas de seguridad robustas.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Precios y compra -->
-  <section id="precios" class="py-20 bg-gray-900 border-y border-gray-700 text-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 text-center">Planes para tu Bot</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+ <section id="precios" class="py-20 bg-gray-900 border-y border-gray-700 text-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 text-center">Planes para tu Bot</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Plan Básico -->
-        <div class="rounded-3xl border border-gray-700 bg-gray-800 p-6 flex flex-col relative">
-          <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-red-600 font-semibold">Básico</span>
-          <h3 class="mt-3 text-xl font-bold">Plan Basic</h3>
-          <p class="mt-1 text-gray-400 text-sm">Ideal para uso personal y pruebas</p>
-          <div class="mt-6 text-4xl font-black">$5<span class="text-base font-semibold text-gray-400">/mes</span></div>
-          <ul class="mt-6 space-y-2 text-sm text-gray-300">
-            <li>✔️ Respuestas automáticas</li>
-            <li>✔️ Comandos básicos</li>
-            <li>✔️ Soporte limitado</li>
-          </ul>
-          <a href="https://wa.me/50493374445" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Elegir</a>
-        </div>
-
-        <!-- Plan Pro Max -->
-        <div class="rounded-3xl border-2 border-blue-500 bg-gray-800 p-6 shadow-xl flex flex-col relative">
-          <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-blue-500 font-semibold">Popular</span>
-          <h3 class="text-xl font-bold">Plan Pro Max</h3>
-          <p class="mt-1 text-gray-400 text-sm">El balance perfecto para proyectos</p>
-          <div class="mt-6 text-4xl font-black">$10<span class="text-base font-semibold text-gray-400">/mes</span></div>
-          <ul class="mt-6 space-y-2 text-sm text-gray-300">
-            <li>✔️ Todas las características del Plan Básico</li>
-            <li>✔️ Integración con IA</li>
-            <li>✔️ Gestión de grupos avanzada</li>
-            <li>✔️ Soporte prioritario</li>
-          </ul>
-          <a href="https://wa.me/50493374445" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-blue-500 hover:bg-blue-600 font-semibold transition-colors">Elegir</a>
-        </div>
-
-        <!-- Plan Empresarial -->
-        <div class="rounded-3xl border border-green-500 bg-gray-800 p-6 flex flex-col relative shadow-lg transform hover:scale-105 transition-transform duration-300">
-          <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-green-500 text-gray-900 font-bold uppercase">Disponible</span>
-          <h3 class="mt-3 text-xl font-bold">Plan Empresarial</h3>
-          <p class="mt-1 text-gray-400 text-sm">Para empresas y comunidades grandes</p>
-          <div class="mt-6 text-4xl font-black">$25<span class="text-base font-semibold text-gray-400">/mes</span></div>
-          <ul class="mt-6 space-y-2 text-sm text-gray-300">
-            <li>✔️ Todas las características del Plan Pro Max</li>
-            <li>✔️ Comandos ilimitados</li>
-            <li>✔️ Servidores dedicados</li>
-            <li>✔️ Soporte 24/7</li>
-          </ul>
-          <a href="https://wa.me/50493374445?text=¡Hola! Me interesa el Plan Empresarial de Killua Bot IA y me gustaría recibir más información." class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-green-500 hover:bg-blue-500 text-gray-900 font-semibold transition-all duration-300 transform hover:scale-105">
-            Elegir Plan Empresarial
-          </a>
-        </div>
-
+      <div class="rounded-3xl border border-gray-700 bg-gray-800 p-6 flex flex-col relative">
+        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-red-600 font-semibold">Básico</span>
+        <h3 class="mt-3 text-xl font-bold">Plan Basic</h3>
+        <p class="mt-1 text-gray-400 text-sm">Ideal para uso personal y pruebas</p>
+        <div class="mt-6 text-4xl font-black">$5<span class="text-base font-semibold text-gray-400">/mes</span></div>
+        <ul class="mt-6 space-y-2 text-sm text-gray-300">
+          <li>✔️ Respuestas automáticas</li>
+          <li>✔️ Comandos básicos</li>
+          <li>✔️ Soporte limitado</li>
+        </ul>
+        <a href="https://wa.me/50493374445" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Elegir</a>
       </div>
 
-      <!-- Bloque de compra con métodos de pago -->
-      <div class="mt-12 text-center text-gray-400">
-        <p class="text-lg font-semibold">¿Cómo comprar?</p>
-        <p class="mt-2 max-w-2xl mx-auto">
-          Para realizar la compra, puedes enviar el pago a nuestro correo de PayPal: 
-          <a href="https://www.paypal.com/paypalme/posadaselder2806" target="_blank" class="font-bold text-blue-500 hover:underline">
-            posadaselder2806@gmail.com
-          </a>. Luego, envía el comprobante de pago a nuestro WhatsApp para reclamar tu producto.
-        </p>
+      <div class="rounded-3xl border-2 border-blue-500 bg-gray-800 p-6 shadow-xl flex flex-col relative">
+        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-blue-500 font-semibold">Popular</span>
+        <h3 class="text-xl font-bold">Plan Pro Max</h3>
+        <p class="mt-1 text-gray-400 text-sm">El balance perfecto para proyectos</p>
+        <div class="mt-6 text-4xl font-black">$10<span class="text-base font-semibold text-gray-400">/mes</span></div>
+        <ul class="mt-6 space-y-2 text-sm text-gray-300">
+          <li>✔️ Todas las características del Plan Básico</li>
+          <li>✔️ Integración con IA</li>
+          <li>✔️ Gestión de grupos avanzada</li>
+          <li>✔️ Soporte prioritario</li>
+        </ul>
+        <a href="https://wa.me/50493374445" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-blue-500 hover:bg-blue-600 font-semibold transition-colors">Elegir</a>
+      </div>
 
-        <!-- Métodos de pago -->
-        <div class="mt-6 flex justify-center items-center gap-6">
-          <!-- PayPal -->
-          <a href="https://www.paypal.com/paypalme/posadaselder2806" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-10 hover:scale-110 transition-transform duration-200">
-          </a>
-          <!-- Banco Azteca -->
-          <a href="https://www.bancoazteca.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Banco_Azteca_logo.svg" alt="Banco Azteca" class="h-10 hover:scale-110 transition-transform duration-200">
-          </a>
-          <!-- Ficohsa -->
-          <a href="https://www.ficohsa.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Ficohsa_logo.svg" alt="Ficohsa" class="h-10 hover:scale-110 transition-transform duration-200">
-          </a>
-        </div>
+      <div class="rounded-3xl border border-green-500 bg-gray-800 p-6 flex flex-col relative shadow-lg transform hover:scale-105 transition-transform duration-300">
+        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-green-500 text-gray-900 font-bold uppercase">Disponible</span>
+        <h3 class="mt-3 text-xl font-bold">Plan Empresarial</h3>
+        <p class="mt-1 text-gray-400 text-sm">Para empresas y comunidades grandes</p>
+        <div class="mt-6 text-4xl font-black">$25<span class="text-base font-semibold text-gray-400">/mes</span></div>
+        <ul class="mt-6 space-y-2 text-sm text-gray-300">
+          <li>✔️ Todas las características del Plan Pro Max</li>
+          <li>✔️ Comandos ilimitados</li>
+          <li>✔️ Servidores dedicados</li>
+          <li>✔️ Soporte 24/7</li>
+        </ul>
+        <a href="https://wa.me/50493374445?text=¡Hola! Me interesa el Plan Empresarial de Killua Bot IA y me gustaría recibir más información." class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-green-500 hover:bg-blue-500 text-gray-900 font-semibold transition-all duration-300 transform hover:scale-105">
+          Elegir Plan Empresarial
+        </a>
       </div>
 
     </div>
-  </section>
+    <div class="mt-12 text-center text-gray-400">
+      <p class="text-lg font-semibold">¿Cómo comprar?</p>
+      <p class="mt-2 max-w-2xl mx-auto">
+        Para realizar la compra, puedes enviar el pago a nuestro correo de PayPal: <a href="mailto:posadaselder2806@gmail.com" class="font-bold text-blue-500 hover:underline">posadaselder2806@gmail.com</a>. Luego, envía el comprobante de pago a nuestro WhatsApp para reclamar tu producto.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- Políticas y términos -->
+
   <section id="politicas" class="py-20">
     <div class="max-w-7xl mx-auto px-4">
       <h2 class="text-3xl lg:text-4xl font-extrabold mb-10">Términos y Condiciones</h2>
@@ -251,7 +199,7 @@
         <div>
           <h3 class="text-xl font-bold mb-3">Política de Privacidad</h3>
           <p class="text-white/80">
-            Tu privacidad es nuestra prioridad. En esta sección explicamos cómo recopilamos, utilizamos y protegemos tu información. **No compartimos tus datos con terceros.** Al usar Killua Bot IA, aceptas nuestra política de privacidad.
+            Tu privacidad es nuestra prioridad. En esta sección explicamos cómo recopilamos, utilizamos y protegemos tu información. **No compartimos tus datos con terceros.** Al usar Killua Bot IA, aceptas nuestra política de privacidad. Te recomendamos leerla para entender el tratamiento de tus datos personales.
           </p>
         </div>
         <div>
@@ -264,10 +212,59 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-10 bg-dark/80 border-t border-white/10 text-gray-400 text-center">
-    <p>&copy; 2025 Killua Bot IA. Todos los derechos reservados.</p>
+  <section id="contacto" class="py-20 bg-white/5 border-y border-white/10">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">¿Tienes alguna pregunta?</h2>
+      <p class="text-lg text-white/80 max-w-2xl mx-auto">
+        Si necesitas más información o soporte técnico, no dudes en contactarnos al número para todo: **+504 9337-4445**.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="mailto:posadaselder2806@gmail.com" class="px-6 py-3 rounded-2xl border border-white/15 hover:border-primary/50">Enviar un correo</a>
+        <a href="https://wa.me/50493374445" class="px-6 py-3 rounded-2xl bg-primary hover:bg-primary/90 font-semibold shadow-glow">Contactar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 bg-dark border-t border-white/10 text-white/50 text-center">
+    <p class="text-sm">
+      &copy; 2025 Killua Bot IA. Todos los derechos reservados.
+    </p>
+    <div class="mt-2 flex justify-center gap-4 text-xs">
+        <a href="#politicas" class="hover:text-white">Términos de Servicio</a>
+        <a href="#politicas" class="hover:text-white">Política de Privacidad</a>
+    </div>
   </footer>
+
+  <script>
+    const menuButton = document.getElementById('menu-button');
+    const mobileNav = document.getElementById('mobilenav');
+    const navLinks = document.querySelectorAll('#mobilenav a');
+
+    const closeMenu = () => {
+      mobileNav.classList.add('hidden');
+    };
+
+    menuButton.addEventListener('click', (event) => {
+      event.stopPropagation(); 
+      mobileNav.classList.toggle('hidden');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) { 
+        closeMenu();
+      }
+    });
+  </script>
 
 </body>
 </html>
