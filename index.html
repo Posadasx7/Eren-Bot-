@@ -144,7 +144,7 @@
     <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 text-center">Planes para tu Bot, más abajo encontrarás los métodos de pago</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- PLAN BASICO -->
+      <!-- PLAN BÁSICO -->
       <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
         <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-red-600 font-semibold">Básico</span>
         <h3 class="mt-3 text-xl font-bold">Plan Basic mensual</h3>
@@ -158,30 +158,26 @@
           <li>✔️ Soporte limitado</li>
         </ul>
 
-        <!-- BOTÓN REALIZAR PAGO -->
-        <div class="mt-8">
-          <button onclick="togglePayments(this)" 
-            class="w-full text-center px-5 py-3 rounded-2xl bg-yellow-500 hover:bg-yellow-600 text-black font-bold shadow-md transition">
-            💳 Realizar pago
-          </button>
-
-          <!-- MÉTODOS DE PAGO -->
-          <div class="hidden mt-6 flex flex-wrap justify-center items-center gap-6">
+        <!-- Botón para mostrar métodos -->
+        <button onclick="togglePayment('basic')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
+        
+        <!-- Métodos de pago -->
+        <div id="payment-basic" class="hidden mt-6 space-y-4">
+          <div class="flex flex-wrap justify-center items-center gap-6">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-                 alt="PayPal" 
-                 class="h-8 md:h-10 object-contain cursor-pointer"
-                 onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Básico&amount=4.50&currency_code=USD')"/>
+              alt="PayPal" class="h-8 md:h-10 cursor-pointer"
+              onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Basic&amount=4.50&currency_code=USD')"/>
 
             <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" 
-                 alt="Banco Azteca" 
-                 class="h-16 md:h-18 object-contain cursor-pointer"
-                 onclick="window.open('https://wa.link/v743sn')"/>
+              alt="Banco Azteca" class="h-16 cursor-pointer"
+              onclick="window.open('https://wa.link/v743sn')"/>
 
             <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" 
-                 alt="Banco Ficohsa" 
-                 class="h-16 md:h-18 object-contain cursor-pointer"
-                 onclick="window.open('https://wa.link/86jaue')"/>
+              alt="Banco Ficohsa" class="h-16 cursor-pointer"
+              onclick="window.open('https://wa.link/86jaue')"/>
           </div>
+          <!-- Botón WhatsApp -->
+          <a href="https://wa.me/50493374445" class="block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Enviar comprobante</a>
         </div>
       </div>
 
@@ -200,34 +196,27 @@
           <li>✔️ Soporte prioritario</li>
         </ul>
 
-        <!-- BOTÓN REALIZAR PAGO -->
-        <div class="mt-8">
-          <button onclick="togglePayments(this)" 
-            class="w-full text-center px-5 py-3 rounded-2xl bg-yellow-500 hover:bg-yellow-600 text-black font-bold shadow-md transition">
-            💳 Realizar pago
-          </button>
+        <button onclick="togglePayment('pro')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
 
-          <!-- MÉTODOS DE PAGO -->
-          <div class="hidden mt-6 flex flex-wrap justify-center items-center gap-6">
+        <div id="payment-pro" class="hidden mt-6 space-y-4">
+          <div class="flex flex-wrap justify-center items-center gap-6">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-                 alt="PayPal" 
-                 class="h-8 md:h-10 object-contain cursor-pointer"
-                 onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Pro%20Max&amount=15.00&currency_code=USD')"/>
-
+              alt="PayPal" class="h-8 md:h-10 cursor-pointer"
+              onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Pro%20Max&amount=15.00&currency_code=USD')"/>
+            
             <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" 
-                 alt="Banco Azteca" 
-                 class="h-16 md:h-18 object-contain cursor-pointer"
-                 onclick="window.open('https://wa.link/v743sn')"/>
+              alt="Banco Azteca" class="h-16 cursor-pointer"
+              onclick="window.open('https://wa.link/v743sn')"/>
 
             <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" 
-                 alt="Banco Ficohsa" 
-                 class="h-16 md:h-18 object-contain cursor-pointer"
-                 onclick="window.open('https://wa.link/86jaue')"/>
+              alt="Banco Ficohsa" class="h-16 cursor-pointer"
+              onclick="window.open('https://wa.link/86jaue')"/>
           </div>
+          <a href="https://wa.me/50493374445" class="block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Enviar comprobante</a>
         </div>
       </div>
 
-      <!-- PLAN PERSONALIZADO -->
+      <!-- PLAN EMPRESARIAL -->
       <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
         <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-green-500 text-gray-900 font-bold uppercase">Personalizado</span>
         <h3 class="mt-3 text-xl font-bold">Plan Empresarial/Personalizado</h3>
@@ -244,30 +233,23 @@
           <li>✔️ Soporte 24/7</li>
         </ul>
 
-        <!-- BOTÓN REALIZAR PAGO -->
-        <div class="mt-8">
-          <button onclick="togglePayments(this)" 
-            class="w-full text-center px-5 py-3 rounded-2xl bg-yellow-500 hover:bg-yellow-600 text-black font-bold shadow-md transition">
-            💳 Realizar pago
-          </button>
+        <button onclick="togglePayment('empresarial')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
 
-          <!-- MÉTODOS DE PAGO -->
-          <div class="hidden mt-6 flex flex-wrap justify-center items-center gap-6">
+        <div id="payment-empresarial" class="hidden mt-6 space-y-4">
+          <div class="flex flex-wrap justify-center items-center gap-6">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-                 alt="PayPal" 
-                 class="h-8 md:h-10 object-contain cursor-pointer"
-                 onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Empresarial&amount=35.00&currency_code=USD')"/>
+              alt="PayPal" class="h-8 md:h-10 cursor-pointer"
+              onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Empresarial&amount=35.00&currency_code=USD')"/>
 
             <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" 
-                 alt="Banco Azteca" 
-                 class="h-16 md:h-18 object-contain cursor-pointer"
-                 onclick="window.open('https://wa.link/v743sn')"/>
+              alt="Banco Azteca" class="h-16 cursor-pointer"
+              onclick="window.open('https://wa.link/v743sn')"/>
 
             <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" 
-                 alt="Banco Ficohsa" 
-                 class="h-16 md:h-18 object-contain cursor-pointer"
-                 onclick="window.open('https://wa.link/86jaue')"/>
+              alt="Banco Ficohsa" class="h-16 cursor-pointer"
+              onclick="window.open('https://wa.link/86jaue')"/>
           </div>
+          <a href="https://wa.me/50493374445?text=¡Hola! Me interesa el Plan Empresarial de Killua Bot IA y me gustaría recibir más información." class="block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Enviar comprobante</a>
         </div>
       </div>
 
@@ -276,14 +258,11 @@
 </section>
 
 <script>
-  function togglePayments(button) {
-    const container = button.nextElementSibling
-    container.classList.toggle("hidden")
+  function togglePayment(plan) {
+    const section = document.getElementById("payment-" + plan);
+    section.classList.toggle("hidden");
   }
 </script>
-    </div>
-  </div>
-</section>
 
 <script>
   function togglePayments(button) {
