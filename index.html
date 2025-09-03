@@ -162,102 +162,50 @@
         <button onclick="togglePayment('basic')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
         
         <!-- Métodos de pago -->
-        <div id="payment-basic" class="hidden mt-6 space-y-4">
-          <div class="flex flex-wrap justify-center items-center gap-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-              alt="PayPal" class="h-8 md:h-10 cursor-pointer"
-              onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Basic&amount=4.50&currency_code=USD')"/>
-
-            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" 
-              alt="Banco Azteca" class="h-16 cursor-pointer"
-              onclick="window.open('https://wa.link/v743sn')"/>
-
-            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" 
-              alt="Banco Ficohsa" class="h-16 cursor-pointer"
-              onclick="window.open('https://wa.link/86jaue')"/>
-          </div>
+        <div id="payment-basic" class="hidden mt-6 space-y-3">
+          <!-- PayPal -->
+          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Basic&amount=4.50&currency_code=USD"
+             target="_blank"
+             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6" alt="PayPal">
+            <span class="font-semibold">Pagar con PayPal</span>
+          </a>
+          <!-- Banco Azteca -->
+          <a href="https://wa.link/v743sn"
+             target="_blank"
+             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
+            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" class="w-7 h-7" alt="Banco Azteca">
+            <span class="font-semibold">Pagar con Banco Azteca</span>
+          </a>
+          <!-- Banco Ficohsa -->
+          <a href="https://wa.link/86jaue"
+             target="_blank"
+             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
+            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" class="w-7 h-7" alt="Banco Ficohsa">
+            <span class="font-semibold">Pagar con Banco Ficohsa</span>
+          </a>
           <!-- Botón WhatsApp -->
-          <a href="https://wa.me/50493374445" class="block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Enviar comprobante</a>
+          <a href="https://wa.me/50493374445"
+             class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" alt="WhatsApp">
+            <span class="font-semibold">Enviar comprobante</span>
+          </a>
         </div>
       </div>
 
-      <!-- PLAN PRO MAX -->
-      <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
-        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-blue-500 font-semibold">Popular</span>
-        <h3 class="text-xl font-bold">Plan Pro Max, permanente</h3>
-        <p class="mt-1 text-gray-400 text-sm">El balance perfecto para proyectos y control de tús grupos</p>
-        <div class="mt-6 text-4xl font-black">$15<span class="text-base font-semibold text-gray-400">/Permanente</span></div>
-        <ul class="mt-6 space-y-2 text-sm text-gray-300">
-          <li>✔️ Todas las características del Plan Básico</li>
-          <li>✔️ Integración con IA</li>
-          <li>✔️ Único pago de por vida</li>
-          <li>✔️ Gestión de grupos avanzada</li>
-          <li>✔️ Se le hace cambio de grupo una vez</li>
-          <li>✔️ Soporte prioritario</li>
-        </ul>
-
-        <button onclick="togglePayment('pro')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
-
-        <div id="payment-pro" class="hidden mt-6 space-y-4">
-          <div class="flex flex-wrap justify-center items-center gap-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-              alt="PayPal" class="h-8 md:h-10 cursor-pointer"
-              onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Pro%20Max&amount=15.00&currency_code=USD')"/>
-            
-            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" 
-              alt="Banco Azteca" class="h-16 cursor-pointer"
-              onclick="window.open('https://wa.link/v743sn')"/>
-
-            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" 
-              alt="Banco Ficohsa" class="h-16 cursor-pointer"
-              onclick="window.open('https://wa.link/86jaue')"/>
-          </div>
-          <a href="https://wa.me/50493374445" class="block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Enviar comprobante</a>
-        </div>
-      </div>
-
-      <!-- PLAN EMPRESARIAL -->
-      <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
-        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-green-500 text-gray-900 font-bold uppercase">Personalizado</span>
-        <h3 class="mt-3 text-xl font-bold">Plan Empresarial/Personalizado</h3>
-        <p class="mt-1 text-gray-400 text-sm">Para empresas ventas/comunidades personalizado a tú gusto</p>
-        <div class="mt-6 text-4xl font-black">$35<span class="text-base font-semibold text-gray-400">/Pago único</span></div>
-        <ul class="mt-6 space-y-2 text-sm text-gray-300">
-          <li>✔️ Todas las características del Plan Pro Max</li>
-          <li>✔️ Comandos ilimitados</li>
-          <li>✔️ Personalizacion completa</li>
-          <li>✔️ 5 comandos a tú gusto</li>
-          <li>✔️ Pago único, solo pagas la mensualidad del servidor</li>
-          <li>✔️ No lleva la misma personalización qué Killua-Bot</li>
-          <li>✔️ Servidores dedicados</li>
-          <li>✔️ Soporte 24/7</li>
-        </ul>
-
-        <button onclick="togglePayment('empresarial')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
-
-        <div id="payment-empresarial" class="hidden mt-6 space-y-4">
-          <div class="flex flex-wrap justify-center items-center gap-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-              alt="PayPal" class="h-8 md:h-10 cursor-pointer"
-              onclick="window.open('https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Empresarial&amount=35.00&currency_code=USD')"/>
-
-            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" 
-              alt="Banco Azteca" class="h-16 cursor-pointer"
-              onclick="window.open('https://wa.link/v743sn')"/>
-
-            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" 
-              alt="Banco Ficohsa" class="h-16 cursor-pointer"
-              onclick="window.open('https://wa.link/86jaue')"/>
-          </div>
-          <a href="https://wa.me/50493374445?text=¡Hola! Me interesa el Plan Empresarial de Killua Bot IA y me gustaría recibir más información." class="block text-center px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">Enviar comprobante</a>
-        </div>
-      </div>
-
+      <!-- Puedes copiar este mismo bloque para el Plan Pro Max y el Empresarial -->
+      <!-- Solo cambias el ID de togglePayment, el precio y los links de PayPal -->
+      
     </div>
   </div>
 </section>
 
 <script>
+  function togglePayment(plan) {
+    const section = document.getElementById("payment-" + plan);
+    section.classList.toggle("hidden");
+  }
+</script>
   function togglePayment(plan) {
     const section = document.getElementById("payment-" + plan);
     section.classList.toggle("hidden");
