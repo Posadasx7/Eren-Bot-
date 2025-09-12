@@ -1,198 +1,302 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eren-Bot IA — Automatiza WhatsApp</title>
-  <meta name="description" content="Eren-Bot IA: la nueva generación de automatización en WhatsApp con planes accesibles para todos." />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            dark: "#0f0f1a",
-            neonred: "#ff1744",
-            neonblue: "#00e5ff",
-            card: "#1a1a2e"
-          },
-          boxShadow: {
-            neon: "0 0 20px rgba(0,229,255,0.6)",
-            neonred: "0 0 20px rgba(255,23,68,0.6)"
-          }
-        }
-      }
+  <title>Eren Bot — Tu asistente de WhatsApp</title>
+  <meta name="description" content="Eren Bot — Bot de WhatsApp sin prefijos. Automatiza respuestas, gestión de grupos, herramientas y mucho más." />  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c5cff; /* purple */
+      --accent-2:#2dd4bf; /* teal */
+      --glass: rgba(255,255,255,0.04);
+      --soft:#111827;
+      --radius:14px;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-  </script>
-</head>
-<body class="bg-dark text-white font-sans">
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:linear-gradient(180deg,#071021 0%, #061428 60%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:1100px;margin:36px auto;padding:28px}
 
-<!-- Header -->
-<header class="sticky top-0 z-50 bg-dark/80 backdrop-blur border-b border-white/10">
-  <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    <h1 class="text-2xl font-extrabold text-neonred">⚡ Eren-Bot IA</h1>
-    <ul class="hidden md:flex gap-6 font-medium">
-      <li><a href="#funciones" class="hover:text-neonblue">Funciones</a></li>
-      <li><a href="#planes" class="hover:text-neonblue">Planes</a></li>
-      <li><a href="#registro" class="hover:text-neonblue">Registro</a></li>
-      <li><a href="#testimonios" class="hover:text-neonblue">Testimonios</a></li>
-      <li><a href="#politicas" class="hover:text-neonblue">Políticas</a></li>
-      <li><a href="#contacto" class="hover:text-neonblue">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+    header{display:flex;gap:18px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#081222}
+    .brand h1{margin:0;font-size:20px}
+    .brand p{margin:0;color:var(--muted);font-size:13px}
 
-<!-- Hero -->
-<section class="relative py-20 text-center">
-  <div class="absolute inset-0 bg-gradient-to-r from-neonred/20 via-dark to-neonblue/20 -z-10"></div>
-  <h2 class="text-4xl md:text-6xl font-extrabold">El futuro de WhatsApp está aquí 🚀</h2>
-  <p class="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
-    Con <span class="text-neonblue font-semibold">Eren-Bot IA</span>, lleva tus grupos, negocios y comunidades al siguiente nivel con automatización inteligente.
-  </p>
-  <div class="mt-8 flex justify-center gap-4">
-    <a href="#planes" class="px-6 py-3 rounded-xl bg-neonred shadow-neonred font-bold hover:bg-red-600">Ver Planes</a>
-    <a href="#funciones" class="px-6 py-3 rounded-xl border border-white/20 hover:border-neonblue">Descubrir Funciones</a>
-  </div>
-</section>
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
 
-<!-- Funciones -->
-<section id="funciones" class="py-20 max-w-7xl mx-auto px-6">
-  <h3 class="text-3xl font-bold text-center mb-12">⚙️ Funciones Clave</h3>
-  <div class="grid md:grid-cols-3 gap-8">
-    <div class="p-6 rounded-2xl bg-card border border-white/10 shadow-neon hover:scale-105 transition">
-      <h4 class="text-xl font-bold mb-3">🤖 Respuestas Automáticas</h4>
-      <p class="text-white/70">Configura mensajes inteligentes para atender a tus clientes 24/7 sin esfuerzo.</p>
-    </div>
-    <div class="p-6 rounded-2xl bg-card border border-white/10 shadow-neonred hover:scale-105 transition">
-      <h4 class="text-xl font-bold mb-3">🛡️ Protección de Grupos</h4>
-      <p class="text-white/70">Incluye antilink, filtro de spam y control de moderadores.</p>
-    </div>
-    <div class="p-6 rounded-2xl bg-card border border-white/10 shadow-neon hover:scale-105 transition">
-      <h4 class="text-xl font-bold mb-3">📊 Estadísticas</h4>
-      <p class="text-white/70">Monitorea el uso del bot y la actividad de tus grupos en tiempo real.</p>
-    </div>
-  </div>
-</section>
+    .hero-left h2{margin:0 0 8px 0;font-size:26px}
+    .hero-left p{color:var(--muted);margin:0 0 16px 0}
 
-<!-- Planes -->
-<section id="planes" class="py-20 bg-gradient-to-b from-dark to-black">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <h3 class="text-3xl font-bold mb-12">💰 Nuestros Planes</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      
-      <!-- Plan Básico -->
-      <div class="p-6 rounded-2xl bg-card border border-white/10 hover:border-neonblue shadow-neon transition">
-        <h4 class="text-2xl font-bold mb-2 text-neonblue">Plan Básico</h4>
-        <p class="text-white/70 mb-4">Ideal para uso personal o pequeños grupos.</p>
-        <p class="text-3xl font-extrabold mb-6">$5/mes</p>
-        <ul class="text-left text-white/70 mb-6 space-y-2">
-          <li>✅ 50 comandos</li>
-          <li>✅ Respuestas automáticas</li>
-          <li>❌ Estadísticas</li>
-          <li>❌ IA Avanzada</li>
-        </ul>
-        <a href="#registro" class="block py-3 rounded-xl bg-neonblue font-bold hover:bg-cyan-400">Elegir</a>
+    .feature-grid{display:flex;flex-wrap:wrap;gap:12px}
+    .feature{background:var(--glass);padding:12px;border-radius:12px;min-width:140px;flex:1 1 150px;border:1px solid rgba(255,255,255,0.03)}
+    .feature h4{margin:0 0 6px 0;font-size:14px}
+    .feature p{margin:0;color:var(--muted);font-size:13px}
+
+    .cta-row{display:flex;gap:8px;margin-top:16px}
+    .btn{padding:10px 12px;border-radius:999px;border:0;cursor:pointer;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent), #5b3bff);color:white}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .btn.small{padding:8px 10px;font-size:13px}
+
+    /* right card */
+    .status{display:flex;flex-direction:column;gap:12px}
+    .stat{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .stat strong{font-size:16px}
+    .small{font-size:12px;color:var(--muted)}
+
+    /* pricing */
+    .pricing{display:flex;gap:12px;margin-top:18px}
+    .plan{flex:1;padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03)}
+    .plan h3{margin:0 0 8px 0}
+    .plan .price{font-size:22px;margin:8px 0}
+    .pay-row{display:flex;gap:8px}
+
+    /* policies */
+    details{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);margin-top:12px}
+
+    footer{margin-top:32px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* greeting toast */
+    .toast{position:fixed;right:20px;top:20px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#081222;padding:12px 14px;border-radius:12px;box-shadow:0 10px 30px rgba(11,12,22,0.6);display:flex;gap:10px;align-items:center}
+    .toast button{background:transparent;border:0;color:inherit;font-weight:700;cursor:pointer}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .container{padding:16px}
+      .logo{width:54px;height:54px}
+    }
+  </style></head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">EB</div>
+        <div>
+          <h1>Eren Bot</h1>
+          <p>Bot de WhatsApp sin prefijos · Automatización · Moderación · Pagos</p>
+        </div>
       </div>
-      
-      <!-- Plan Pro -->
-      <div class="p-6 rounded-2xl bg-card border border-white/10 hover:border-neonred shadow-neonred transition scale-105">
-        <h4 class="text-2xl font-bold mb-2 text-neonred">Plan Pro</h4>
-        <p class="text-white/70 mb-4">Perfecto para negocios y comunidades activas.</p>
-        <p class="text-3xl font-extrabold mb-6">$15/mes</p>
-        <ul class="text-left text-white/70 mb-6 space-y-2">
-          <li>✅ Comandos ilimitados</li>
-          <li>✅ IA Avanzada</li>
-          <li>✅ Estadísticas</li>
-          <li>✅ Soporte prioritario</li>
-        </ul>
-        <a href="#registro" class="block py-3 rounded-xl bg-neonred font-bold hover:bg-red-600">Elegir</a>
-      </div>
-      
-      <!-- Plan Empresarial -->
-      <div class="p-6 rounded-2xl bg-card border border-white/10 hover:border-neonblue shadow-neon transition">
-        <h4 class="text-2xl font-bold mb-2 text-neonblue">Plan Empresarial</h4>
-        <p class="text-white/70 mb-4">Solución premium para grandes empresas.</p>
-        <p class="text-3xl font-extrabold mb-6">$30/mes</p>
-        <ul class="text-left text-white/70 mb-6 space-y-2">
-          <li>✅ Todo del Plan Pro</li>
-          <li>✅ Integraciones personalizadas</li>
-          <li>✅ Multi-cuentas</li>
-          <li>✅ Consultoría dedicada</li>
-        </ul>
-        <a href="#registro" class="block py-3 rounded-xl bg-neonblue font-bold hover:bg-cyan-400">Elegir</a>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-<!-- Registro -->
-<section id="registro" class="py-20 bg-gradient-to-r from-neonblue/20 to-neonred/20">
-  <div class="max-w-4xl mx-auto px-6">
-    <h3 class="text-3xl font-bold text-center mb-8">📝 Regístrate en Eren-Bot IA</h3>
-    <form action="https://formspree.io/f/YOUR_ID" method="POST" class="space-y-6 bg-card p-8 rounded-2xl border border-white/10 shadow-neon">
-      
       <div>
-        <label for="name" class="block mb-2 font-medium">Nombre completo</label>
-        <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg bg-dark border border-white/20 focus:border-neonblue outline-none" placeholder="Ej: Carlos López">
+        <button class="btn ghost small" id="open-register">Registrarse</button>
+        <button class="btn primary small" id="open-contact">Contactar</button>
       </div>
+    </header><section class="hero">
+  <div class="card hero-left">
+    <h2>Hola — Soy <span style="color:var(--accent)">Eren Bot</span>, tu asistente en WhatsApp</h2>
+    <p>Eren Bot funciona sin prefijos: basta con escribir en el chat o responder un mensaje para usar sus funciones. Ideal para grupos, soporte técnico y automatizaciones.</p>
 
+    <div class="feature-grid">
+      <div class="feature">
+        <h4>✅ Respuestas inteligentes</h4>
+        <p>Responde automáticamente a preguntas frecuentes y palabras clave — sin prefijos.</p>
+      </div>
+      <div class="feature">
+        <h4>👥 Gestión de grupos</h4>
+        <p>Moderación, bienvenida, antilink y reglas configurables por administradores.</p>
+      </div>
+      <div class="feature">
+        <h4>🔒 Seguridad y permisos</h4>
+        <p>Funciones de modo-admin y bloqueos por usuario/chat.</p>
+      </div>
+      <div class="feature">
+        <h4>💸 Pagos y suscripciones</h4>
+        <p>Integración con pasarelas para cobro de planes y activaciones.</p>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <button class="btn primary" id="trial">Probar demo</button>
+      <button class="btn ghost" id="features">Ver funciones</button>
+    </div>
+
+    <div style="margin-top:18px">
+      <h4 style="margin:0 0 8px 0">Cómo interactuar</h4>
+      <p class="small" style="margin:0">Eren Bot detecta el contexto: responde cuando citas un mensaje, cuando envías una palabra clave o cuando usas comandos sin necesidad de prefijo. Ejemplo: responde si escribes "ayuda" o si citas una imagen con texto para extraerlo.</p>
+    </div>
+
+    <div class="pricing">
+      <div class="plan">
+        <h3>Plan Básico</h3>
+        <div class="price">$5 / mes</div>
+        <p class="small">Ideal para pruebas y proyectos personales. Funciones limitadas.</p>
+        <div style="margin-top:10px" class="pay-row">
+          <button class="btn small primary pay" data-pay="paypal-basic">Pagar (PayPal)</button>
+          <button class="btn small ghost pay" data-pay="mp-basic">Pagar (PagoMovil)</button>
+        </div>
+      </div>
+      <div class="plan">
+        <h3>Plan Pro</h3>
+        <div class="price">$19 / mes</div>
+        <p class="small">Funciones avanzadas, prioridad en soporte y más herramientas de moderación.</p>
+        <div style="margin-top:10px" class="pay-row">
+          <button class="btn small primary pay" data-pay="paypal-pro">Pagar (PayPal)</button>
+          <button class="btn small ghost pay" data-pay="mp-pro">Pagar (PagoMovil)</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="card status">
+    <div class="stat">
       <div>
-        <label for="email" class="block mb-2 font-medium">Correo electrónico</label>
-        <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg bg-dark border border-white/20 focus:border-neonblue outline-none" placeholder="tuemail@ejemplo.com">
+        <strong>Estado</strong>
+        <div class="small">En línea — Respuestas 24/7</div>
       </div>
+      <div style="text-align:right">
+        <div style="font-weight:700">Conectado</div>
+        <div class="small">Latencia baja</div>
+      </div>
+    </div>
 
+    <div class="stat">
       <div>
-        <label for="whatsapp" class="block mb-2 font-medium">Número de WhatsApp</label>
-        <input type="text" name="whatsapp" id="whatsapp" required class="w-full px-4 py-3 rounded-lg bg-dark border border-white/20 focus:border-neonblue outline-none" placeholder="+504 9337 4445">
+        <strong>Usuarios</strong>
+        <div class="small">+2,300 usuarios activos</div>
       </div>
+      <div>
+        <button class="btn ghost small" id="open-stats">Ver estadísticas</button>
+      </div>
+    </div>
 
-      <button type="submit" class="w-full py-3 bg-neonred font-bold rounded-lg hover:bg-red-600 transition">
-        🚀 Registrarme
-      </button>
-    </form>
-  </div>
+    <div style="margin-top:10px">
+      <h4 style="margin:0 0 8px 0">Accesos rápidos</h4>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn small" onclick="showFeature('moderacion')">Moderación</button>
+        <button class="btn small" onclick="showFeature('antilink')">Antilink</button>
+        <button class="btn small" onclick="showFeature('autoresp')">Auto-respuesta</button>
+        <button class="btn small" onclick="showFeature('pagos')">Pagos</button>
+      </div>
+    </div>
+
+    <details>
+      <summary style="cursor:pointer;font-weight:600">Política de privacidad</summary>
+      <p class="small">Eren Bot respeta la privacidad: no compartimos datos con terceros sin consentimiento. Los datos de registro (número, nombre y plan) se usan para gestión y facturación. Para almacenamiento seguro y cumplimiento, solicita integración con tu servidor o usa nuestras opciones en la nube.</p>
+    </details>
+
+    <details>
+      <summary style="cursor:pointer;font-weight:600">Condiciones del servicio</summary>
+      <p class="small">El servicio se ofrece "tal cual". El usuario es responsable del uso en chats/grupos. Prohibido uso para spam masivo, fraude o actividades ilegales. Reservamos la suspensión de cuentas que violen términos.</p>
+    </details>
+
+    <details>
+      <summary style="cursor:pointer;font-weight:600">Seguridad</summary>
+      <p class="small">Soporte para roles de administrador en grupos, logs de acciones críticas y bloqueo por comportamiento. Recomendamos usar autenticación en tu panel de gestión para cambiar configuraciones sensibles.</p>
+    </details>
+
+  </aside>
 </section>
 
-<!-- Testimonios -->
-<section id="testimonios" class="py-20 max-w-7xl mx-auto px-6">
-  <h3 class="text-3xl font-bold text-center mb-12">🌟 Opiniones de Usuarios</h3>
-  <div class="grid md:grid-cols-2 gap-8">
-    <blockquote class="p-6 bg-card rounded-2xl border border-white/10 shadow-neon">
-      <p>"Eren-Bot IA me ahorra horas de trabajo cada semana. ¡Increíble!"</p>
-      <footer class="mt-3 text-sm text-white/70">— Carlos, Emprendedor</footer>
-    </blockquote>
-    <blockquote class="p-6 bg-card rounded-2xl border border-white/10 shadow-neonred">
-      <p>"Lo uso en mis grupos de estudio y es súper útil para moderar sin estrés."</p>
-      <footer class="mt-3 text-sm text-white/70">— Ana, Universitaria</footer>
-    </blockquote>
-  </div>
+<section class="card" style="margin-top:18px">
+  <h3 style="margin-top:0">Registro rápido</h3>
+  <p class="small">Llena el formulario para crear una cuenta de prueba. Esto solo guarda localmente — conecta un backend para producción.</p>
+  <form id="register-form" style="display:grid;grid-template-columns:1fr 200px;gap:10px;align-items:end;margin-top:12px">
+    <div>
+      <label class="small">Nombre</label>
+      <input id="name" required placeholder="Tu nombre" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
+    </div>
+    <div>
+      <label class="small">Número WhatsApp</label>
+      <input id="phone" required placeholder="+504 8XXXXXXXX" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit" />
+    </div>
+    <div style="grid-column:1/-1">
+      <label class="small">Plan</label>
+      <select id="plan" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <option value="basic">Básico - $5/mes</option>
+        <option value="pro">Pro - $19/mes</option>
+      </select>
+    </div>
+    <div style="grid-column:1/-1;text-align:right">
+      <button type="submit" class="btn primary">Crear cuenta (Prueba local)</button>
+    </div>
+  </form>
 </section>
 
-<!-- Políticas -->
-<section id="politicas" class="py-20 bg-black">
-  <div class="max-w-5xl mx-auto px-6">
-    <h3 class="text-3xl font-bold mb-8 text-center">📜 Políticas de Uso</h3>
-    <ul class="space-y-4 text-white/70">
-      <li>✅ El bot no debe usarse para spam o actividades ilegales.</li>
-      <li>✅ El soporte técnico se brinda según el plan contratado.</li>
-      <li>✅ Nos reservamos el derecho de suspender cuentas que violen las reglas.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Contacto -->
-<section id="contacto" class="py-20 text-center bg-dark">
-  <h3 class="text-3xl font-bold mb-6">📩 Contáctanos</h3>
-  <p class="text-white/70 mb-6">¿Listo para probar <span class="text-neonblue font-semibold">Eren-Bot IA</span>? Escríbenos directamente por WhatsApp.</p>
-  <a href="https://wa.me/50493374445" class="px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold shadow-lg">💬 Hablar por WhatsApp</a>
-</section>
-
-<!-- Footer -->
-<footer class="py-6 bg-black text-center text-white/50 text-sm">
-  <p>&copy; 2025 Eren-Bot IA. Todos los derechos reservados.</p>
+<footer>
+  <div>© <span id="year"></span> Eren Bot — Hecho con ❤️ · Soporte: <a href="#contact" style="color:inherit;text-decoration:underline">contacto</a></div>
 </footer>
 
-</body>
+  </div>  <!-- toast greeting -->  <div id="toast" class="toast" style="display:none">
+    <div>
+      <div style="font-weight:800">Bienvenido a Eren Bot 👋</div>
+      <div class="small">Prueba las funciones sin necesidad de prefijos. Escribe "ayuda" o cita un mensaje para empezar.</div>
+    </div>
+    <div><button id="close-toast">Cerrar</button></div>
+  </div>  <script>
+    // show greeting once per session
+    (function(){
+      const shown = sessionStorage.getItem('eren_welcome');
+      const toast = document.getElementById('toast');
+      if(!shown){
+        setTimeout(()=>{ toast.style.display='flex'; }, 600);
+        sessionStorage.setItem('eren_welcome','1');
+      }
+      document.getElementById('close-toast').addEventListener('click', ()=>{ toast.style.display='none'; });
+    })();
+
+    // small UI handlers
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function showFeature(key){
+      let msgs = {
+        moderacion: 'Moderación: expulsión, advertencias, antilink y muteo por infracciones.',
+        antilink: 'Antilink: detecta y elimina invitaciones no autorizadas.',
+        autoresp: 'Auto-respuesta: plantillas y respuestas por palabra clave.',
+        pagos: 'Pagos: integración con pasarelas y activación automática de planes.'
+      };
+      alert(msgs[key] || 'Función');
+    }
+
+    // Payment buttons: placeholder behaviour
+    document.querySelectorAll('.pay').forEach(b=>{
+      b.addEventListener('click', (e)=>{
+        const plan = e.currentTarget.dataset.pay;
+        // In production: redirigir a pasarela real (PayPal, Stripe, MercadoPago, etc.)
+        alert('Has elegido: ' + plan + '\n\nEn producción esto redirigiría a la pasarela de pago con los datos del plan.');
+      });
+    });
+
+    // Registro (local). Replace with AJAX to backend in producción.
+    document.getElementById('register-form').addEventListener('submit', function(evt){
+      evt.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const plan = document.getElementById('plan').value;
+      if(!name || !phone){ alert('Completa nombre y teléfono'); return; }
+      const users = JSON.parse(localStorage.getItem('eren_users')||'[]');
+      users.push({name,phone,plan,created:new Date().toISOString()});
+      localStorage.setItem('eren_users', JSON.stringify(users));
+      alert('Registro guardado localmente. Para producción, conecta este formulario con tu servidor para crear la cuenta y procesar pagos.');
+      this.reset();
+    });
+
+    // quick open buttons
+    document.getElementById('open-register').addEventListener('click', ()=>{
+      window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+    });
+    document.getElementById('open-contact').addEventListener('click', ()=>{
+      alert('Puedes contactarnos en: +504 XXXXXXXXX o demo@erenbot.example');
+    });
+    document.getElementById('open-stats').addEventListener('click', ()=>{
+      alert('Estadísticas en construcción. Enlaza con tu panel de métricas para mostrar datos reales.');
+    });
+
+    // accessibility: keyboard Dismiss
+    document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ document.getElementById('toast').style.display='none'; } });
+  </script>  <!--
+    NOTAS para producción:
+    - Conectar los botones de pago con PayPal / Stripe / MercadoPago mediante server-side.
+    - Reemplazar almacenamiento local con llamadas a tu API para crear usuarios y guardar planes.
+    - Añadir verificación del número WhatsApp (OTP) si lo requieres.
+    - Para que el bot funcione con autenticación, instala un panel que emita tokens y permita configurar el cliente de WhatsApp.
+  --></body>
 </html>
