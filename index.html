@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eren-Bot IA — WhatsApp Automatizado</title>
-  <meta name="description" content="Eren-Bot IA: el bot de WhatsApp más potente para automatizar, gestionar y crecer tu comunidad." />
-  <meta property="og:title" content="Eren-Bot IA — WhatsApp Automatizado" />
-  <meta property="og:description" content="Eren-Bot: la evolución de la automatización en WhatsApp." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tudominio.com" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Eren-Bot IA — Automatiza WhatsApp</title>
+  <meta name="description" content="Eren-Bot IA: la nueva generación de automatización en WhatsApp con planes accesibles para todos." />
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -17,152 +12,158 @@
       theme: {
         extend: {
           colors: {
-            primary: { DEFAULT: '#dc2626' }, /* Rojo intenso */
-            secondary: '#9333ea',            /* Morado oscuro */
-            dark: '#0a0a0a'
+            dark: "#0f0f1a",
+            neonred: "#ff1744",
+            neonblue: "#00e5ff",
+            card: "#1a1a2e"
           },
-          boxShadow: { glow: '0 0 40px rgba(220,38,38,0.35)' },
-          backdropBlur: { xs: '2px' }
+          boxShadow: {
+            neon: "0 0 20px rgba(0,229,255,0.6)",
+            neonred: "0 0 20px rgba(255,23,68,0.6)"
+          }
         }
       }
     }
   </script>
-  <style>
-    .shine { background: linear-gradient(110deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.05) 40%); background-size: 200% 100%; animation: shine 6s linear infinite; }
-    @keyframes shine { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
-    .grid-bg { background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 16px 16px; }
-  </style>
 </head>
-<body class="min-h-screen bg-dark text-white selection:bg-primary/40 selection:text-white">
-
-  <!-- Banner superior -->
-  <div class="w-full bg-gradient-to-r from-primary to-secondary text-sm text-white py-2">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center">
-      <p class="font-medium">🔥 Automatiza WhatsApp al estilo Eren-Bot IA</p>
-    </div>
-  </div>
+<body class="bg-dark text-white font-sans">
 
 <!-- Header -->
-<header class="sticky top-0 z-40 backdrop-blur-xs bg-dark/70 border-b border-white/10">
-  <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-    <button id="menu-button" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg border border-white/10 mr-4">☰</button>
-
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 flex-1">
-      <span class="text-xl font-bold tracking-wide">Eren-Bot IA</span>
-    </a>
-
-    <!-- Menú escritorio -->
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#funciones" class="hover:text-primary">Funciones</a>
-      <a href="#planes" class="hover:text-primary">Planes</a>
-      <a href="#testimonios" class="hover:text-primary">Testimonios</a>
-      <a href="#contacto" class="hover:text-primary">Contacto</a>
-      <a href="#politicas" class="hover:text-primary">Políticas</a>
-    </div>
-  </nav>
-
-  <!-- Menú móvil -->
-  <div id="mobilenav" class="md:hidden hidden border-t border-white/10">
-    <ul class="px-4 py-3 space-y-3">
-      <li><a href="#funciones" class="block">Funciones</a></li>
-      <li><a href="#planes" class="block">Planes</a></li>
-      <li><a href="#testimonios" class="block">Testimonios</a></li>
-      <li><a href="#contacto" class="block">Contacto</a></li>
-      <li><a href="#politicas" class="block">Políticas</a></li>
+<header class="sticky top-0 z-50 bg-dark/80 backdrop-blur border-b border-white/10">
+  <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <h1 class="text-2xl font-extrabold text-neonred">⚡ Eren-Bot IA</h1>
+    <ul class="hidden md:flex gap-6 font-medium">
+      <li><a href="#funciones" class="hover:text-neonblue">Funciones</a></li>
+      <li><a href="#planes" class="hover:text-neonblue">Planes</a></li>
+      <li><a href="#testimonios" class="hover:text-neonblue">Testimonios</a></li>
+      <li><a href="#politicas" class="hover:text-neonblue">Políticas</a></li>
+      <li><a href="#contacto" class="hover:text-neonblue">Contacto</a></li>
     </ul>
-  </div>
+  </nav>
 </header>
 
 <!-- Hero -->
-<section class="relative overflow-hidden">
-  <div class="absolute inset-0 opacity-30 grid-bg"></div>
-  <div class="absolute -top-40 -left-40 w-[540px] h-[540px] rounded-full bg-secondary blur-3xl opacity-20"></div>
-  <div class="absolute -bottom-40 -right-40 w-[540px] h-[540px] rounded-full bg-primary blur-3xl opacity-20"></div>
-
-  <div class="max-w-7xl mx-auto px-4 py-16 lg:py-24 relative">
-    <div class="grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl lg:text-6xl font-black leading-tight">El <span class="text-primary">futuro</span> de WhatsApp está aquí</h1>
-        <p class="mt-5 text-white/80 text-lg max-w-2xl">
-          <strong>Eren-Bot IA</strong> es un bot de WhatsApp diseñado para automatizar tus tareas, gestionar comunidades y llevar tu negocio a otro nivel.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#planes" class="px-6 py-3 rounded-2xl bg-primary hover:bg-primary/90 font-semibold shadow-glow">Ver Planes</a>
-          <a href="#funciones" class="px-6 py-3 rounded-2xl border border-white/15 hover:border-white/30">Explorar Funciones</a>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-white/5 backdrop-blur shine shadow-glow overflow-hidden">
-          <img src="https://cdn.russellxz.click/26b4ba2b.jpeg" alt="Eren-Bot IA" class="w-full h-full object-cover"/>
-        </div>
-      </div>
-    </div>
+<section class="relative py-20 text-center">
+  <div class="absolute inset-0 bg-gradient-to-r from-neonred/20 via-dark to-neonblue/20 -z-10"></div>
+  <h2 class="text-4xl md:text-6xl font-extrabold">El futuro de WhatsApp está aquí 🚀</h2>
+  <p class="mt-4 text-lg text-white/70 max-w-2xl mx-auto">
+    Con <span class="text-neonblue font-semibold">Eren-Bot IA</span>, lleva tus grupos, negocios y comunidades al siguiente nivel con automatización inteligente.
+  </p>
+  <div class="mt-8 flex justify-center gap-4">
+    <a href="#planes" class="px-6 py-3 rounded-xl bg-neonred shadow-neonred font-bold hover:bg-red-600">Ver Planes</a>
+    <a href="#funciones" class="px-6 py-3 rounded-xl border border-white/20 hover:border-neonblue">Descubrir Funciones</a>
   </div>
 </section>
 
 <!-- Funciones -->
-<section id="funciones" class="py-20">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl lg:text-4xl font-extrabold mb-10">Funciones destacadas</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-        <div class="text-2xl">⚡</div>
-        <h3 class="mt-3 text-xl font-bold">Automatización Total</h3>
-        <p class="mt-2 text-white/70 text-sm">Configura comandos y respuestas automáticas sin esfuerzo.</p>
-      </article>
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-        <div class="text-2xl">🛡️</div>
-        <h3 class="mt-3 text-xl font-bold">Moderación de Grupos</h3>
-        <p class="mt-2 text-white/70 text-sm">Gestión avanzada con filtros de spam, antilink y bienvenida personalizada.</p>
-      </article>
-      <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-        <div class="text-2xl">🧠</div>
-        <h3 class="mt-3 text-xl font-bold">IA Integrada</h3>
-        <p class="mt-2 text-white/70 text-sm">Responde dudas, genera contenido e interactúa de forma inteligente.</p>
-      </article>
+<section id="funciones" class="py-20 max-w-7xl mx-auto px-6">
+  <h3 class="text-3xl font-bold text-center mb-12">⚙️ Funciones Clave</h3>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="p-6 rounded-2xl bg-card border border-white/10 shadow-neon hover:scale-105 transition">
+      <h4 class="text-xl font-bold mb-3">🤖 Respuestas Automáticas</h4>
+      <p class="text-white/70">Configura mensajes inteligentes para atender a tus clientes 24/7 sin esfuerzo.</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-card border border-white/10 shadow-neonred hover:scale-105 transition">
+      <h4 class="text-xl font-bold mb-3">🛡️ Protección de Grupos</h4>
+      <p class="text-white/70">Incluye antilink, filtro de spam y control de moderadores.</p>
+    </div>
+    <div class="p-6 rounded-2xl bg-card border border-white/10 shadow-neon hover:scale-105 transition">
+      <h4 class="text-xl font-bold mb-3">📊 Estadísticas</h4>
+      <p class="text-white/70">Monitorea el uso del bot y la actividad de tus grupos en tiempo real.</p>
     </div>
   </div>
 </section>
 
-<!-- Contacto -->
-<section id="contacto" class="py-12 bg-gray-800">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">¿Quieres probar Eren-Bot?</h2>
-    <p class="text-lg text-white/80 max-w-2xl mx-auto mb-6">
-      Contáctanos directamente para planes personalizados y soporte.
-    </p>
-    <a href="https://wa.me/50493374445" class="px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 transition font-semibold">
-      💬 Hablar por WhatsApp
-    </a>
+<!-- Planes -->
+<section id="planes" class="py-20 bg-gradient-to-b from-dark to-black">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-12">💰 Nuestros Planes</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Plan Básico -->
+      <div class="p-6 rounded-2xl bg-card border border-white/10 hover:border-neonblue shadow-neon transition">
+        <h4 class="text-2xl font-bold mb-2 text-neonblue">Plan Básico</h4>
+        <p class="text-white/70 mb-4">Ideal para uso personal o pequeños grupos.</p>
+        <p class="text-3xl font-extrabold mb-6">$5/mes</p>
+        <ul class="text-left text-white/70 mb-6 space-y-2">
+          <li>✅ 50 comandos</li>
+          <li>✅ Respuestas automáticas</li>
+          <li>❌ Estadísticas</li>
+          <li>❌ IA Avanzada</li>
+        </ul>
+        <a href="#contacto" class="block py-3 rounded-xl bg-neonblue font-bold hover:bg-cyan-400">Elegir</a>
+      </div>
+      
+      <!-- Plan Pro -->
+      <div class="p-6 rounded-2xl bg-card border border-white/10 hover:border-neonred shadow-neonred transition scale-105">
+        <h4 class="text-2xl font-bold mb-2 text-neonred">Plan Pro</h4>
+        <p class="text-white/70 mb-4">Perfecto para negocios y comunidades activas.</p>
+        <p class="text-3xl font-extrabold mb-6">$15/mes</p>
+        <ul class="text-left text-white/70 mb-6 space-y-2">
+          <li>✅ Comandos ilimitados</li>
+          <li>✅ IA Avanzada</li>
+          <li>✅ Estadísticas</li>
+          <li>✅ Soporte prioritario</li>
+        </ul>
+        <a href="#contacto" class="block py-3 rounded-xl bg-neonred font-bold hover:bg-red-600">Elegir</a>
+      </div>
+      
+      <!-- Plan Empresarial -->
+      <div class="p-6 rounded-2xl bg-card border border-white/10 hover:border-neonblue shadow-neon transition">
+        <h4 class="text-2xl font-bold mb-2 text-neonblue">Plan Empresarial</h4>
+        <p class="text-white/70 mb-4">Solución premium para grandes empresas.</p>
+        <p class="text-3xl font-extrabold mb-6">$30/mes</p>
+        <ul class="text-left text-white/70 mb-6 space-y-2">
+          <li>✅ Todo del Plan Pro</li>
+          <li>✅ Integraciones personalizadas</li>
+          <li>✅ Multi-cuentas</li>
+          <li>✅ Consultoría dedicada</li>
+        </ul>
+        <a href="#contacto" class="block py-3 rounded-xl bg-neonblue font-bold hover:bg-cyan-400">Elegir</a>
+      </div>
+      
+    </div>
   </div>
 </section>
 
+<!-- Testimonios -->
+<section id="testimonios" class="py-20 max-w-7xl mx-auto px-6">
+  <h3 class="text-3xl font-bold text-center mb-12">🌟 Opiniones de Usuarios</h3>
+  <div class="grid md:grid-cols-2 gap-8">
+    <blockquote class="p-6 bg-card rounded-2xl border border-white/10 shadow-neon">
+      <p>"Eren-Bot IA me ahorra horas de trabajo cada semana. ¡Increíble!"</p>
+      <footer class="mt-3 text-sm text-white/70">— Carlos, Emprendedor</footer>
+    </blockquote>
+    <blockquote class="p-6 bg-card rounded-2xl border border-white/10 shadow-neonred">
+      <p>"Lo uso en mis grupos de estudio y es súper útil para moderar sin estrés."</p>
+      <footer class="mt-3 text-sm text-white/70">— Ana, Universitaria</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- Políticas -->
+<section id="politicas" class="py-20 bg-black">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-3xl font-bold mb-8 text-center">📜 Políticas de Uso</h3>
+    <ul class="space-y-4 text-white/70">
+      <li>✅ El bot no debe usarse para spam o actividades ilegales.</li>
+      <li>✅ El soporte técnico se brinda según el plan contratado.</li>
+      <li>✅ Nos reservamos el derecho de suspender cuentas que violen las reglas.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-20 text-center bg-dark">
+  <h3 class="text-3xl font-bold mb-6">📩 Contáctanos</h3>
+  <p class="text-white/70 mb-6">¿Listo para probar <span class="text-neonblue font-semibold">Eren-Bot IA</span>? Escríbenos directamente por WhatsApp.</p>
+  <a href="https://wa.me/50493374445" class="px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold shadow-lg">💬 Hablar por WhatsApp</a>
+</section>
+
 <!-- Footer -->
-<footer class="py-6 bg-gray-900 text-center text-white/50 text-sm">
+<footer class="py-6 bg-black text-center text-white/50 text-sm">
   <p>&copy; 2025 Eren-Bot IA. Todos los derechos reservados.</p>
 </footer>
 
-<script>
-const menuButton = document.getElementById('menu-button');
-const mobileNav = document.getElementById('mobilenav');
-const navLinks = document.querySelectorAll('#mobilenav a');
-const closeMenu = () => { mobileNav.classList.add('hidden'); };
-menuButton.addEventListener('click', (event) => { 
-  event.stopPropagation(); 
-  mobileNav.classList.toggle('hidden'); 
-});
-navLinks.forEach(link => { link.addEventListener('click', closeMenu); });
-document.addEventListener('click', (event) => { 
-  if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) { 
-    closeMenu(); 
-  } 
-});
-window.addEventListener('resize', () => { 
-  if (window.innerWidth >= 768) { 
-    closeMenu(); 
-  } 
-});
-</script>
 </body>
 </html>
