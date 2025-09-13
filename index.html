@@ -5,99 +5,88 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Eren‑Bot — Presentación y Venta</title>
-  <meta name="description" content="Eren‑Bot — Asistente y automoderador para WhatsApp. Compra y contacto directo vía PayPal y WhatsApp." />
+  <meta name="description" content="Eren‑Bot — Asistente, automoderador y bot premium para WhatsApp. Compra segura vía PayPal y soporte directo." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa4b2;
-      --accent:#06b6d4; /* cyan */
-      --accent-2:#7c3aed; /* purple */
-      --glass: rgba(255,255,255,0.04);
-      --max-width:1100px;
+      --bg:#0e1117;
+      --card:#161b22;
+      --muted:#a1a8b3;
+      --accent:#00e0ff;
+      --accent-2:#8b5cf6;
+      --glass: rgba(255,255,255,0.05);
+      --max-width:1200px;
       color-scheme: dark;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      margin:0;
       font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background:linear-gradient(180deg,var(--bg),#071022);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:40px 20px;
-      display:flex;justify-content:center;
+      background:linear-gradient(180deg,var(--bg),#0a0c12);
+      color:#f1f5f9;
+      line-height:1.6;
     }
-    .wrap{width:100%;max-width:var(--max-width)}header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .container{width:100%;max-width:var(--max-width);margin:auto;padding:20px}/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;font-family:Poppins}
-.brand h1{margin:0;font-size:20px}
-.brand p{margin:0;color:var(--muted);font-size:13px}
+.logo{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px;font-family:Poppins;color:#0e1117}
+.brand h1{font-size:22px;font-family:Poppins;margin:0}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-weight:600;transition:0.2s}
+nav a:hover{color:var(--accent)}
 
-nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-.hero{display:grid;grid-template-columns:1fr 380px;gap:28px;margin-top:28px;align-items:center}
-@media (max-width:900px){.hero{grid-template-columns:1fr;}.hero-right{order:-1}}
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;padding:40px 0}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero img{max-width:80%}}
+.intro h2{font-size:34px;font-family:Poppins;margin-bottom:14px}
+.intro p{color:var(--muted);margin-bottom:18px;font-size:15px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:14px 20px;border-radius:12px;font-weight:700;cursor:pointer;border:0;transition:0.3s}
+.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0e1117}
+.btn-primary:hover{opacity:0.85}
+.btn-ghost{background:transparent;border:1px solid var(--glass);color:var(--muted)}
 
-.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;padding:22px;box-shadow:0 6px 30px rgba(2,6,23,0.6);}
-
-.intro h2{margin:0 0 8px 0;font-size:28px;font-family:Poppins}
-.intro p{margin:0;color:var(--muted);line-height:1.5}
-
-.cta-row{display:flex;gap:12px;margin-top:16px}
-.btn{padding:12px 16px;border-radius:10px;font-weight:600;cursor:pointer;border:0}
-.btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#081226}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-.hero-right{padding:22px;text-align:center}
-.hero-right h3{margin:0 0 8px 0;font-size:18px}
-.hero-right p{margin:0;color:var(--muted);font-size:14px}
-.screenshot{margin-top:18px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#071026,#071830);padding:12px}
-.screenshot img{width:100%;height:auto;display:block;border-radius:8px}
+.hero img{width:100%;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
 
 /* Features */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
-@media (max-width:900px){.features{grid-template-columns:1fr}}
-.feature{padding:16px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
-.feature h4{margin:0 0 6px 0;font-size:16px}
-.feature p{margin:0;color:var(--muted);font-size:13px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+@media(max-width:900px){.features{grid-template-columns:1fr}}
+.feature{padding:22px;border-radius:14px;background:var(--glass);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04)}
+.feature h3{margin-bottom:8px;font-family:Poppins;font-size:18px;color:#fff}
+.feature p{color:var(--muted);font-size:14px}
 
 /* Pricing */
-.pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:26px}
-@media (max-width:900px){.pricing{grid-template-columns:1fr}}
-.price-card{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
-.price-card h3{margin:0;font-family:Poppins}
-.price{font-size:20px;margin-top:10px}
-.price small{color:var(--muted);display:block}
-.price-features{margin-top:12px;color:var(--muted);font-size:13px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+@media(max-width:900px){.pricing{grid-template-columns:1fr}}
+.price-card{padding:26px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.04),transparent);border:1px solid rgba(255,255,255,0.08);text-align:center;transition:0.3s}
+.price-card:hover{transform:translateY(-4px)}
+.price-card h3{font-family:Poppins;font-size:20px;margin-bottom:10px}
+.price{font-size:24px;font-weight:700;margin:10px 0}
+.price small{display:block;color:var(--muted);font-size:13px}
+.price-features{margin:16px 0;color:var(--muted);font-size:14px;line-height:1.5}
 
-footer{margin-top:36px;padding:18px;border-radius:10px;background:transparent;color:var(--muted);display:flex;gap:12px;flex-direction:column}
-.legal{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:900px){.legal{grid-template-columns:1fr}}
+/* Terms */
+.terms{margin-top:40px;padding:22px;border-radius:14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);font-size:14px;color:var(--muted);max-height:340px;overflow:auto}
+.terms h4{margin:18px 0 6px;font-family:Poppins;color:#fff}
 
-.contact-actions{display:flex;gap:8px;flex-wrap:wrap}
-.whatsapp{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:#25D366;color:#021017;text-decoration:none;font-weight:700}
+/* Contact */
+.contact{margin-top:50px}
+.contact a{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none}
+.whatsapp{background:#25D366;color:#0e1117}
+.email{border:1px solid var(--glass);color:var(--muted)}
 
-.small{font-size:13px;color:var(--muted)}
-.badge{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700}
-
-/* Terms box */
-.terms{margin-top:18px;padding:16px;border-radius:10px;background:rgba(255,255,255,0.02);max-height:320px;overflow:auto;border:1px solid rgba(255,255,255,0.02)}
-
-.center{display:flex;align-items:center;justify-content:center}
+footer{margin-top:60px;padding:20px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.05);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="container">
+    <!-- Header -->
     <header>
       <div class="brand">
         <div class="logo">EB</div>
         <div>
           <h1>Eren‑Bot</h1>
-          <p>Automatiza, modera y monetiza tu WhatsApp</p>
+          <small style="color:var(--muted)">Automatiza, modera y monetiza WhatsApp</small>
         </div>
       </div>
       <nav>
@@ -106,180 +95,128 @@ footer{margin-top:36px;padding:18px;border-radius:10px;background:transparent;co
         <a href="#condiciones">Condiciones</a>
         <a href="#contacto">Contacto</a>
       </nav>
-    </header><main>
-  <section class="hero">
-    <div class="card intro">
-      <h2>Bienvenido a Eren‑Bot — Tu asistente para WhatsApp</h2>
-      <p>Eren‑Bot es un bot para WhatsApp pensado para comunidades, ventas y soporte: comandos personalizados, economía virtual, respuestas automáticas, sistema de roles y herramientas para crear experiencias de juego y soporte al cliente dentro de tu chat.</p>
-
-      <div class="cta-row">
-        <button class="btn btn-primary" onclick="scrollToSection('precios')">Ver planes</button>
-        <a class="btn btn-ghost" href="#contacto">Contactar</a>
-      </div>
-
-      <div style="margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-        <div class="badge">Soporte: WhatsApp</div>
-        <div class="small">Entrega digital + Instalación opcional</div>
-      </div>
-    </div>
-
-    <aside class="card hero-right">
-      <h3>Resumen rápido</h3>
-      <p>Instalación fácil, configuración remota y actualizaciones. Ideal para tiendas, comunidades y proyectos de rol.</p>
-
-      <div class="screenshot">
-        <!-- Reemplaza la imagen por la tuya si quieres -->
-        <img src="https://cdn.russellxz.click/e037db9e.jpeg" alt="Captura de Eren‑Bot">
-      </div>
-
-      <div style="margin-top:14px" class="center">
-        <a class="btn btn-primary" href="#precios">Comprar ahora</a>
-      </div>
-    </aside>
-  </section>
-
-  <!-- Información -->
-  <section id="about" style="margin-top:20px">
-    <div class="features">
-      <div class="feature card">
-        <h4>Comandos personalizados</h4>
-        <p>Crea comandos con prefijos flexibles, alias, y respuestas multimedia (audio, imagen, vCard, video).</p>
-      </div>
-      <div class="feature card">
-        <h4>Economía virtual</h4>
-        <p>Sistema de monedas, perfiles, tienda interna y premios automáticos para tu comunidad.</p>
-      </div>
-      <div class="feature card">
-        <h4>Automoderación</h4>
-        <p>Filtros para palabras, bloqueo de spam y mensajes de bienvenida/despedida personalizados.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Precios -->
-  <section id="precios">
-    <h2 style="margin-top:26px;font-family:Poppins">Planes y precios</h2>
-    <div class="pricing">
-      <div class="price-card card">
-        <h3>Básico</h3>
-        <div class="price">$15 <small>/ pago único</small></div>
-        <div class="price-features">
-          • Instalación básica
-          <br>• Comandos limitados
-          <br>• Actualizaciones menores
-        </div>
-        <div style="margin-top:12px">
-          <!-- PayPal - reemplaza business con tu correo Paypal -->
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="tu-email@paypal.com">
-            <input type="hidden" name="item_name" value="Eren-Bot Básico">
-            <input type="hidden" name="amount" value="15.00">
-            <input type="hidden" name="currency_code" value="USD">
-            <button class="btn btn-primary" type="submit">Comprar con PayPal</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="price-card card">
-        <h3>Pro</h3>
-        <div class="price">$40 <small>/ pago único</small></div>
-        <div class="price-features">
-          • Todo en Básico
-          <br>• Plugins adicionales (economía avanzada, niveles)
-          <br>• Soporte 7 días
-        </div>
-        <div style="margin-top:12px">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="tu-email@paypal.com">
-            <input type="hidden" name="item_name" value="Eren-Bot Pro">
-            <input type="hidden" name="amount" value="40.00">
-            <input type="hidden" name="currency_code" value="USD">
-            <button class="btn btn-primary" type="submit">Comprar con PayPal</button>
-          </form>
-        </div>
-      </div>
-
-      <div class="price-card card">
-        <h3>Premium</h3>
-        <div class="price">$90 <small>/ pago único</small></div>
-        <div class="price-features">
-          • Instalación + Personalización completa
-          <br>• Soporte prioritario
-          <br>• Integraciones (webhooks, APIS)
-        </div>
-        <div style="margin-top:12px">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="tu-email@paypal.com">
-            <input type="hidden" name="item_name" value="Eren-Bot Premium">
-            <input type="hidden" name="amount" value="90.00">
-            <input type="hidden" name="currency_code" value="USD">
-            <button class="btn btn-primary" type="submit">Comprar con PayPal</button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <p class="small" style="margin-top:10px">Nota: Los botones de PayPal abren una ventana segura de PayPal. Reemplaza <code>tu-email@paypal.com</code> por tu cuenta de vendedor para recibir pagos directamente.</p>
-
-  </section>
-
-  <!-- Condiciones y políticas -->
-  <section id="condiciones">
-    <h2 style="margin-top:18px;font-family:Poppins">Condiciones del servicio / Políticas</h2>
-
-    <div class="terms">
-      <h4>Condiciones de venta</h4>
-      <p class="small">Al comprar Eren‑Bot aceptas que la entrega es digital. Puedes solicitar instalación remota por un costo adicional si no tienes conocimientos técnicos. Las actualizaciones menores están incluidas según el plan; las nuevas versiones principales pueden requerir pago adicional.</p>
-
-      <h4 style="margin-top:12px">Política de reembolso</h4>
-      <p class="small">Si el bot no se entrega o no funciona según lo descrito, tienes 7 días para solicitar un reembolso completo. Pasado ese periodo, ofrecemos soporte técnico para resolver problemas, y los reembolsos son evaluados caso por caso.</p>
-
-      <h4 style="margin-top:12px">Privacidad</h4>
-      <p class="small">Eren‑Bot procesa datos mínimos: nombres y números de contacto que tu le facilites. No vendemos datos a terceros. Si configuras integraciones externas (APIs, webhooks), revisa sus políticas de privacidad. Conservamos logs técnicos por 30 días para depuración, a menos que acuerdes otra cosa.</p>
-
-      <h4 style="margin-top:12px">Uso permitido y prohibido</h4>
-      <p class="small">Prohibido utilizar Eren‑Bot para enviar spam, contenido ilegal, fraudes o actividades que violen términos de WhatsApp. El proveedor (vendedor) puede suspender soporte si detecta uso malicioso.</p>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" style="margin-top:18px">
-    <h2 style="font-family:Poppins">Contacto y soporte</h2>
-    <p class="small">Habla directo con soporte por WhatsApp o escribe para preguntas comerciales.</p>
-
-    <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <!-- Reemplaza el numero por tu numero real si es otro -->
-      <a class="whatsapp" href="https://wa.me/50493374445" target="_blank">Abrir WhatsApp</a>
-
-      <a class="btn btn-ghost" href="mailto:soporte@eren-bot.com">soporte@eren-bot.com</a>
-    </div>
-
-    <p class="small" style="margin-top:10px">Si deseas que configuremos el pago con tarjeta desde la propia web (tarjeta integrada), podemos integrar Stripe/PayPal Checkout — contáctanos para la integración segura.</p>
-  </section>
-
-</main>
-
-<footer>
-  <div class="legal">
-    <div>
-      <strong>Eren‑Bot</strong>
-      <div class="small">© "Eren‑Bot" — Entrega digital. Soporte: +504 9337‑4445</div>
-    </div>
-    <div>
-      <div class="small">Términos y política actualizados: <strong>2025</strong></div>
-      <div class="small">Versión del producto: <strong>1.0</strong></div>
+    </header><!-- Hero -->
+<section class="hero">
+  <div class="intro">
+    <h2>El bot definitivo para tu WhatsApp</h2>
+    <p>Eren‑Bot es la solución para <strong>ventas, comunidades y soporte</strong>. Ofrece comandos personalizados, economía virtual, juegos, roles y moderación automática. Todo en un solo bot, fácil de instalar.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#precios">Ver planes</a>
+      <a class="btn btn-ghost" href="#contacto">Contactar soporte</a>
     </div>
   </div>
+  <div>
+    <img src="https://cdn.russellxz.click/e037db9e.jpeg" alt="Captura de Eren‑Bot">
+  </div>
+</section>
 
-  <div class="small">¿Necesitas cambios en colores, precios, o métodos de pago? Responde aquí y lo ajusto.</div>
+<!-- Features -->
+<section id="about" class="features">
+  <div class="feature">
+    <h3>⚡ Comandos flexibles</h3>
+    <p>Respuestas multimedia, prefijos personalizables y alias para adaptarse a cualquier comunidad.</p>
+  </div>
+  <div class="feature">
+    <h3>💰 Economía virtual</h3>
+    <p>Sistema de monedas, tienda interna, niveles y recompensas automáticas para aumentar la interacción.</p>
+  </div>
+  <div class="feature">
+    <h3>🛡️ Automoderación</h3>
+    <p>Filtros de spam, bloqueo de palabras, bienvenidas y despedidas personalizadas en tus grupos.</p>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="precios">
+  <h2 style="margin-top:60px;font-family:Poppins;font-size:26px">Planes y precios</h2>
+  <div class="pricing">
+    <!-- Basico -->
+    <div class="price-card">
+      <h3>Básico</h3>
+      <div class="price">$15 <small>/ pago único</small></div>
+      <div class="price-features">
+        • Instalación básica<br>
+        • Comandos limitados<br>
+        • Actualizaciones menores
+      </div>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="posadaselder2806@gmail.com">
+        <input type="hidden" name="item_name" value="Eren-Bot Básico">
+        <input type="hidden" name="amount" value="15.00">
+        <input type="hidden" name="currency_code" value="USD">
+        <button class="btn btn-primary" type="submit">Comprar con PayPal</button>
+      </form>
+    </div>
+
+    <!-- Pro -->
+    <div class="price-card">
+      <h3>Pro</h3>
+      <div class="price">$40 <small>/ pago único</small></div>
+      <div class="price-features">
+        • Todo en Básico<br>
+        • Plugins avanzados<br>
+        • Soporte 7 días
+      </div>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="posadaselder2806@gmail.com">
+        <input type="hidden" name="item_name" value="Eren-Bot Pro">
+        <input type="hidden" name="amount" value="40.00">
+        <input type="hidden" name="currency_code" value="USD">
+        <button class="btn btn-primary" type="submit">Comprar con PayPal</button>
+      </form>
+    </div>
+
+    <!-- Premium -->
+    <div class="price-card">
+      <h3>Premium</h3>
+      <div class="price">$90 <small>/ pago único</small></div>
+      <div class="price-features">
+        • Instalación completa<br>
+        • Personalización total<br>
+        • Soporte prioritario
+      </div>
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="posadaselder2806@gmail.com">
+        <input type="hidden" name="item_name" value="Eren-Bot Premium">
+        <input type="hidden" name="amount" value="90.00">
+        <input type="hidden" name="currency_code" value="USD">
+        <button class="btn btn-primary" type="submit">Comprar con PayPal</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Condiciones -->
+<section id="condiciones" class="terms">
+  <h4>Condiciones de venta</h4>
+  <p>Entrega 100% digital. Instalación remota disponible con costo adicional. Las actualizaciones menores están incluidas; versiones principales pueden requerir un pago extra.</p>
+  <h4>Política de reembolso</h4>
+  <p>Tienes 7 días para solicitar reembolso si el bot no funciona como descrito. Pasado ese tiempo se ofrece soporte técnico.</p>
+  <h4>Privacidad</h4>
+  <p>Solo se procesan datos mínimos (nombres y números). No se venden a terceros. Logs técnicos se almacenan por 30 días para depuración.</p>
+  <h4>Uso permitido</h4>
+  <p>Está prohibido usar Eren‑Bot para spam, fraudes o actividades ilegales. El vendedor puede suspender soporte si se detecta uso indebido.</p>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="contact">
+  <h2 style="font-family:Poppins;font-size:24px">Contacto y soporte</h2>
+  <p style="color:var(--muted);margin:8px 0">Atención directa por WhatsApp o correo electrónico.</p>
+  <div style="margin-top:14px;display:flex;gap:14px;flex-wrap:wrap">
+    <a class="whatsapp" href="https://wa.me/50493374445" target="_blank">WhatsApp Soporte</a>
+    <a class="email" href="mailto:soporte@eren-bot.com">soporte@eren-bot.com</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>© 2025 Eren‑Bot — Todos los derechos reservados</div>
+  <div>Versión 1.0 | Actualizado 2025</div>
 </footer>
 
-  </div>  <script>
-    function scrollToSection(id){
-      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
-    }
-  </script></body>
+  </div>
+</body>
 </html>
