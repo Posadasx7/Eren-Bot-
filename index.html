@@ -2,204 +2,134 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landing Bot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bot Landing</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f7f7f7;
-      --text: #222;
-      --primary: #4caf50;
-      --card-bg: rgba(255,255,255,0.85);
-    }
-    body.dark {
-      --bg: #0f1115;
-      --text: #f0f0f0;
-      --primary: #66bb6a;
-      --card-bg: rgba(30,30,30,0.85);
-    }
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
     body {
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
     }
-    #particles-js {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      animation: fadeDown 1s;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 15px;
-      animation: fadeUp 1.5s;
-    }
-    header a {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 12px 30px;
-      border-radius: 30px;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform .3s;
-    }
-    header a:hover {
-      transform: scale(1.05);
-    }
-    .theme-switch {
-      position: fixed;
-      top: 20px; right: 20px;
-      background: var(--card-bg);
-      border: none;
-      border-radius: 50%;
-      width: 45px; height: 45px;
-      cursor: pointer;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    section {
+    .hero {
       min-height: 100vh;
-      padding: 80px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-    section h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 30px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 20px;
+      background: linear-gradient(135deg, #4caf50, #2e7d32);
+      color: #fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      flex-direction:column;
     }
     .card {
-      background: var(--card-bg);
-      padding: 30px;
+      border: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       border-radius: 15px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      transition: transform .3s;
     }
-    .card:hover { transform: translateY(-5px); }
-    .footer {
-      background: var(--primary);
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    @keyframes fadeDown {
-      from {opacity:0; transform:translateY(-30px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-    @keyframes fadeUp {
-      from {opacity:0; transform:translateY(30px);}
-      to {opacity:1; transform:translateY(0);}
+    .dark-mode {
+      background-color:#121212;
+      color:#f0f0f0;
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
-  <button class="theme-switch" id="themeSwitch">🌙</button>
 
-  <header>
-    <h1>Bienvenido a Nuestro Bot</h1>
-    <p>Automatización y asistencia para WhatsApp</p>
-    <a href="#proyectos">Ver Proyectos</a>
-  </header>
+<!-- Hero -->
+<section class="hero" id="inicio">
+  <h1 data-aos="fade-down">Bienvenido a Nuestro Bot</h1>
+  <p data-aos="fade-up">Automatización y asistencia para WhatsApp</p>
+  <a href="#proyectos" class="btn btn-light mt-3" data-aos="fade-up">Ver Proyectos</a>
+</section>
 
-  <section id="info">
-    <h2>¿Qué hace nuestro Bot?</h2>
-    <p>Automatiza chats, responde de forma inteligente, envía mensajes masivos y se adapta a tus necesidades.</p>
-  </section>
-
-  <section id="precios">
-    <h2>Precios</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Mensual</h3>
-        <p>Uso completo por un mes</p>
-        <strong>$10 USD</strong>
-      </div>
-      <div class="card">
-        <h3>Permanente</h3>
-        <p>Licencia para siempre</p>
-        <strong>$50 USD</strong>
-      </div>
-      <div class="card">
-        <h3>Personalizado</h3>
-        <p>Bot con tus funciones</p>
-        <strong>Desde $30 USD</strong>
-      </div>
-    </div>
-  </section>
-
-  <section id="proyectos">
-    <h2>Proyectos</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Eren Bot</h3>
-        <p>Funciones premium para WhatsApp.</p>
-      </div>
-      <div class="card">
-        <h3>Y Bot</h3>
-        <p>Asistente confiable para automatizaciones.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="politicas">
-    <h2>Políticas y Condiciones</h2>
-    <p><strong>Privacidad:</strong> Respetamos tu privacidad.</p>
-    <p><strong>Condiciones:</strong> El uso implica aceptar nuestras políticas.</p>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <p>📧 <a href="mailto:contacto@tubot.com">contacto@tubot.com</a></p>
-    <p>📱 <a href="https://wa.me/1234567890" target="_blank">+1234567890</a></p>
-  </section>
-
-  <div class="footer">
-    &copy; 2025 Tu Bot. Todos los derechos reservados.
+<!-- Info -->
+<section class="py-5" id="info">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">¿Qué hace nuestro Bot?</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Automatiza chats, responde de forma inteligente y se adapta a tus necesidades.
+    </p>
   </div>
+</section>
 
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/demo/particles.json', function(){});
-    const switchBtn = document.getElementById('themeSwitch');
-    switchBtn.addEventListener('click', ()=>{
-      document.body.classList.toggle('dark');
-      switchBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-    });
-  </script>
+<!-- Precios -->
+<section class="py-5 bg-light" id="precios">
+  <div class="container">
+    <h2 class="text-center mb-4" data-aos="fade-up">Precios</h2>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-right">
+        <div class="card p-4 text-center">
+          <h3>Mensual</h3>
+          <p>Uso completo del bot por un mes</p>
+          <strong>$10 USD</strong>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card p-4 text-center">
+          <h3>Permanente</h3>
+          <p>Licencia para siempre</p>
+          <strong>$50 USD</strong>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-left">
+        <div class="card p-4 text-center">
+          <h3>Personalizado</h3>
+          <p>Bot con tus funciones</p>
+          <strong>Desde $30 USD</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proyectos -->
+<section class="py-5" id="proyectos">
+  <div class="container">
+    <h2 class="text-center mb-4" data-aos="fade-up">Proyectos</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="zoom-in">
+        <div class="card p-4 text-center">
+          <h3>Eren Bot</h3>
+          <p>Funciones premium para WhatsApp.</p>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="zoom-in" data-aos-delay="150">
+        <div class="card p-4 text-center">
+          <h3>Y Bot</h3>
+          <p>Asistente confiable para automatizaciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Políticas -->
+<section class="py-5 bg-light" id="politicas">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Políticas y Condiciones</h2>
+    <p data-aos="fade-up" data-aos-delay="100"><strong>Privacidad:</strong> Respetamos tu privacidad.</p>
+    <p data-aos="fade-up" data-aos-delay="200"><strong>Condiciones:</strong> El uso implica aceptar nuestras políticas.</p>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="py-5" id="contacto">
+  <div class="container text-center">
+    <h2 data-aos="fade-up">Contacto</h2>
+    <p data-aos="fade-up" data-aos-delay="100">📧 <a href="mailto:contacto@tubot.com">contacto@tubot.com</a></p>
+    <p data-aos="fade-up" data-aos-delay="200">📱 <a href="https://wa.me/1234567890" target="_blank">+1234567890</a></p>
+  </div>
+</section>
+
+<footer class="py-4 text-center text-white" style="background:#2e7d32;">
+  &copy; 2025 Tu Bot. Todos los derechos reservados.
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({once:true});
+</script>
 </body>
 </html>
