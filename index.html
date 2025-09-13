@@ -3,186 +3,257 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ErenBook — Bot de WhatsApp</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#060607;
-      --neon-cyan:#00fff0;
-      --neon-pink:#ff4dff;
-      --neon-yellow:#ffef5a;
-      --card:#0b0b0d;
-      --muted:#9aa0a6;
+      --bg:#050406;
+      --card:#0b0b0f;
+      --neon:#00f0ff;
+      --accent:#9b59ff;
+      --muted:#9aa3b2;
       --glass: rgba(255,255,255,0.03);
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Poppins,system-ui,Arial;background:radial-gradient(1200px 400px at 10% 10%, rgba(0,255,240,0.04), transparent), radial-gradient(800px 300px at 90% 90%, rgba(255,77,255,0.03), transparent), var(--bg);color:#e8edef}
-    header{padding:32px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{
-      width:64px;height:64px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-pink));box-shadow:0 6px 30px rgba(0,255,240,0.08), 0 2px 6px rgba(255,77,255,0.06);font-family:Orbitron,monospace;font-weight:700;color:#050505
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,Arial;
+      background: radial-gradient(1300px 600px at 10% 10%, rgba(155,89,255,0.06), transparent 6%),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(0,240,255,0.03), transparent 6%),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    h1.site-title{font-family:Orbitron,monospace;margin:0;font-size:20px;letter-spacing:1px}
-    .tag{font-size:12px;color:var(--muted)}
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
-    nav a.cta{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#050505;font-weight:600}.hero{padding:40px 20px;display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
-.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.04);padding:28px;border-radius:16px;backdrop-filter: blur(6px)}
-.eyebrow{font-size:13px;color:var(--neon-yellow);font-weight:600;letter-spacing:0.6px}
-h2{font-family:Orbitron,monospace;font-size:36px;margin:8px 0}
-p.lead{color:var(--muted);margin:0 0 18px}
-.features{display:flex;gap:12px;flex-wrap:wrap}
-.feat{background:var(--glass);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-size:14px;color:var(--muted)}
+    .container{max-width:1100px;margin:40px auto;padding:24px}
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--neon),var(--accent));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 30px rgba(0,240,255,0.12),0 2px 8px rgba(155,89,255,0.06)}
+    .logo svg{filter:drop-shadow(0 6px 12px rgba(0,240,255,0.12));}
+    h1{font-family:'Orbitron',sans-serif;font-size:22px;margin:0}
+    .tag{font-size:12px;color:var(--muted)}/* hero */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:26px}
+@media(max-width:880px){.hero{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.04);padding:22px;border-radius:14px;backdrop-filter:blur(6px)}
+.lead{font-size:16px;color:#cfefff;line-height:1.45}
+.features{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.feature{display:flex;gap:12px;align-items:flex-start}
+.feature svg{width:36px;height:36px;flex:0 0 36px}
 
-.card-right{position:relative;padding:18px;border-radius:12px;background:linear-gradient(135deg, rgba(0,255,240,0.03), rgba(255,77,255,0.03));border:1px solid rgba(255,255,255,0.03)}
-.status{display:flex;align-items:center;gap:10px}
-.dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(180deg,var(--neon-cyan),var(--neon-pink));box-shadow:0 6px 20px rgba(0,255,240,0.08)}
-.price-big{font-family:Orbitron,monospace;font-size:28px}
-.small-muted{font-size:13px;color:var(--muted)}
+/* right panel */
+.preview{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(155,89,255,0.02));padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.preview .screen{height:260px;border-radius:10px;background:linear-gradient(180deg,#020205, #071019);box-shadow:inset 0 0 40px rgba(0,240,255,0.02);border:1px solid rgba(0,240,255,0.04);position:relative;overflow:hidden}
+.neon-line{position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,240,255,0.04), rgba(155,89,255,0.03));mix-blend-mode:screen}
+.cta-row{display:flex;gap:10px}
+.btn{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,var(--neon),var(--accent));color:#03040a;font-weight:700}
+.btn.ghost{background:transparent;color:var(--neon);border:1px solid rgba(0,240,255,0.12)}
 
-.pricing{padding:30px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.plan{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03)}
-.plan h3{font-family:Orbitron,monospace;margin:0 0 6px}
-.perk{font-size:14px;color:var(--muted);margin:8px 0}
-.btn-ghost{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--neon-cyan);font-weight:600}
-.btn-primary{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#050505;text-decoration:none;font-weight:700}
+/* pricing */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+@media(max-width:880px){.pricing{grid-template-columns:1fr}}
+.price-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:14px}
+.price-card.best{transform:translateY(-6px);box-shadow:0 18px 40px rgba(155,89,255,0.08);border:1px solid rgba(155,89,255,0.22)}
+.price{font-family:'Orbitron',sans-serif;font-size:28px}
+.per{font-size:13px;color:var(--muted)}
+.list{margin:0;padding:0;list-style:none;color:var(--muted)}
 
-.faq{padding:24px 20px}
-details{background:var(--card);padding:14px;border-radius:10px;margin-bottom:10px;border:1px solid rgba(255,255,255,0.02)}
-summary{font-weight:600;cursor:pointer}
+/* footer */
+footer{margin-top:34px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.small{font-size:13px;color:var(--muted)}
 
-footer{padding:24px 20px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+/* subtle neon text */
+.neon-title{font-family:'Orbitron',sans-serif;color:var(--neon);text-shadow:0 0 8px rgba(0,240,255,0.3),0 0 28px rgba(155,89,255,0.06)}
 
-/* responsive */
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr;}
-  .pricing{grid-template-columns:1fr}
-  header{flex-direction:column;align-items:flex-start}
-  nav{width:100%;justify-content:flex-end}
-}
-
-/* neon glow headings */
-.neon{color:var(--neon-cyan);text-shadow:0 0 8px rgba(0,255,240,0.25),0 0 24px rgba(0,255,240,0.06)}
-.accent{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* badges */
+.pill{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:600;font-size:13px;color:var(--muted);display:inline-flex;gap:8px;align-items:center}
 
   </style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <div class="logo">E</div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <!-- simple E monogram -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="white" opacity="0.06"/>
+            <path d="M6 7h8M6 12h8M6 17h6" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>ErenBook <span style="font-size:12px;color:var(--muted);font-weight:600">— Bot inteligente para WhatsApp</span></h1>
+          <div class="tag">Automatiza, modera y entretiene a tus grupos • Respuestas rápidas • Música y utilidades</div>
+        </div>
+      </div>
+      <nav class="pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        ACTIVO
+      </nav>
+    </header><main class="hero">
+  <section class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
       <div>
-        <h1 class="site-title">ErenBook <span class="tag">— Bot de WhatsApp</span></h1>
-        <div class="tag">Automatiza, modera y mejora tu grupo</div>
+        <div class="neon-title" style="font-size:18px">Tu bot, pero mejor.</div>
+        <p class="lead">ErenBook es un bot para WhatsApp pensado para administradores y comunidades que necesitan moderación, entretenimiento y herramientas prácticas en un solo lugar. Fácil de instalar y con soporte para plugins y comandos personalizados.</p>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:12px;color:var(--muted)">Versión</div>
+        <div style="font-weight:700">v1.4.3</div>
       </div>
     </div>
-    <nav>
-      <a href="#features">Características</a>
-      <a href="#planes">Planes</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="cta">Contratar ahora</a>
-    </nav>
-  </header>  <section class="hero">
-    <div class="hero-card">
-      <div class="eyebrow">Bot inteligente • Moderación • Música • Utilidades</div>
-      <h2 class="neon">ErenBook — Tu asistente de WhatsApp</h2>
-      <p class="lead">Automatiza tareas, modera chats, reproduce música, organiza partidas y mucho más. Diseñado para servidores y comunidades que buscan control y estilo.</p><div class="features">
-    <div class="feat">👑 Comandos personalizados</div>
-    <div class="feat">🎵 Reproducción y descargas</div>
-    <div class="feat">🛡️ Moderación automática</div>
-    <div class="feat">🧩 Mini-juegos y scrims</div>
-    <div class="feat">🔒 Roles y permisos</div>
+
+    <div class="features">
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M5 7h14" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <div style="font-weight:600">Moderación avanzada</div>
+          <div style="font-size:13px;color:var(--muted)">Auto-expulsiones, advertencias, filtros de links y palabras.</div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14" stroke="white" stroke-width="1.6" stroke-linecap="round"/><path d="M5 12h14" stroke="white" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div>
+          <div style="font-weight:600">Música y multimedia</div>
+          <div style="font-size:13px;color:var(--muted)">Búsquedas, descargas y envío de audios o videos con calidad optimizada.</div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.6"/></svg>
+        <div>
+          <div style="font-weight:600">Comandos personalizables</div>
+          <div style="font-size:13px;color:var(--muted)">Crea plantillas, respuestas automáticas y flujos para tu comunidad.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-size:13px;color:var(--muted)">Soporte</div>
+        <div style="font-weight:700">soporte@erenbook.dev</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <a class="btn primary" href="#precios">Ver precios</a>
+        <a class="btn ghost" href="#contacto">Contactar</a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="preview card">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div style="font-weight:700">Demo - Interfaz</div>
+      <div style="font-size:12px;color:var(--muted)">Interacción rápida</div>
+    </div>
+    <div class="screen">
+      <div class="neon-line"></div>
+      <!-- mock chat -->
+      <div style="position:absolute;left:16px;top:18px;right:16px;bottom:18px;display:flex;flex-direction:column;gap:10px">
+        <div style="align-self:flex-start;background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:12px;max-width:68%;font-size:13px">Hola 👋 soy <strong>ErenBook</strong>. Escribe <code>.help</code> para ver comandos.</div>
+        <div style="align-self:flex-end;background:linear-gradient(90deg,var(--neon),var(--accent));color:#03040a;padding:8px 12px;border-radius:12px;max-width:66%;font-weight:700">Repro: <em>Viva La Vida</em> — enviado</div>
+        <div style="align-self:flex-start;color:var(--muted);font-size:12px;padding-top:6px">Última respuesta: 12s</div>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+      <div style="font-size:13px;color:var(--muted)">Instalación rápida</div>
+      <div style="font-weight:700">1 minuto</div>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <a class="btn primary" href="#get">Instalar</a>
+      <a class="btn" href="#docs">Documentación</a>
+    </div>
+  </aside>
+</main>
+
+<!-- Pricing -->
+<section id="precios" class="pricing">
+  <div class="price-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Starter</div>
+        <div class="per">Pequeños grupos</div>
+      </div>
+      <div style="text-align:right">
+        <div class="price">$5</div>
+        <div class="per">/ mes</div>
+      </div>
+    </div>
+    <ul class="list">
+      <li>Moderación básica</li>
+      <li>Comandos limitados (50)</li>
+      <li>Soporte por email</li>
+    </ul>
+    <a class="btn primary" href="#contacto">Elegir</a>
   </div>
 
-  <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
-    <a class="btn-primary" href="#planes">Ver planes</a>
-    <a class="btn-ghost" href="#contact">Contactar</a>
+  <div class="price-card best">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Pro</div>
+        <div class="per">Comunidades activas</div>
+      </div>
+      <div style="text-align:right">
+        <div class="price">$15</div>
+        <div class="per">/ mes</div>
+      </div>
+    </div>
+    <ul class="list">
+      <li>Moderación avanzada</li>
+      <li>Comandos ilimitados</li>
+      <li>Integraciones multimedia</li>
+      <li>Actualizaciones prioritarias</li>
+    </ul>
+    <a class="btn primary" href="#contacto">Elegir</a>
   </div>
 
-  <div style="margin-top:22px;font-size:13px;color:var(--muted)">Prueba gratis de 3 días en todos los planes (soporte básico incluido).</div>
-</div>
+  <div class="price-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-weight:700">Premium</div>
+        <div class="per">Servidores y soporte</div>
+      </div>
+      <div style="text-align:right">
+        <div class="price">$45</div>
+        <div class="per">/ mes</div>
+      </div>
+    </div>
+    <ul class="list">
+      <li>Soporte telefónico</li>
+      <li>Instalación y mantenimiento</li>
+      <li>Acceso a módulos beta</li>
+    </ul>
+    <a class="btn primary" href="#contacto">Elegir</a>
+  </div>
+</section>
 
-<aside class="card-right">
-  <div class="status"><div class="dot"></div><div><strong>En línea</strong><div class="small-muted">Última conexión: hace 2 minutos</div></div></div>
-
-  <div style="margin-top:14px">
-    <div class="price-big">Soporte técnico</div>
-    <div class="small-muted">Horas: 09:00 — 00:00 (UTC-6)</div>
+<!-- extras -->
+<section style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  <div class="card">
+    <div style="font-weight:700">Integraciones</div>
+    <p style="color:var(--muted);margin-top:8px">ErenBook soporta: YouTube, Spotify, APIs personalizadas, webhooks y plugins de terceros. Puedes añadir comandos propios o usar nuestro mercado de módulos.</p>
   </div>
 
-  <div style="margin-top:18px;border-radius:10px;padding:12px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.02)">
-    <div style="font-size:13px;color:var(--muted)">Contacto rápido</div>
-    <div style="margin-top:8px;font-weight:700">@erenbook_support</div>
-    <div style="font-size:13px;color:var(--muted);margin-top:6px">Email: hola@erenbook.bot</div>
-  </div>
-</aside>
-
-  </section>  <section id="planes" class="pricing">
-    <div class="plan">
-      <h3 class="accent">Básico</h3>
-      <div style="font-size:22px;font-weight:700;margin-top:6px">$3 / mes</div>
-      <div class="perk">• Moderación básica (filtros, advertencias)</div>
-      <div class="perk">• Comandos principales</div>
-      <div class="perk">• Soporte por chat</div>
-      <div style="margin-top:12px"><a class="btn-ghost" href="#contact">Contratar</a></div>
-    </div><div class="plan" style="border:2px solid rgba(0,255,240,0.12);box-shadow:0 8px 40px rgba(0,255,240,0.03)">
-  <h3 class="accent">Pro</h3>
-  <div style="font-size:22px;font-weight:700;margin-top:6px">$8 / mes</div>
-  <div class="perk">• Todas las funciones del Básico</div>
-  <div class="perk">• Reproducción de música y descargas</div>
-  <div class="perk">• Comandos personalizados</div>
-  <div class="perk">• Prioridad en soporte</div>
-  <div style="margin-top:12px"><a class="btn-primary" href="#contact">Me interesa</a></div>
-</div>
-
-<div class="plan">
-  <h3 class="accent">Premium</h3>
-  <div style="font-size:22px;font-weight:700;margin-top:6px">$20 / mes</div>
-  <div class="perk">• Todo en Pro</div>
-  <div class="perk">• Instancia dedicada</div>
-  <div class="perk">• Integraciones API</div>
-  <div class="perk">• Soporte 24/7</div>
-  <div style="margin-top:12px"><a class="btn-ghost" href="#contact">Contactar ventas</a></div>
-</div>
-
-  </section>  <section id="faq" class="faq">
-    <h3 class="neon">Preguntas frecuentes</h3>
-    <details>
-      <summary>¿Cómo instalo ErenBook en mi grupo?</summary>
-      <div style="margin-top:8px;color:var(--muted)">Debes añadir el número del bot como contacto y luego enviar el comando de invitación desde el grupo. También ofrecemos guía paso a paso tras la contratación.</div>
-    </details>
-    <details>
-      <summary>¿Puedo personalizar comandos?</summary>
-      <div style="margin-top:8px;color:var(--muted)">Sí — en planes Pro y Premium puedes solicitar comandos y respuestas personalizadas por el equipo.</div>
-    </details>
-    <details>
-      <summary>¿Hay reembolso?</summary>
-      <div style="margin-top:8px;color:var(--muted)">Ofrecemos reembolso dentro de los primeros 7 días si el servicio no funciona según lo prometido.</div>
-    </details>
-  </section>  <section id="contact" style="padding:24px 20px">
-    <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
-      <div style="flex:1;min-width:260px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-        <h4 style="margin:0 0 8px">Contáctanos</h4>
-        <p style="margin:0 0 12px;color:var(--muted)">Escríbenos y te damos una demostración gratuita.</p>
-        <form onsubmit="event.preventDefault();alert('Gracias — te contactaremos.');" style="display:flex;flex-direction:column;gap:8px">
-          <input placeholder="Nombre" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit">
-          <input placeholder="Email o WhatsApp" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit">
-          <textarea placeholder="¿Qué necesitas?" rows="3" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit"></textarea>
-          <button class="btn-primary" type="submit" style="border:none;cursor:pointer">Enviar</button>
-        </form>
-      </div><div style="min-width:220px;max-width:360px;">
-    <div style="padding:18px;border-radius:12px;background:linear-gradient(135deg, rgba(0,255,240,0.03), rgba(255,77,255,0.03));border:1px solid rgba(255,255,255,0.03)">
-      <div style="font-size:13px;color:var(--muted)">Soporte</div>
-      <div style="font-weight:700;margin-top:6px">@erenbook_support</div>
-      <div style="color:var(--muted);margin-top:8px">Email: hola@erenbook.bot</div>
-      <div style="margin-top:12px"><a class="btn-ghost" href="mailto:hola@erenbook.bot">Escribir email</a></div>
+  <div class="card" id="contacto">
+    <div style="font-weight:700">Contacto</div>
+    <p style="color:var(--muted);margin-top:8px">¿Preguntas? Escríbenos por email o por WhatsApp. Respuesta en menos de 24 horas en plan Pro.</p>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <a class="btn primary" href="mailto:soporte@erenbook.dev">Email</a>
+      <a class="btn ghost" href="https://wa.me/1234567890">WhatsApp</a>
     </div>
   </div>
-</div>
+</section>
 
-  </section>  <footer>
-    <div>© <strong>ErenBook</strong> 2025 — Diseño neón • Bot para comunidades</div>
-    <div class="small-muted">Hecho con ❤️ — Personaliza esta página cuando quieras</div>
-  </footer></body>
+<footer>
+  <div class="small">© <strong>ErenBook</strong> 2025 — Hecho con <span style="color:var(--neon)">❤</span></div>
+  <div class="small">Versión <strong>v1.4.3</strong></div>
+</footer>
+
+  </div>
+</body>
 </html>
