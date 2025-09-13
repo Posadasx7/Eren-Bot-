@@ -1,188 +1,372 @@
 <!doctype html>
-
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Eren-Bot — Automatiza tu WhatsApp</title>
-  <meta name="description" content="Eren-Bot: solución completa de automatización para WhatsApp. Comandos, ventas, integración y soporte 24/7." />
-  <!-- Tailwind CDN (para prototipo rápido) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <title>Eren Bot · Pagos</title>
+  <meta name="description" content="Eren Bot — pagos vía PayPal y tarjeta (Stripe). Interfaz moderna y profesional.">
+  <!-- PayPal SDK (reemplaza CLIENT_ID por tu client-id de PayPal) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD" defer></script>
+  <!-- Stripe.js (client-only, reemplaza PUBLISHABLE_KEY por tu clave pública de Stripe) -->
+  <script src="https://js.stripe.com/v3/" defer></script>
+
   <style>
-    :root{--accent:#7c3aed;--muted:#94a3b8}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-    .brand-grad{background:linear-gradient(90deg,#6d28d9 0%,#a78bfa 100%)}
-    .glass{backdrop-filter: blur(6px);background-color: rgba(255,255,255,0.04)}
+    :root{
+      --bg:#0f1724;
+      --card:#111827;
+      --muted:#9aa3b2;
+      --accent:#4f46e5;
+      --accent-2:#06b6d4;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; background:
+      linear-gradient(180deg, rgba(20,23,35,1) 0%, rgba(9,10,16,1) 100%);
+      color:#e6eef8; -webkit-font-smoothing:antialiased;
+      padding:28px;
+    }
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; margin-bottom:22px;
+    }
+    .brand{
+      display:flex; gap:14px; align-items:center;
+    }
+    .logo{
+      width:56px; height:56px; border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex; align-items:center; justify-content:center; font-weight:800;
+      box-shadow:0 6px 22px rgba(79,70,229,0.15); font-size:18px;
+    }
+    h1{margin:0; font-size:20px}
+    p.lead{margin:0;color:var(--muted); font-size:13px}
+
+    main{max-width:1100px;margin:0 auto; display:grid; gap:20px; grid-template-columns: 1fr 360px;}
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius); padding:18px; box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    /* Left column */
+    .hero{grid-column:1/2}
+    .hero .title{font-size:22px; margin-bottom:8px}
+    .hero .info{color:var(--muted); margin-bottom:16px; line-height:1.45}
+
+    /* Pricing cards row */
+    .pricing{
+      display:flex; gap:14px; flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .card-price{
+      background:var(--card); border-radius:12px; padding:18px; width:220px;
+      display:flex; flex-direction:column; gap:10px; align-items:flex-start;
+      box-shadow: 0 8px 20px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .card-price .logo-small{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700}
+    .card-price h3{margin:0;font-size:16px}
+    .card-price .price{font-size:20px; font-weight:700}
+    .card-price .desc{color:var(--muted); font-size:13px}
+
+    /* Right column (payment box) */
+    .checkout{grid-column:2/3; position:sticky; top:22px;}
+    .paybox{display:flex; flex-direction:column; gap:12px}
+    .paybox .method{
+      display:flex; gap:10px; align-items:center; justify-content:space-between;
+      padding:12px;border-radius:12px;background:var(--glass); border:1px solid rgba(255,255,255,0.02);
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; border:0; cursor:pointer;
+      font-weight:600; font-size:14px;
+    }
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06); color:var(--muted);font-weight:600}
+    .btn.paypal{background:#FFC439;color:#111;border:0}
+    .note{font-size:12px;color:var(--muted)}
+
+    /* Modal for card */
+    .modal-backdrop{
+      position:fixed; inset:0; background:rgba(3,7,18,0.6); display:none; align-items:center; justify-content:center;
+      z-index:1200; padding:24px;
+    }
+    .modal{
+      width:520px; max-width:96%; background:linear-gradient(180deg, #0b1220, #071025); border-radius:14px; padding:20px;
+      border:1px solid rgba(255,255,255,0.03); box-shadow:0 30px 80px rgba(2,6,23,0.7);
+    }
+    .modal h3{margin:0 0 8px 0}
+    .form-row{display:flex; gap:8px; margin-bottom:8px}
+    .input, .stripe-element{
+      width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.04);
+      background:rgba(255,255,255,0.01); color:inherit; font-size:14px;
+    }
+    .modal .actions{display:flex; gap:10px; justify-content:flex-end; margin-top:10px}
+    footer{grid-column:1/3; color:var(--muted); font-size:13px; margin-top:8px; text-align:center}
+
+    @media (max-width:900px){
+      main{grid-template-columns: 1fr; padding-bottom:80px}
+      .checkout{position:static}
+    }
   </style>
 </head>
-<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-slate-100 min-h-screen">
-  <header class="max-w-6xl mx-auto p-6 flex items-center justify-between">
-    <a href="https://eren-bot.com" class="flex items-center gap-4 no-underline">
-      <div class="w-12 h-12 rounded-lg brand-grad flex items-center justify-center shadow-lg">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 7v6c0 5 4 9 9 9s9-4 9-9V7l-9-5z"/></svg>
-      </div>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">EB</div>
       <div>
-        <h1 class="text-xl font-bold">Eren-Bot</h1>
-        <p class="text-sm text-slate-300">Automatización inteligente para WhatsApp</p>
+        <h1>Eren Bot · Pagos</h1>
+        <p class="lead">Acepta pagos rápidos vía PayPal y tarjeta. Diseño profesional, claro y seguro.</p>
       </div>
-    </a>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="#features" class="hover:text-white">Características</a>
-      <a href="#precios" class="hover:text-white">Precios</a>
-      <a href="#pagos" class="hover:text-white">Pagos</a>
-      <a href="#contacto" class="px-4 py-2 rounded-md bg-white/6 hover:bg-white/10">Contacto</a>
-    </nav>
-  </header>  <main class="max-w-6xl mx-auto px-6">
-    <!-- HERO -->
-    <section class="grid md:grid-cols-2 gap-8 items-center py-12">
-      <div>
-        <h2 class="text-4xl font-extrabold leading-tight tracking-tight">Convierte tu WhatsApp en una máquina de productividad</h2>
-        <p class="mt-4 text-slate-300">Eren-Bot te ayuda a moderar chats, vender productos, crear menús interactivos, respuestas automáticas y acciones programadas — todo con comandos sencillos y personalizables.</p>
-        <div class="mt-6 flex gap-4">
-          <a href="#precios" class="px-5 py-3 rounded-lg glass border border-white/6">Ver planes</a>
-          <a href="#contacto" class="px-5 py-3 rounded-lg bg-indigo-600 shadow-lg">Solicitar demo</a>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:13px;color:var(--muted)">Estado: En línea</div>
+      <div style="font-weight:700;color:var(--accent);font-size:13px">API Key: fc-••••••••••</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel hero">
+      <div class="title">Planes y límites</div>
+      <div class="info">Cuentas normales: máximo <strong>5MB</strong> por archivo. Con <strong>Deluxe</strong> subes hasta <strong>100MB</strong> por archivo ($2.50/mes). Escoge una opción y paga con PayPal o tarjeta.</div>
+
+      <div class="pricing" style="margin-top:14px">
+        <div class="card-price">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="logo-small">EB</div>
+            <div>
+              <h3>50 archivos</h3>
+              <div class="desc">Aumenta tu capacidad</div>
+            </div>
+          </div>
+          <div class="price">$1.37</div>
+          <button class="btn" onclick="startCheckout('1.37','USD','50 archivos')">Pagar</button>
         </div>
-        <p class="mt-4 text-xs text-slate-500">Dominio de ejemplo: <a href="https://eren-bot.com" class="underline">eren-bot.com</a> (regístralo por separado)</p>
-      </div>
-      <div class="p-6 rounded-2xl glass border border-white/6">
-        <div class="bg-gradient-to-r from-indigo-900 to-indigo-700 p-4 rounded-xl">
-          <pre class="text-sm font-mono text-slate-100">Ejemplo de comando: <span class="text-white">${global.prefix}menu</span>
-Comandos: info, ventas, stickers, rpg, descargas</pre>
+
+        <div class="card-price">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="logo-small">EB</div>
+            <div>
+              <h3>120 archivos</h3>
+              <div class="desc">Mejor paquete</div>
+            </div>
+          </div>
+          <div class="price">$2.45</div>
+          <button class="btn" onclick="startCheckout('2.45','USD','120 archivos')">Pagar</button>
+        </div>
+
+        <div class="card-price">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div class="logo-small">EB</div>
+            <div>
+              <h3>250 archivos</h3>
+              <div class="desc">Paquete Premium</div>
+            </div>
+          </div>
+          <div class="price">$3.55</div>
+          <button class="btn" onclick="startCheckout('3.55','USD','250 archivos')">Pagar</button>
         </div>
       </div>
-    </section><!-- FEATURES -->
-<section id="features" class="py-12">
-  <h3 class="text-2xl font-bold">Características principales</h3>
-  <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="font-semibold">Menús dinámicos</h4>
-      <p class="text-sm text-slate-300 mt-2">Menús interactivos, botones y categorías personalizables.</p>
-    </div>
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="font-semibold">Automatizaciones</h4>
-      <p class="text-sm text-slate-300 mt-2">Respuestas automáticas, filtros, y acciones programadas.</p>
-    </div>
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="font-semibold">Pagos y ventas</h4>
-      <p class="text-sm text-slate-300 mt-2">Integra pagos (Paypal, tarjetas) y administra órdenes desde el chat.</p>
-    </div>
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="font-semibold">RPG & Juegos</h4>
-      <p class="text-sm text-slate-300 mt-2">Minijuegos, economía y sistemas de verificación para tu comunidad.</p>
-    </div>
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="font-semibold">Soporte 24/7</h4>
-      <p class="text-sm text-slate-300 mt-2">Guías, instalación y soporte para personalizar Eren-Bot.</p>
-    </div>
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="font-semibold">Seguridad</h4>
-      <p class="text-sm text-slate-300 mt-2">Opciones de permisos, admins y backup de configuraciones.</p>
-    </div>
-  </div>
-</section>
 
-<!-- PRICING -->
-<section id="precios" class="py-12">
-  <h3 class="text-2xl font-bold">Planes y precios</h3>
-  <p class="text-slate-400 mt-2">Precios ejemplo en USD. Pagos recurrentes mensuales o anual con descuento.</p>
+      <div style="margin-top:12px" class="note">Al pagar, recibirás confirmación en WhatsApp y un enlace para cargar los archivos directo al CDN de Eren Bot.</div>
+    </section>
 
-  <div class="mt-8 grid md:grid-cols-3 gap-6">
-    <!-- Basic -->
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="text-lg font-semibold">Básico</h4>
-      <p class="mt-4 text-3xl font-bold">$9<span class="text-sm font-medium">/mes</span></p>
-      <ul class="mt-4 text-sm text-slate-300 space-y-2">
-        <li>✅ Comandos esenciales</li>
-        <li>✅ Soporte vía email</li>
-        <li>✅ 500 mensajes/mes</li>
-      </ul>
-      <div class="mt-6">
-        <a href="#" class="block text-center px-4 py-2 rounded-md bg-white/8">Comprar con PayPal</a>
+    <aside class="panel checkout">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <div>
+          <div style="font-weight:700">Caja de pagos</div>
+          <div class="note">Selecciona un método</div>
+        </div>
+        <div style="text-align:right;color:var(--muted);font-size:13px">Moneda: USD</div>
       </div>
-    </div>
 
-    <!-- Pro -->
-    <div class="p-6 rounded-xl border-2 border-indigo-600 bg-gradient-to-br from-indigo-800/60 to-indigo-900/40">
-      <h4 class="text-lg font-semibold">Pro</h4>
-      <p class="mt-4 text-3xl font-bold">$29<span class="text-sm font-medium">/mes</span></p>
-      <ul class="mt-4 text-sm text-slate-100 space-y-2">
-        <li>✅ Todo de Básico</li>
-        <li>✅ Integración con tiendas</li>
-        <li>✅ 5,000 mensajes/mes</li>
-        <li>✅ Plugins adicionales</li>
-      </ul>
-      <div class="mt-6 flex gap-3">
-        <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-white/8">Pagar con PayPal</a>
-        <a href="#" class="flex-1 text-center px-4 py-2 rounded-md glass border border-white/10">Pagar con Tarjeta</a>
-      </div>
-    </div>
+      <div class="paybox">
+        <div class="method">
+          <div>
+            <div style="font-weight:700">PayPal</div>
+            <div class="note">Paga usando tu cuenta PayPal o tarjeta.</div>
+          </div>
+          <div>
+            <div id="paypal-button-container"></div>
+          </div>
+        </div>
 
-    <!-- Enterprise -->
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <h4 class="text-lg font-semibold">Enterprise</h4>
-      <p class="mt-4 text-3xl font-bold">$99<span class="text-sm font-medium">/mes</span></p>
-      <ul class="mt-4 text-sm text-slate-300 space-y-2">
-        <li>✅ Soporte prioritario</li>
-        <li>✅ Límite de mensajes alto</li>
-        <li>✅ Integraciones personalizadas</li>
-      </ul>
-      <div class="mt-6">
-        <a href="#" class="block text-center px-4 py-2 rounded-md bg-white/8">Contactar ventas</a>
+        <div class="method">
+          <div>
+            <div style="font-weight:700">Tarjeta (Stripe)</div>
+            <div class="note">Pago con tarjeta segura. No guardamos datos sensibles.</div>
+          </div>
+          <div>
+            <button class="btn ghost" id="card-pay-btn">Pagar con tarjeta</button>
+          </div>
+        </div>
+
+        <div style="padding-top:10px" class="note">¿Necesitas factura o pago recurrente? Contacta al soporte por WhatsApp: <strong>+504 9xxxxxxxx</strong></div>
       </div>
+    </aside>
+
+    <footer class="panel">
+      <div>© <strong>Eren Bot</strong> · UI designed for fast, secure payments. Requiere backend para completar transacciones (PayPal / Stripe).</div>
+    </footer>
+  </main>
+
+  <!-- Modal: Formulario de tarjeta (Stripe Elements) -->
+  <div id="modal" class="modal-backdrop" role="dialog" aria-hidden="true">
+    <div class="modal" role="document">
+      <h3>Pagar con tarjeta</h3>
+      <div class="note">Introduce los datos de tu tarjeta de forma segura.</div>
+
+      <div style="margin-top:12px">
+        <label class="note">Titular</label>
+        <input id="card-name" class="input" placeholder="Nombre en la tarjeta">
+      </div>
+
+      <div style="margin-top:10px">
+        <label class="note">Información de tarjeta</label>
+        <div id="card-element" class="stripe-element" style="padding:12px;background:transparent;border-radius:8px"></div>
+        <div id="card-errors" style="color:#ffb4b4;margin-top:8px"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="modal-cancel">Cancelar</button>
+        <button class="btn" id="modal-pay">Pagar</button>
+      </div>
+      <div id="payment-result" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
     </div>
   </div>
 
-  <p class="mt-4 text-xs text-slate-500">* Precios de ejemplo. Para procesar pagos reales se muestran botones de muestra que puedes enlazar a tus cuentas de PayPal o Stripe.</p>
-</section>
+  <script>
+    /*************************************************************************
+     * NOTAS: Reemplaza los placeholders:
+     *  - YOUR_PAYPAL_CLIENT_ID  -> Client ID de PayPal
+     *  - YOUR_STRIPE_PUBLISHABLE_KEY -> Clave pública de Stripe
+     *
+     * Debes implementar en tu servidor:
+     *  1) /create-paypal-transaction  -> crea orden con la API de PayPal y devuelve orderID
+     *  2) /capture-paypal-order      -> captura orden (webhook o desde cliente)
+     *  3) /create-payment-intent     -> para Stripe: crea PaymentIntent y devuelve clientSecret
+     *
+     * Los endpoints deben estar protegidos y ejecutarse en HTTPS.
+     *************************************************************************/
 
-<!-- PAYMENT METHODS -->
-<section id="pagos" class="py-12">
-  <h3 class="text-2xl font-bold">Métodos de pago</h3>
-  <div class="mt-6 flex flex-col sm:flex-row items-center gap-6">
-    <div class="p-6 rounded-xl glass border border-white/6 flex-1">
-      <h4 class="font-semibold">PayPal</h4>
-      <p class="text-sm text-slate-300 mt-2">Aceptamos pagos con PayPal. Puedes usar enlaces de "Buy Now" o botones de suscripción desde tu cuenta PayPal.</p>
-      <div class="mt-4">
-        <a href="#" class="inline-block px-4 py-2 rounded-md bg-white/8">Conectar PayPal</a>
-      </div>
-    </div>
+    // Variables globales para la compra actual (se rellenan al presionar "Pagar" en un paquete)
+    let activeAmount = '1.37';
+    let activeCurrency = 'USD';
+    let activeDescription = '50 archivos';
 
-    <div class="p-6 rounded-xl glass border border-white/6 flex-1">
-      <h4 class="font-semibold">Tarjeta de crédito / débito</h4>
-      <p class="text-sm text-slate-300 mt-2">Integra procesadores como Stripe, MercadoPago, o tu pasarela preferida para aceptar Visa, MasterCard y otras.</p>
-      <div class="mt-4 flex gap-3 items-center">
-        <!-- SVG icons -->
-        <svg width="48" height="30" viewBox="0 0 48 30" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="30" rx="4" fill="#fff" opacity="0.06"/><text x="6" y="20" fill="#fff" font-size="12" font-family="Inter, Arial">VISA</text></svg>
-        <svg width="48" height="30" viewBox="0 0 48 30" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="30" rx="4" fill="#fff" opacity="0.06"/><text x="4" y="20" fill="#fff" font-size="12" font-family="Inter, Arial">MC</text></svg>
-        <a href="#" class="px-4 py-2 rounded-md bg-white/8">Configurar pasarela</a>
-      </div>
-    </div>
-  </div>
-</section>
+    function startCheckout(amount, currency, description){
+      activeAmount = amount;
+      activeCurrency = currency;
+      activeDescription = description;
+      // Abrir modal de tarjeta o iniciar PayPal flow según el botón que presione el usuario
+      // Aquí simplemente mostramos modal para tarjeta (si se quiere autoabrir paypal, se podría)
+      document.getElementById('modal').style.display = 'flex';
+    }
 
-<!-- CONTACT -->
-<section id="contacto" class="py-12">
-  <h3 class="text-2xl font-bold">Contacto</h3>
-  <p class="text-slate-400 mt-2">¿Quieres una demo o un plan a medida? Escríbenos:</p>
-  <div class="mt-4 grid sm:grid-cols-2 gap-6">
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <p><strong>Email:</strong> ventas@eren-bot.com</p>
-      <p class="mt-2"><strong>WhatsApp:</strong> +123 456 7890</p>
-    </div>
-    <div class="p-6 rounded-xl glass border border-white/6">
-      <p class="text-sm text-slate-300">Si quieres que enlaza los botones de pago con tus cuentas, indícame tu plataforma preferida (PayPal, Stripe, MercadoPago) y te doy los snippets listos para pegar.</p>
-    </div>
-  </div>
-</section>
+    // ========== PayPal Buttons ==========
+    // El SDK de PayPal debe cargarse con tu client-id en el <script> del head.
+    // Usamos createOrder que llama a tu servidor para crear la orden de forma segura.
+    window.paypal && paypal.Buttons && paypal.Buttons({
+      style:{layout:'vertical', color:'gold', shape:'rect', label:'paypal'},
+      createOrder: function(data, actions){
+        // Llamar al servidor para crear la orden y devolver el orderID
+        return fetch('/create-paypal-transaction', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ amount: activeAmount, currency: activeCurrency, description: activeDescription })
+        }).then(res => res.json())
+          .then(order => order.id); // { id: 'ORDERID_FROM_SERVER' }
+      },
+      onApprove: function(data, actions){
+        // Capturar la orden en el servidor o aquí
+        return fetch('/capture-paypal-order', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({ orderID: data.orderID })
+        }).then(res => res.json())
+          .then(info => {
+            alert('Pago completado. Gracias — ' + (info.id||''));
+            // Aquí podrías notificar al bot por webhook para entregar el pack
+          });
+      },
+      onError: function(err){
+        console.error('PayPal error', err);
+        alert('Error en PayPal: ' + err);
+      }
+    }).render('#paypal-button-container');
 
-  </main>  <footer class="mt-12 py-8 border-t border-white/6">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-slate-400">
-      <span>© <strong>Eren-Bot</strong> — 2025</span>
-      <span>Diseñado por ti • Dominio ejemplo: eren-bot.com</span>
-    </div>
-  </footer>
+    // ========== Stripe Elements (Tarjeta) ==========
+    const stripe = Stripe('YOUR_STRIPE_PUBLISHABLE_KEY'); // reemplaza
+    let elements, cardElement;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      elements = stripe.elements();
+      const style = {
+        base: {
+          color: "#e6eef8",
+          fontSize: '14px',
+          '::placeholder': { color: '#8b97a6' },
+        },
+        invalid: { color: '#ffb4b4' }
+      };
+      cardElement = elements.create('card', { style, hidePostalCode: false });
+      cardElement.mount('#card-element');
+
+      document.getElementById('card-pay-btn').addEventListener('click', () => {
+        // Abrir modal
+        document.getElementById('modal').style.display = 'flex';
+        document.getElementById('payment-result').textContent = `Total: ${activeCurrency} ${activeAmount} — ${activeDescription}`;
+      });
+
+      document.getElementById('modal-cancel').addEventListener('click', () => {
+        document.getElementById('modal').style.display = 'none';
+        document.getElementById('card-errors').textContent = '';
+      });
+
+      document.getElementById('modal-pay').addEventListener('click', async () => {
+        const name = document.getElementById('card-name').value || 'Cliente';
+        document.getElementById('modal-pay').disabled = true;
+        document.getElementById('payment-result').textContent = 'Procesando...';
+
+        try {
+          // 1) Solicita a tu servidor un clientSecret para este pago
+          const res = await fetch('/create-payment-intent', {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ amount: Math.round(parseFloat(activeAmount) * 100), currency: activeCurrency, description: activeDescription })
+          });
+          const data = await res.json(); // { clientSecret: '...' }
+          if (!data.clientSecret) throw new Error('No client secret recibido');
+
+          // 2) Confirma el pago con Stripe
+          const result = await stripe.confirmCardPayment(data.clientSecret, {
+            payment_method: {
+              card: cardElement,
+              billing_details: { name }
+            }
+          });
+
+          if (result.error){
+            document.getElementById('card-errors').textContent = result.error.message;
+            document.getElementById('payment-result').textContent = '';
+            document.getElementById('modal-pay').disabled = false;
+          } else if (result.paymentIntent && result.paymentIntent.status === 'succeeded'){
+            document.getElementById('payment-result').textContent = 'Pago completado. ¡Gracias!';
+            // Notifica a tu backend/bot para entregar el pack (webhook o endpoint)
+            await fetch('/post-payment-webhook', {
+              method:'POST', headers:{'Content-Type':'application/json'},
+              body: JSON.stringify({ paymentIntentId: result.paymentIntent.id, description: activeDescription })
+            });
+            setTimeout(()=> document.getElementById('modal').style.display='none', 1100);
+          }
+        } catch(err){
+          console.error(err);
+          document.getElementById('card-errors').textContent = err.message || 'Error inesperado';
+          document.getElementById('modal-pay').disabled = false;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
