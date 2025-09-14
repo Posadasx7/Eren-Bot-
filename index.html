@@ -1,148 +1,231 @@
-// ErenBotLanding.jsx // Página React (single-file) para vender la voz "Eren Bot". // Requisitos: TailwindCSS en el proyecto (o puedes compilar este JSX con Vite/Next.js + Tailwind). // Cómo usar: Copia este archivo a tu proyecto React y rútalo en App.jsx.
+<!doctype html>
 
-import React, { useState } from 'react';
-
-export default function ErenBotLanding() { const [email, setEmail] = useState(''); const [showCheckout, setShowCheckout] = useState(false); const [selectedPlan, setSelectedPlan] = useState(null);
-
-const plans = [ { id: 'basic', title: 'Paquete Básico', price: '9.99', desc: '1 voz personalizada + licencia para uso no comercial' }, { id: 'pro', title: 'Paquete Pro', price: '29.99', desc: '5 voces / 100k chars + licencia comercial' }, { id: 'premium', title: 'Premium', price: '99.99', desc: 'Voz ilimitada + soporte y SLA' } ];
-
-function handleBuy(plan) { setSelectedPlan(plan); setShowCheckout(true); }
-
-function handleCheckoutSubmit(e) { e.preventDefault(); // Aquí deberías integrar Stripe/PayPal o tu backend. alert('Simulación de pago: ' + selectedPlan.title + '\nEmail: ' + email); // reset setShowCheckout(false); setEmail(''); setSelectedPlan(null); }
-
-return ( <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900 font-sans"> <header className="max-w-5xl mx-auto py-12 px-6 flex items-center justify-between"> <div className="flex items-center gap-4"> <div className="w-14 h-14 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-lg font-bold">EB</div> <div> <h1 className="text-2xl font-extrabold">Eren Bot — Tu voz IA profesional</h1> <p className="text-sm text-gray-600">Vende y licencia tu voz para narración, anuncios, videojuegos y más.</p> </div> </div> <nav className="hidden md:flex items-center gap-6 text-sm"> <a href="#features" className="hover:underline">Características</a> <a href="#pricing" className="hover:underline">Precios</a> <a href="#demo" className="hover:underline">Demo</a> <a href="#contact" className="px-4 py-2 bg-indigo-600 text-white rounded-md">Contacto</a> </nav> </header>
-
-<main className="max-w-5xl mx-auto px-6">
-    {/* HERO */}
-    <section className="grid md:grid-cols-2 gap-8 items-center py-12">
-      <div>
-        <h2 className="text-4xl font-extrabold leading-tight">La voz que conecta con tu público — Eren Bot</h2>
-        <p className="mt-4 text-gray-600">Convierte texto en locuciones profesionales con timbre natural. Ideal para anuncios, podcasts, personajes y asistentes virtuales.</p>
-
-        <div className="mt-6 flex gap-4">
-          <button onClick={() => document.getElementById('demo-player')?.play()} className="px-5 py-3 bg-indigo-600 text-white rounded-md">Escuchar demo</button>
-          <button onClick={() => document.getElementById('demo-player')?.pause()} className="px-5 py-3 border rounded-md">Pausar</button>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EREN‑BOT — Voz Profesional IA | Compra tu voz</title>
+  <meta name="description" content="Compra la voz comercial EREN‑BOT: locuciones, personajes, mensaje de IVR, audiobooks y más. Calidad profesional y licencias claras." />
+  <style>
+    :root{--accent:#0ea5a4;--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,#071024 0%, #071a2a 100%); color:#e6eef6; -webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;font-weight:800;color:#042024}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{color:var(--muted);margin:6px 0 18px}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .feat{padding:12px;border-radius:8px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+    .price-list{display:flex;flex-direction:column;gap:12px}
+    .price{display:flex;justify-content:space-between;align-items:center;padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,0,0,0.03));border:1px solid rgba(255,255,255,0.03)}
+    .btn{background:var(--accent);color:#022;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:700}
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:var(--muted)}
+    main section{margin-top:28px}
+    h2{margin:0 0 8px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    footer{margin-top:36px;padding:18px;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:0.9rem}
+    .terms{background:rgba(255,255,255,0.02);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .audio-sample{display:flex;gap:8px;align-items:center}
+    audio{width:100%}
+    nav a{color:var(--muted);text-decoration:none;margin-left:12px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} .features{grid-template-columns:1fr} .brand h1{font-size:1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">EB</div>
+        <div>
+          <h1>EREN‑BOT — Voz Comercial IA</h1>
+          <p class="lead">Vende locuciones, mensajes telefónicos, audiolibros y voces para personajes con calidad profesional y entregas rápidas.</p>
         </div>
+      </div>
+      <nav style="margin-left:auto">
+        <a href="#precios">Precios</a>
+        <a href="#caracteristicas">Características</a>
+        <a href="#condiciones">Condiciones</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header><section class="hero" style="margin-top:18px">
+  <div>
+    <div class="card">
+      <h2>Obtén la voz EREN‑BOT</h2>
+      <p class="lead">Perfecta para comerciales, anuncios, narraciones, IVR y personajes. Licencias claras y soporte incluido.</p>
 
-        <ul className="mt-6 grid grid-cols-2 gap-2 text-sm text-gray-600">
-          <li>✅ Timbre natural</li>
-          <li>✅ Entonación ajustable</li>
-          <li>✅ Licencias comerciales</li>
-          <li>✅ Entrega rápida</li>
-        </ul>
-
-        <div className="mt-8 flex gap-3 items-center">
-          <input className="px-4 py-2 border rounded-md" placeholder="Tu email para demo / cotización" value={email} onChange={e => setEmail(e.target.value)} />
-          <button className="px-4 py-2 bg-emerald-500 text-white rounded-md" onClick={() => alert('Gracias! Te contactaremos pronto al ' + email)}>Solicitar cotización</button>
+      <div class="features">
+        <div class="feat">
+          <strong>Calidad profesional</strong>
+          <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">48 kHz, tono natural y ajuste de emoción.</div>
+        </div>
+        <div class="feat">
+          <strong>Formatos</strong>
+          <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">MP3, WAV, WAV 48k, y stems por pedido.</div>
+        </div>
+        <div class="feat">
+          <strong>Entrega</strong>
+          <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">24‑72 horas según paquete y revisión.</div>
+        </div>
+        <div class="feat">
+          <strong>Soporte</strong>
+          <div style="color:var(--muted);font-size:0.95rem;margin-top:6px">Revisiones, ayuda técnica y guía de integración.</div>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-2xl shadow-md">
-        <div className="mb-4">
-          <h3 className="text-lg font-semibold">Demo rápido</h3>
-          <p className="text-sm text-gray-500">Texto de ejemplo convertido a voz por Eren Bot.</p>
+      <div style="margin-top:14px">
+        <h3>Prueba de audio</h3>
+        <div class="audio-sample card" style="padding:12px">
+          <!-- Reemplaza los src con tus muestras reales -->
+          <audio controls preload="none">
+            <source src="sample-erenbot-demo.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+          </audio>
         </div>
-
-        <audio id="demo-player" controls className="w-full">
-          <source src="https://cdn.simpleplaceholder.net/audio/voice-sample-1.mp3" type="audio/mpeg" />
-          Tu navegador no soporta audio.
-        </audio>
-
-        <div className="mt-4 text-sm text-gray-600">Si quieres un demo personalizado con tu guion, solicita una muestra a través del formulario.</div>
+        <p style="color:var(--muted);font-size:0.95rem;margin-top:10px">¿Quieres una muestra personalizada? <button class="ghost" onclick="window.location='#contacto'">Pedir demo</button></p>
       </div>
-    </section>
 
-    {/* FEATURES */}
-    <section id="features" className="py-12">
-      <h3 className="text-2xl font-bold">¿Por qué elegir Eren Bot?</h3>
-      <div className="mt-6 grid md:grid-cols-3 gap-6">
-        <div className="p-6 bg-white rounded-xl shadow-sm">
-          <h4 className="font-semibold">Calidad humana</h4>
-          <p className="mt-2 text-sm text-gray-600">Gran naturalidad y control de entonación.</p>
-        </div>
-        <div className="p-6 bg-white rounded-xl shadow-sm">
-          <h4 className="font-semibold">Licencias claras</h4>
-          <p className="mt-2 text-sm text-gray-600">Opciones para uso personal y comercial.</p>
-        </div>
-        <div className="p-6 bg-white rounded-xl shadow-sm">
-          <h4 className="font-semibold">Entrega rápida</h4>
-          <p className="mt-2 text-sm text-gray-600">Archivos listos para usar en 24–72 horas.</p>
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
 
-    {/* PRICING */}
-    <section id="pricing" className="py-12">
-      <h3 className="text-2xl font-bold">Planes</h3>
-      <div className="mt-6 grid md:grid-cols-3 gap-6">
-        {plans.map(plan => (
-          <div key={plan.id} className="p-6 bg-white rounded-xl shadow-sm flex flex-col justify-between">
-            <div>
-              <h4 className="text-lg font-semibold">{plan.title}</h4>
-              <p className="mt-2 text-gray-600 text-sm">{plan.desc}</p>
-            </div>
-            <div className="mt-6 flex items-end justify-between">
-              <div>
-                <div className="text-2xl font-extrabold">${plan.price}</div>
-                <div className="text-xs text-gray-500">pago único</div>
-              </div>
-              <div>
-                <button onClick={() => handleBuy(plan)} className="px-4 py-2 bg-indigo-600 text-white rounded-md">Comprar</button>
-              </div>
-            </div>
+  <aside>
+    <div class="card">
+      <h3 id="precios">Planes & Precios</h3>
+      <div class="price-list">
+        <div class="price">
+          <div>
+            <strong>Starter</strong>
+            <div style="color:var(--muted);font-size:0.9rem">1 minuto de audio / Sin exclusividad</div>
           </div>
-        ))}
-      </div>
-    </section>
-
-    {/* FAQ */}
-    <section id="faq" className="py-12">
-      <h3 className="text-2xl font-bold">Preguntas frecuentes</h3>
-      <div className="mt-6 space-y-4 text-sm text-gray-700">
-        <details className="p-4 bg-white rounded-lg shadow-sm">
-          <summary className="font-semibold">¿Puedo usar la voz en proyectos comerciales?</summary>
-          <p className="mt-2 text-gray-600">Sí, si compras la licencia Pro o Premium. Los términos específicos se definen en el contrato.</p>
-        </details>
-        <details className="p-4 bg-white rounded-lg shadow-sm">
-          <summary className="font-semibold">¿Cómo solicito cambios o nuevas entonaciones?</summary>
-          <p className="mt-2 text-gray-600">Incluimos hasta 2 rondas de revisión en los planes Pro y Premium.</p>
-        </details>
-      </div>
-    </section>
-
-    {/* CONTACT / FOOTER */}
-    <section id="contact" className="py-12">
-      <h3 className="text-2xl font-bold">Contacto & Solicitud de demo</h3>
-      <form onSubmit={(e) => { e.preventDefault(); alert('Gracias! Nos pondremos en contacto: ' + e.target.email.value); }} className="mt-6 grid md:grid-cols-2 gap-4">
-        <input name="name" placeholder="Nombre" className="px-4 py-3 border rounded-md" required />
-        <input name="email" placeholder="Email" className="px-4 py-3 border rounded-md" required />
-        <textarea name="message" placeholder="Mensaje / guion para demo" className="md:col-span-2 px-4 py-3 border rounded-md" rows={4}></textarea>
-        <button type="submit" className="md:col-span-2 px-6 py-3 bg-indigo-600 text-white rounded-md">Solicitar demo gratis</button>
-      </form>
-
-      <footer className="mt-10 text-sm text-gray-500">© {new Date().getFullYear()} Eren Bot — Todos los derechos reservados.</footer>
-    </section>
-  </main>
-
-  {/* SIMPLE CHECKOUT MODAL (SIMULACIÓN) */}
-  {showCheckout && selectedPlan && (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl w-full max-w-md p-6">
-        <h4 className="text-lg font-bold">Comprar — {selectedPlan.title}</h4>
-        <p className="mt-2 text-sm text-gray-600">Precio: ${selectedPlan.price} (simulación)</p>
-        <form onSubmit={handleCheckoutSubmit} className="mt-4 space-y-3">
-          <input type="email" required placeholder="Tu email" className="w-full px-4 py-2 border rounded-md" value={email} onChange={e => setEmail(e.target.value)} />
-          <div className="flex gap-2">
-            <button type="button" onClick={() => setShowCheckout(false)} className="px-4 py-2 border rounded-md">Cancelar</button>
-            <button type="submit" className="px-4 py-2 bg-emerald-500 text-white rounded-md">Pagar (simulación)</button>
+          <div style="text-align:right">
+            <div style="font-weight:800;font-size:1.1rem">$15</div>
+            <div style="font-size:0.85rem;color:var(--muted)">Pago único</div>
+            <div style="margin-top:8px"><button class="btn" onclick="comprar('Starter')">Comprar</button></div>
           </div>
-        </form>
+        </div>
 
-        <div className="mt-4 text-xs text-gray-500">Integración real de pagos: conecta Stripe/PayPal en tu backend y redirige/crea sesiones aquí.</div>
+        <div class="price">
+          <div>
+            <strong>Pro</strong>
+            <div style="color:var(--muted);font-size:0.9rem">5 minutos de audio / Uso comercial</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800;font-size:1.1rem">$60</div>
+            <div style="font-size:0.85rem;color:var(--muted)">Pago único</div>
+            <div style="margin-top:8px"><button class="btn" onclick="comprar('Pro')">Comprar</button></div>
+          </div>
+        </div>
+
+        <div class="price">
+          <div>
+            <strong>Enterprise</strong>
+            <div style="color:var(--muted);font-size:0.9rem">Licencia exclusiva / Integración y SLA</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:800;font-size:1.1rem">Desde $500</div>
+            <div style="font-size:0.85rem;color:var(--muted)">Negociable</div>
+            <div style="margin-top:8px"><button class="btn" onclick="comprar('Enterprise')">Contactar</button></div>
+          </div>
+        </div>
+
+      </div>
+
+      <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:14px 0">
+      <div style="font-size:0.9rem;color:var(--muted)"><strong>Formas de pago:</strong> PayPal, Transferencia bancaria, Stripe. Facturación disponible bajo pedido.</div>
+    </div>
+  </aside>
+</section>
+
+<main>
+  <section id="caracteristicas">
+    <h2>Características</h2>
+    <div class="grid-3" style="margin-top:10px">
+      <div class="card">
+        <h3>Tono y emoción</h3>
+        <p style="color:var(--muted)">Ajuste de intensidad emocional, pausas naturales y pronunciación personalizada.</p>
+      </div>
+      <div class="card">
+        <h3>Integración</h3>
+        <p style="color:var(--muted)">SDKs y guía para integrar en apps, IVR, juegos y más. Entregamos WAV y MP3 listos para producción.</p>
+      </div>
+      <div class="card">
+        <h3>Privacidad</h3>
+        <p style="color:var(--muted)">Los datos de entrenamiento no incluyen información sensible de clientes. Los archivos que nos envíes serán eliminados tras la entrega si así lo solicitas.</p>
       </div>
     </div>
-  )}
-</div>
+  </section>
 
-); }
+  <section id="condiciones">
+    <h2>Condiciones del servicio</h2>
+    <div class="terms" style="margin-top:10px">
+      <ul>
+        <li>Entrega estándar: 24‑72 horas según paquete y carga de trabajo.</li>
+        <li>Revisiones: Cada paquete incluye 2 revisiones menores; revisiones adicionales con costo extra.</li>
+        <li>Uso permitido: Comercial y personal según la licencia adquirida. La licencia Enterprise puede incluir exclusividad temporal o permanente según contrato.</li>
+        <li>Prohibido: Uso para actividades ilegales, discurso de odio, suplantación fraudulenta o deepfakes sin consentimiento escrito de la persona afectada.</li>
+        <li>Cancelaciones y reembolsos: Reembolsos parciales/negociados si el trabajo no ha sido entregado o si no se cumplen los requisitos acordados. Contacta soporte.</li>
+      </ul>
+    </div>
+  </section>
 
+  <section id="seguridad" style="margin-top:18px">
+    <h2>Política de seguridad y privacidad</h2>
+    <div class="terms" style="margin-top:10px">
+      <p style="color:var(--muted);margin:0 0 8px">Protegemos tu información y tus audios. A continuación un resumen:</p>
+      <ul>
+        <li>Almacenamiento: Archivos en servidores seguros con acceso limitado por claves y autenticación.</li>
+        <li>Retención: Por defecto almacenamos muestras 30 días tras la entrega; puedes solicitar eliminación inmediata.</li>
+        <li>Acceso: Solo el equipo de producción y soporte tiene acceso a tus archivos durante el proceso.</li>
+        <li>Confidencialidad: Podemos firmar acuerdos NDA previa solicitud para proyectos sensibles.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq" style="margin-top:18px">
+    <h2>Preguntas frecuentes</h2>
+    <div class="card" style="padding:12px">
+      <strong>¿Puedo pedir una muestra con mi texto?</strong>
+      <p style="color:var(--muted)">Sí. Contacta y solicita una demo personalizada (hasta 15 segundos) para evaluar la voz en tu contenido.</p>
+
+      <strong>¿La voz suena como una persona real?</strong>
+      <p style="color:var(--muted)">EREN‑BOT está entrenado para sonar natural y expresivo; sin embargo, la similitud con voces reales depende del material de referencia y del ajuste solicitado. No vendemos voces para hacerse pasar por una persona real sin su permiso explícito.</p>
+
+      <strong>¿Puedo obtener exclusividad?</strong>
+      <p style="color:var(--muted)">Sí. Las licencias exclusivas están disponibles en el paquete Enterprise y se negocian caso por caso.</p>
+    </div>
+  </section>
+
+  <section id="contacto" style="margin-top:18px">
+    <h2>Contacto y compra</h2>
+    <div class="card" style="display:flex;gap:12px;flex-direction:column">
+      <p style="color:var(--muted)">¿Listo para comprar o quieres una demo personalizada? Escríbenos con tu proyecto, duración estimada y uso previsto.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <a class="btn" href="mailto:ventas@erenbot.example?subject=Compra%20EREN-BOT">Enviar correo</a>
+        <a class="ghost" href="tel:+000000000">Llamar / WhatsApp</a>
+        <button class="ghost" onclick="window.location='https://pay.example/checkout?product=erenbot'">Pagar (demo)</button>
+      </div>
+
+      <div style="margin-top:8px;color:var(--muted);font-size:0.95rem">También ofrecemos integración técnica y NDA para proyectos empresariales. Responderemos en 24 horas hábiles.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>© <strong>EREN‑BOT</strong> — Todos los derechos reservados.</div>
+    <div style="color:var(--muted)">Términos aplican. <a href="#condiciones">Ver condiciones</a> · <a href="#seguridad">Política de seguridad</a></div>
+  </div>
+</footer>
+
+  </div>  <script>
+    function comprar(plan){
+      // Aquí puedes conectar con tu API de pagos o abrir modal
+      const subject = encodeURIComponent('Compra EREN-BOT - ' + plan);
+      const body = encodeURIComponent('Hola, quiero comprar el plan ' + plan + '.\n\nDetalles del proyecto:\n- Uso previsto:\n- Duración (min):\n- ¿Necesitas exclusividad?:\n');
+      window.location = 'mailto:ventas@erenbot.example?subject=' + subject + '&body=' + body;
+    }
+  </script></body>
+</html>
