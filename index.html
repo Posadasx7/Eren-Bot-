@@ -1,80 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Eren Bot — WhatsApp Automatizado</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Configuración de Tailwind con colores personalizados
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            neon: "#00f7ff",   // Azul neón
+            accent: "#22c55e", // Verde
+            darkbg: "#0a0a0f", // Fondo oscuro
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-darkbg text-white transition-colors duration-300">
+
+<!-- Toggle Tema -->
+<div class="absolute top-4 right-4">
+  <button id="toggleTheme" class="px-3 py-1 border rounded-lg text-sm hover:bg-white/10">🌙/☀️</button>
+</div>
 
 <!-- HERO -->
-<header class="bg-gradient-to-r from-green-600 to-emerald-500 text-white py-12">
+<header class="bg-gradient-to-r from-neon to-accent py-12 text-darkbg">
   <div class="max-w-5xl mx-auto px-4 text-center">
     <h1 class="text-4xl font-extrabold">👋 Bienvenido a <span class="underline">Eren Bot</span></h1>
-    <p class="mt-4 text-lg">Un bot automatizado para WhatsApp con funciones únicas: juegos, descargas, música, seguridad y mucho más 🚀</p>
+    <p class="mt-4 text-lg">El bot de WhatsApp que revoluciona tus grupos con descargas, juegos, IA y seguridad 🚀</p>
     <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Eren Bot" class="mt-8 mx-auto rounded-xl shadow-lg w-full max-w-lg">
   </div>
 </header>
 
 <!-- CARACTERÍSTICAS -->
 <section id="caracteristicas" class="max-w-5xl mx-auto px-4 py-14">
-  <h2 class="text-2xl font-bold mb-6">Características principales</h2>
+  <h2 class="text-2xl font-bold mb-6 text-neon">Características principales</h2>
   <ul class="space-y-3 text-lg">
-    <li class="flex items-start"><span class="text-green-500 text-xl mr-2">•</span> Descarga de música y videos</li>
-    <li class="flex items-start"><span class="text-green-500 text-xl mr-2">•</span> Juegos interactivos en WhatsApp</li>
-    <li class="flex items-start"><span class="text-green-500 text-xl mr-2">•</span> Comandos de Free Fire 🎮</li>
-    <li class="flex items-start"><span class="text-green-500 text-xl mr-2">•</span> Bienvenidas y despedidas automáticas</li>
-    <li class="flex items-start"><span class="text-green-500 text-xl mr-2">•</span> Seguridad: antilink, antiflood, etc.</li>
-    <li class="flex items-start"><span class="text-green-500 text-xl mr-2">•</span> Chat IA + generación de imágenes</li>
+    <li class="flex items-start"><span class="text-accent text-xl mr-2">•</span> Descarga de música y videos</li>
+    <li class="flex items-start"><span class="text-accent text-xl mr-2">•</span> Juegos interactivos en WhatsApp</li>
+    <li class="flex items-start"><span class="text-accent text-xl mr-2">•</span> Comandos de Free Fire 🎮</li>
+    <li class="flex items-start"><span class="text-accent text-xl mr-2">•</span> Bienvenidas y despedidas automáticas</li>
+    <li class="flex items-start"><span class="text-accent text-xl mr-2">•</span> Seguridad: antilink, antiflood, etc.</li>
+    <li class="flex items-start"><span class="text-accent text-xl mr-2">•</span> Chat IA + generación de imágenes</li>
   </ul>
 </section>
 
 <!-- PRECIOS -->
-<section id="precios" class="bg-white py-14 border-t">
+<section id="precios" class="py-14 border-t border-white/10 bg-darkbg">
   <div class="max-w-5xl mx-auto px-4 text-center">
-    <h2 class="text-2xl font-bold mb-10">Planes y Precios</h2>
+    <h2 class="text-2xl font-bold mb-10 text-neon">Planes y Precios</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <!-- Plan Básico -->
-      <div class="border rounded-xl p-6 shadow hover:shadow-md transition bg-gray-50">
+      <div class="border border-white/20 rounded-xl p-6 bg-white/5 hover:border-neon transition">
         <h3 class="font-bold text-lg">Plan Básico</h3>
-        <p class="text-sm text-gray-500 mt-1">Ideal para uso personal</p>
-        <p class="mt-4 text-3xl font-extrabold">$5<span class="text-base font-normal">/mes</span></p>
-        <ul class="mt-4 space-y-2 text-sm text-left">
+        <p class="text-sm text-gray-400 mt-1">Ideal para uso personal</p>
+        <p class="mt-4 text-3xl font-extrabold text-neon">$5<span class="text-base font-normal">/mes</span></p>
+        <ul class="mt-4 space-y-2 text-sm text-left text-gray-300">
           <li>✔️ Respuestas automáticas</li>
           <li>✔️ Juegos básicos</li>
           <li>✔️ Soporte limitado</li>
         </ul>
-        <a href="https://wa.me/50493374445" class="mt-6 inline-block bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">Contratar</a>
       </div>
 
       <!-- Plan Pro -->
-      <div class="border-2 border-green-600 rounded-xl p-6 shadow-lg bg-white">
-        <h3 class="font-bold text-lg text-green-600">Plan Pro</h3>
-        <p class="text-sm text-gray-500 mt-1">Lo más popular 🚀</p>
-        <p class="mt-4 text-3xl font-extrabold">$10<span class="text-base font-normal">/mes</span></p>
-        <ul class="mt-4 space-y-2 text-sm text-left">
+      <div class="border-2 border-neon rounded-xl p-6 bg-darkbg shadow-lg">
+        <h3 class="font-bold text-lg text-neon">Plan Pro</h3>
+        <p class="text-sm text-gray-400 mt-1">Lo más popular 🚀</p>
+        <p class="mt-4 text-3xl font-extrabold text-neon">$10<span class="text-base font-normal">/mes</span></p>
+        <ul class="mt-4 space-y-2 text-sm text-left text-gray-300">
           <li>✔️ Todo lo del Básico</li>
           <li>✔️ Descarga música y videos</li>
           <li>✔️ Comandos Free Fire</li>
           <li>✔️ Soporte prioritario</li>
         </ul>
-        <a href="https://wa.me/50493374445" class="mt-6 inline-block bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">Contratar</a>
       </div>
 
       <!-- Plan Premium -->
-      <div class="border rounded-xl p-6 shadow hover:shadow-md transition bg-gray-50">
+      <div class="border border-white/20 rounded-xl p-6 bg-white/5 hover:border-neon transition">
         <h3 class="font-bold text-lg">Plan Premium</h3>
-        <p class="text-sm text-gray-500 mt-1">Para negocios o comunidades grandes</p>
-        <p class="mt-4 text-3xl font-extrabold">$20<span class="text-base font-normal">/mes</span></p>
-        <ul class="mt-4 space-y-2 text-sm text-left">
+        <p class="text-sm text-gray-400 mt-1">Para negocios o comunidades grandes</p>
+        <p class="mt-4 text-3xl font-extrabold text-neon">$20<span class="text-base font-normal">/mes</span></p>
+        <ul class="mt-4 space-y-2 text-sm text-left text-gray-300">
           <li>✔️ Todo lo del Pro</li>
           <li>✔️ Chat IA avanzado</li>
           <li>✔️ Generación de imágenes</li>
           <li>✔️ Soporte 24/7</li>
         </ul>
-        <a href="https://wa.me/50493374445" class="mt-6 inline-block bg-green-600 text-white px-5 py-2 rounded-lg hover:bg-green-700">Contratar</a>
       </div>
     </div>
   </div>
@@ -82,18 +99,36 @@
 
 <!-- POLÍTICAS -->
 <section id="politicas" class="max-w-5xl mx-auto px-4 py-14">
-  <h2 class="text-2xl font-bold mb-6">Políticas y Privacidad</h2>
-  <p class="text-sm text-gray-700 leading-relaxed">
-    Recopilamos datos como correo electrónico, nombre de usuario, dirección IP aproximada, dispositivo y actividad en la plataforma. 
-    Usamos esta información para mejorar el servicio, garantizar la seguridad y cumplir con obligaciones legales. 
-    El uso de Eren Bot implica la aceptación de estas condiciones.
-  </p>
+  <h2 class="text-2xl font-bold mb-6 text-neon">Políticas y Seguridad</h2>
+  <ul class="space-y-3 text-sm text-gray-300 leading-relaxed">
+    <li><span class="text-accent mr-2">•</span> Condiciones del servicio: el uso de Eren Bot implica aceptar estas normas.</li>
+    <li><span class="text-accent mr-2">•</span> No se realizan reembolsos una vez activado el servicio.</li>
+    <li><span class="text-accent mr-2">•</span> No nos hacemos responsables si WhatsApp elimina o bloquea el bot de tu grupo.</li>
+    <li><span class="text-accent mr-2">•</span> No se realizan cambios de grupo: el bot solo funcionará en el grupo donde fue agregado.</li>
+    <li><span class="text-accent mr-2">•</span> Garantizamos seguridad, pero el mal uso del bot es responsabilidad del usuario.</li>
+  </ul>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-gray-900 text-gray-400 text-sm py-6 text-center">
+<footer class="bg-black text-gray-500 text-sm py-6 text-center">
   <p>&copy; 2025 Eren Bot. Todos los derechos reservados.</p>
 </footer>
+
+<!-- Script para cambiar tema -->
+<script>
+  const toggleBtn = document.getElementById('toggleTheme');
+  const html = document.documentElement;
+  toggleBtn.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    if (html.classList.contains('dark')) {
+      document.body.classList.remove('bg-white','text-gray-900');
+      document.body.classList.add('bg-darkbg','text-white');
+    } else {
+      document.body.classList.remove('bg-darkbg','text-white');
+      document.body.classList.add('bg-white','text-gray-900');
+    }
+  });
+</script>
 
 </body>
 </html>
