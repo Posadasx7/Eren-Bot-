@@ -62,26 +62,30 @@
     </div>
   </header>
 
- <!-- HERO -->
-<section class="relative overflow-hidden bg-grid">
-  <div class="absolute inset-0 opacity-20 pointer-events-none"></div>
-  <div class="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center md:items-start justify-between relative z-10">
+<!-- HERO -->
+<section class="relative overflow-hidden bg-ebdark">
+  <!-- Fondo animado (estrellas + ondas suaves) -->
+  <div class="absolute inset-0">
+    <canvas id="hero-bg" class="w-full h-full"></canvas>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center md:items-start justify-between relative z-10">
     
     <!-- Texto -->
-    <div class="w-full md:w-1/2 text-center md:text-left">
+    <div class="w-full md:w-1/2 text-left">
       <!-- Título principal -->
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-3">
-        Potencia tu <span class="gradient-text">WhatsApp</span> <br class="hidden md:block">
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-2">
+        Potencia tu <span class="gradient-text">WhatsApp</span><br>
         con <span class="text-ebsecondary">Eren Bot IA</span>
       </h1>
       
       <!-- Subtítulo -->
-      <p class="mt-2 text-base md:text-lg text-white/70 max-w-md leading-relaxed">
+      <p class="mt-1 text-base md:text-lg text-white/70 max-w-md leading-relaxed">
         Automatización, seguridad y gestión inteligente para empresas, comunidades y creadores.
       </p>
       
       <!-- Botones -->
-      <div class="mt-6 flex flex-wrap gap-4 md:justify-start justify-center">
+      <div class="mt-6 flex flex-wrap gap-4">
         <a href="#precios" class="px-6 py-2.5 rounded-xl bg-ebprimary hover:bg-ebsecondary font-semibold transition shine-btn text-sm md:text-base">
           Ver planes
         </a>
@@ -91,7 +95,7 @@
       </div>
     </div>
 
-    <!-- Imagen / Ilustración opcional -->
+    <!-- Imagen opcional -->
     <div class="hidden md:block md:w-1/2 text-center">
       <img src="https://cdn.russellxz.click/a0d2a3d4.jpeg" alt="Eren Bot Ilustración"
            class="w-80 mx-auto drop-shadow-2xl rounded-2xl border-4 border-ebprimary/40">
@@ -99,6 +103,41 @@
 
   </div>
 </section>
+
+<script>
+  // Fondo animado simple (estrellas en movimiento)
+  const canvas = document.getElementById("hero-bg");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = 400; // solo el alto del hero
+    stars = Array.from({length: 80}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5,
+      speed: 0.3 + Math.random() * 0.5
+    }));
+  }
+
+  function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(124,58,237,0.8)"; // morado
+      ctx.fill();
+      star.y += star.speed;
+      if (star.y > canvas.height) star.y = 0;
+    });
+    requestAnimationFrame(animateStars);
+  }
+
+  resizeCanvas();
+  animateStars();
+  window.addEventListener("resize", resizeCanvas);
+</script>
 
 <!-- FUNCIONALIDADES -->
 <section id="funcionalidades" class="py-16">
