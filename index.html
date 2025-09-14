@@ -162,30 +162,28 @@
   <section id="contact" style="padding:24px 20px">
     <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center">
       <div style="flex:1;min-width:260px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
-        <h4 style="margin:0 0 8px">Contáctanos</h4>
-        <p style="margin:0 0 12px;color:var(--muted)">Escríbenos y te damos una demostración gratuita.</p>
-        <form onsubmit="event.preventDefault();alert('Gracias — te contactaremos.');" style="display:flex;flex-direction:column;gap:8px">
-          <input placeholder="Nombre" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit">
-          <input placeholder="Email o WhatsApp" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit">
-          <textarea placeholder="¿Qué necesitas?" rows="3" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit"></textarea>
-          <button class="btn-primary" type="submit" style="border:none;cursor:pointer">Enviar</button>
-        </form>
-      </div>
-      <div style="min-width:220px;max-width:360px;">
-        <div style="padding:18px;border-radius:12px;background:linear-gradient(135deg, rgba(0,255,240,0.03), rgba(255,77,255,0.03));border:1px solid rgba(255,255,255,0.03)">
-          <div style="font-size:13px;color:var(--muted)">Soporte</div>
-          <div style="font-weight:700;margin-top:6px">WhatsApp: +504 9337-4445</div>
-          <div style="color:var(--muted);margin-top:8px">Email: onanposadas7@gmail.com</div>
-          <div style="color:var(--muted);margin-top:8px">PayPal: posadaselder2806@gmail.com</div>
-          <div style="margin-top:12px"><a class="btn-ghost" href="mailto:onanposadas7@gmail.com">Escribir email</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Sustituye el bloque de "Contáctanos" por esto -->
+<div class="contact-buttons" style="text-align:center; margin:10px 0;">
+  <a href="https://wa.me/50412345678" target="_blank" style="display:inline-block;margin:5px;padding:8px 15px;color:#fff;background:#0ff;text-decoration:none;border-radius:8px;font-weight:bold;">💬 WhatsApp</a>
+  <a href="mailto:tuemail@gmail.com" target="_blank" style="display:inline-block;margin:5px;padding:8px 15px;color:#fff;background:#0ff;text-decoration:none;border-radius:8px;font-weight:bold;">📧 Gmail</a>
+</div>
 
-  <footer>
-    <div>© <strong>Eren-Bot</strong> 2025 — Diseño neón • Bot para comunidades</div>
-    <div class="small-muted">Hecho con ❤️ — Personaliza esta página cuando quieras</div>
-  </footer>
-</body>
-</html>
+<!-- En cada tarjeta de precios cambia los botones así -->
+<a href="https://www.paypal.com/paypalme/posadaselder2806/10" target="_blank" class="btn-precio">Adquirir</a>
+<a href="https://www.paypal.com/paypalme/posadaselder2806/20" target="_blank" class="btn-precio">Contratar</a>
+<a href="https://www.paypal.com/paypalme/posadaselder2806/50" target="_blank" class="btn-precio">Contratar</a>
+
+<!-- Si quieres el CSS rápido para los botones -->
+<style>
+.btn-precio{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:#0ff;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:8px;
+  box-shadow:0 0 5px #0ff;
+}
+</style>
