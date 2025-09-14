@@ -1,140 +1,83 @@
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Killua Bot IA — Bot de WhatsApp Multifuncional</title>
-  <meta name="description" content="El mejor bot de WhatsApp multifuncional. Automatiza, gestiona grupos y mucho más." />
-  <meta property="og:title" content="Killua Bot IA — Bot de WhatsApp Multifuncional" />
-  <meta property="og:description" content="Automatiza tu WhatsApp con la inteligencia artificial de Killua Bot." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tudominio.com" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: { DEFAULT: '#2563eb' },
-            secondary: '#ec4899',
-            dark: '#0b0b0d'
-          },
-          boxShadow: { glow: '0 0 40px rgba(59,130,246,0.35)' },
-          backdropBlur: { xs: '2px' }
-        }
-      }
-    }
-  </script>
-  <style>
-    .shine { background: linear-gradient(110deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.05) 40%); background-size: 200% 100%; animation: shine 6s linear infinite; }
-    @keyframes shine { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
-    .grid-bg { background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 16px 16px; }
-  </style>
-</head>
-<body class="min-h-screen bg-dark text-white selection:bg-primary/40 selection:text-white">
-
-  <div class="w-full bg-gradient-to-r from-primary to-secondary text-sm text-white py-2">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center">
-      <p class="font-medium">✨ ¡Automatiza tu WhatsApp con Killua Bot IA!</p>
-    </div>
-  </div>
-
-<header class="sticky top-0 z-40 backdrop-blur-xs bg-dark/70 border-b border-white/10">
-  <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-
-    <!-- Botón hamburguesa a la izquierda -->
-    <button id="menu-button" aria-label="Abrir menú" class="md:hidden p-2 rounded-lg border border-white/10 mr-4">☰</button>
-
-    <!-- Logo -->
-    <a href="#" class="flex items-center gap-3 flex-1">
-      <span class="text-xl font-bold tracking-wide">Killua Bot WhatsApp Automatizado</span>
-    </a>
-
-    <!-- Menú de escritorio -->
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#caracteristicas" class="hover:text-primary">Características</a>
-      <a href="#precios" class="hover:text-primary">Precios</a>
-      <a href="#testimonios" class="hover:text-primary">Testimonios</a>
-      <a href="#contacto" class="hover:text-primary">Contacto</a>
-      <a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank" class="hover:text-primary">Canal</a>
-      <a href="https://chat.whatsapp.com/EqJ0U1LY2PUIqVhHdEsKc1?mode=ems_copy_t" target="_blank" class="hover:text-primary">Grupo</a>
-      <a href="#politicas" class="hover:text-primary">Políticas</a>
-    </div>
-  </nav>
-
-  <!-- Menú móvil -->
-  <div id="mobilenav" class="md:hidden hidden border-t border-white/10">
-    <ul class="px-4 py-3 space-y-3">
-      <li><a href="#caracteristicas" class="block">Características</a></li>
-      <li><a href="#precios" class="block">Precios</a></li>
-      <li><a href="#testimonios" class="block">Testimonios</a></li>
-      <li><a href="#contacto" class="block">Contacto</a></li>
-      <li><a href="https://whatsapp.com/channel/0029VbABQOU77qVUUPiUek2W" target="_blank" class="block">Canal</a></li>
-      <li><a href="https://chat.whatsapp.com/EqJ0U1LY2PUIqVhHdEsKc1?mode=ems_copy_t" target="_blank" class="block">Grupo</a></li>
-      <li><a href="#politicas" class="block">Políticas</a></li>
-    </ul>
-  </div>
-</header>
-
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 opacity-30 grid-bg"></div>
-    <div class="absolute -top-40 -left-40 w-[540px] h-[540px] rounded-full bg-secondary blur-3xl opacity-20"></div>
-    <div class="absolute -bottom-40 -right-40 w-[540px] h-[540px] rounded-full bg-primary blur-3xl opacity-20"></div>
-
-    <div class="max-w-7xl mx-auto px-4 py-16 lg:py-24 relative">
-      <div class="grid lg:grid-cols-2 gap-10 items-center">
+<!-- HERO NUEVO -->
+  <section class="relative bg-gradient-to-br from-purple-950 via-black to-emerald-950 text-white py-20">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Texto -->
         <div>
-          <h1 class="text-4xl lg:text-6xl font-black leading-tight">Tu asistente de <span class="text-primary">WhatsApp con IA</span></h1>
-          <p class="mt-5 text-white/80 text-lg max-w-2xl">
-            𝗞𝗶𝗹𝗹𝘂𝗮-𝗕𝗼𝘁 𝗜𝗔 es un bot de WhatsApp multifuncional que te permite automatizar tareas, gestionar comunidades y potenciar tu negocio o proyecto personal.
+          <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight">
+            Automatiza <span class="text-emerald-400">WhatsApp</span><br/>con Inteligencia Artificial
+          </h1>
+          <p class="mt-6 text-lg text-gray-300">
+            ⚡ Killua-Bot IA es tu asistente multifuncional: administra grupos, responde con IA, protege con seguridad avanzada y mucho más.
           </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#precios" class="px-6 py-3 rounded-2xl bg-primary hover:bg-primary/90 font-semibold shadow-glow">Precios del Bot</a>
-            <a href="#caracteristicas" class="px-6 py-3 rounded-2xl border border-white/15 hover:border-white/30">Ver Características</a>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="#precios" class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold shadow-lg shadow-emerald-600/40">
+              🚀 Empezar Ahora
+            </a>
+            <a href="#caracteristicas" class="px-6 py-3 rounded-xl border border-purple-400/50 hover:bg-purple-600/20">
+              Ver Funciones
+            </a>
           </div>
         </div>
+        <!-- Imagen -->
         <div class="relative">
-          <div class="aspect-[16/10] rounded-3xl border border-white/10 bg-white/5 backdrop-blur shine shadow-glow overflow-hidden">
-            <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Killua Bot IA" class="w-full h-full object-cover"/>
+          <div class="rounded-3xl overflow-hidden shadow-2xl shadow-purple-700/40 border border-white/10 backdrop-blur-xl">
+            <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Killua Bot IA" class="w-full h-full object-cover">
           </div>
+          <div class="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-emerald-500 blur-3xl opacity-40"></div>
+          <div class="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-purple-500 blur-3xl opacity-40"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="caracteristicas" class="py-20">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-end justify-between mb-10">
-        <h2 class="text-3xl lg:text-4xl font-extrabold">Funcionalidades Poderosas</h2>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-          <div class="text-2xl">🤖</div>
-          <h3 class="mt-3 text-xl font-bold">Respuesta Automática</h3>
-          <p class="mt-2 text-white/70 text-sm">Configura respuestas personalizadas para palabras clave, mensajes y más.</p>
-        </article>
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-          <div class="text-2xl">🗣️</div>
-          <h3 class="mt-3 text-xl font-bold">Manejo de Grupos</h3>
-          <p class="mt-2 text-white/70 text-sm">Administra tu comunidad con comandos para moderar y dar la bienvenida/despedida a nuevos miembros con sistema de antilink antiarabe y mucho mas.</p>
-        </article>
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-          <div class="text-2xl">🧠</div>
-          <h3 class="mt-3 text-xl font-bold">Integración con IA</h3>
-          <p class="mt-2 text-white/70 text-sm">Responde preguntas, genera imágenes y más usando la inteligencia artificial.</p>
-        </article>
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-          <div class="text-2xl">🎮</div>
-          <h3 class="mt-3 text-xl font-bold">Sistema de juegos</h3>
-          <p class="mt-2 text-white/70 text-sm">Un sistema muy avanzado qué se encarga de organizar partidas agregandolos automáticamente a las listas de vrs con tan solo reaccionar.</p>
-        </article>
-        <article class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-          <div class="text-2xl">🔒</div>
-          <h3 class="mt-3 text-xl font-bold">Seguridad Avanzada</h3>
-          <p class="mt-2 text-white/70 text-sm">Protege tu bot y tus datos con medidas de seguridad robustas.</p>
-        </article>
+  <!-- CARACTERÍSTICAS NUEVAS -->
+  <section id="caracteristicas" class="py-24 bg-black relative">
+    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/40 to-transparent"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+      <h2 class="text-center text-4xl lg:text-5xl font-extrabold text-emerald-400 mb-14">
+        🔥 Funcionalidades Épicas
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        
+        <!-- Card -->
+        <div class="rounded-2xl bg-white/5 border border-emerald-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-emerald-500/40 transition">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-emerald-600 text-2xl shadow-md shadow-emerald-500/40">🤖</div>
+          <h3 class="mt-4 text-xl font-bold">Respuestas Inteligentes</h3>
+          <p class="text-gray-300 mt-2 text-sm">Crea respuestas automáticas personalizadas con IA para cualquier situación.</p>
+        </div>
+        
+        <div class="rounded-2xl bg-white/5 border border-purple-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-purple-500/40 transition">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-purple-600 text-2xl shadow-md shadow-purple-500/40">🛡️</div>
+          <h3 class="mt-4 text-xl font-bold">Moderación de Grupos</h3>
+          <p class="text-gray-300 mt-2 text-sm">Gestiona tu comunidad con sistemas de bienvenida, despedida, antilink, antibot y más.</p>
+        </div>
+        
+        <div class="rounded-2xl bg-white/5 border border-emerald-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-emerald-500/40 transition">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-emerald-600 text-2xl shadow-md shadow-emerald-500/40">🧠</div>
+          <h3 class="mt-4 text-xl font-bold">IA Avanzada</h3>
+          <p class="text-gray-300 mt-2 text-sm">Haz que tu bot piense, responda preguntas y hasta genere imágenes realistas.</p>
+        </div>
+        
+        <div class="rounded-2xl bg-white/5 border border-purple-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-purple-500/40 transition">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-purple-600 text-2xl shadow-md shadow-purple-500/40">🎮</div>
+          <h3 class="mt-4 text-xl font-bold">Sistema de Juegos</h3>
+          <p class="text-gray-300 mt-2 text-sm">Juega partidas dinámicas y organiza competiciones automáticas dentro de WhatsApp.</p>
+        </div>
+        
+        <div class="rounded-2xl bg-white/5 border border-emerald-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-emerald-500/40 transition">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-emerald-600 text-2xl shadow-md shadow-emerald-500/40">🔒</div>
+          <h3 class="mt-4 text-xl font-bold">Seguridad Pro</h3>
+          <p class="text-gray-300 mt-2 text-sm">Protección contra abusos, control de accesos y sistemas de bloqueo automático.</p>
+        </div>
+        
+        <div class="rounded-2xl bg-white/5 border border-purple-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-purple-500/40 transition">
+          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-purple-600 text-2xl shadow-md shadow-purple-500/40">⚡</div>
+          <h3 class="mt-4 text-xl font-bold">Optimizado</h3>
+          <p class="text-gray-300 mt-2 text-sm">Rendimiento rápido, ligero y diseñado para soportar comunidades grandes.</p>
+        </div>
+
       </div>
     </div>
   </section>
