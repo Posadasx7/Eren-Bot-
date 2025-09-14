@@ -213,121 +213,147 @@
   </div>
 </section>
 
-  <!-- PRECIOS ACORDEÓN -->
-  <section id="precios" class="py-20 bg-ebprimary/5 border-y border-white/10">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-10 text-center gradient-text">Planes Eren Bot IA</h2>
-      <div class="space-y-4">
-        <!-- Mensual -->
-        <div class="rounded-xl overflow-hidden shadow-lg border border-ebprimary/20 bg-ebdark/80">
-          <button type="button"
-            class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-ebprimary hover:text-ebsecondary transition focus:outline-none"
-            onclick="toggleAccordion('mensual')">
-            <span>💎 Precio Mensual</span>
-            <svg id="icon-mensual" class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="panel-mensual" class="hidden px-6 pb-6 pt-1 text-white/90">
-            <p class="mb-4 text-base text-white/80">Acceso a todas las funciones esenciales para grupos pequeños y prueba de uso.</p>
-            <div class="flex items-baseline gap-2 mb-3">
-              <span class="text-3xl font-black text-ebprimary">$3</span>
-              <span class="text-base text-white/70">/mes</span>
-            </div>
-            <ul class="mb-4 space-y-1 text-sm">
-              <li>✔️ Hasta 3 grupos</li>
-              <li>✔️ Descargas ilimitadas</li>
-              <li>✔️ Respuestas IA básicas</li>
-              <li>✔️ Soporte por WhatsApp</li>
-            </ul>
+ <!-- PRECIOS ACORDEÓN -->
+<section id="precios" class="py-20 bg-ebprimary/5 border-y border-white/10">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl md:text-5xl font-extrabold mb-12 text-center gradient-text">Planes Eren Bot IA</h2>
+
+    <div class="space-y-6">
+
+      <!-- Mensual -->
+      <div class="rounded-2xl overflow-hidden shadow-2xl border border-ebprimary/20 bg-ebdark/80">
+        <button type="button"
+          class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-ebprimary hover:text-ebsecondary transition focus:outline-none"
+          onclick="toggleAccordion('mensual')">
+          <span>💎 Precio Mensual</span>
+          <svg id="icon-mensual" class="w-6 h-6 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="panel-mensual" class="hidden px-6 pb-6 pt-1 text-white/90">
+          <p class="mb-4 text-base text-white/80">Acceso a todas las funciones esenciales para grupos pequeños y prueba de uso.</p>
+          <div class="flex items-baseline gap-2 mb-3">
+            <span class="text-3xl font-black text-ebprimary">$3</span>
+            <span class="text-base text-white/70">/mes</span>
+          </div>
+          <ul class="mb-4 space-y-1 text-sm md:text-base">
+            <li>✔️ Hasta 3 grupos</li>
+            <li>✔️ Descargas ilimitadas</li>
+            <li>✔️ Respuestas IA básicas</li>
+            <li>✔️ Soporte por WhatsApp</li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
             <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Mensual%20Eren%20Bot&amount=3.00&currency_code=USD"
                target="_blank"
-               class="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn mt-2">
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn">
               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6">Pagar con PayPal
             </a>
-          </div>
-        </div>
-        <!-- Permanente -->
-        <div class="rounded-xl overflow-hidden shadow-lg border border-ebprimary/20 bg-ebdark/80">
-          <button type="button"
-            class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-emerald-400 hover:text-ebsecondary transition focus:outline-none"
-            onclick="toggleAccordion('permanente')">
-            <span>🔒 Precio Permanente</span>
-            <svg id="icon-permanente" class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="panel-permanente" class="hidden px-6 pb-6 pt-1 text-white/90">
-            <p class="mb-4 text-base text-white/80">Pago único, acceso para siempre a todas las funciones PRO.</p>
-            <div class="flex items-baseline gap-2 mb-3">
-              <span class="text-3xl font-black text-emerald-400">$15</span>
-              <span class="text-base text-white/70">/único</span>
-            </div>
-            <ul class="mb-4 space-y-1 text-sm">
-              <li>✔️ Hasta 10 grupos</li>
-              <li>✔️ Funciones IA avanzadas</li>
-              <li>✔️ Antispam avanzado</li>
-              <li>✔️ Personalización básica</li>
-              <li>✔️ Soporte prioritario</li>
-            </ul>
-            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Permanente%20Eren%20Bot&amount=15.00&currency_code=USD"
+            <a href="https://wa.me/50493374445?text=Hola%20quiero%20enviar%20el%20comprobante%20de%20pago%20del%20plan%20mensual"
                target="_blank"
-               class="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-emerald-400 text-emerald-900 font-bold hover:bg-ebprimary hover:text-white transition shine-btn mt-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6">Pagar con PayPal
-            </a>
-          </div>
-        </div>
-        <!-- Personalizado -->
-        <div class="rounded-xl overflow-hidden shadow-lg border border-ebprimary/20 bg-ebdark/80">
-          <button type="button"
-            class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-ebsecondary hover:text-emerald-400 transition focus:outline-none"
-            onclick="toggleAccordion('personalizado')">
-            <span>🛠️ Precio Personalizado</span>
-            <svg id="icon-personalizado" class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
-              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div id="panel-personalizado" class="hidden px-6 pb-6 pt-1 text-white/90">
-            <p class="mb-4 text-base text-white/80">Solución a medida para empresas, agencias y grandes comunidades.</p>
-            <div class="flex items-baseline gap-2 mb-3">
-              <span class="text-3xl font-black text-ebsecondary">$25+</span>
-              <span class="text-base text-white/70">/único</span>
-            </div>
-            <ul class="mb-4 space-y-1 text-sm">
-              <li>✔️ Grupos ilimitados</li>
-              <li>✔️ Branding y comandos exclusivos</li>
-              <li>✔️ Integraciones API</li>
-              <li>✔️ Soporte VIP dedicado</li>
-            </ul>
-            <a href="https://wa.me/50493374445?text=Quiero%20un%20plan%20personalizado%20de%20Eren%20Bot%20IA"
-               target="_blank"
-               class="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn mt-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zM6.5 19.294c1.676.995 3.276 1.591 5.451 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.889-9.881-9.892-5.466 0-9.89 4.427-9.892 9.891-.001 2.225.651 3.891 1.746 5.487l-.999 3.648 3.686-.841zM17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.768.966-.941 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.58-.487-.501-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-              Solicitar por WhatsApp
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-ebprimary text-white font-bold hover:bg-ebsecondary hover:text-ebdark transition shine-btn">
+              📩 Enviar comprobante
             </a>
           </div>
         </div>
       </div>
-      <p class="mt-8 text-center text-white/70 text-sm">
-        ¿Tienes dudas? <a href="https://wa.me/50493374445" class="underline text-ebsecondary">¡Contáctanos!</a>
-      </p>
+
+      <!-- Permanente -->
+      <div class="rounded-2xl overflow-hidden shadow-2xl border border-ebprimary/20 bg-ebdark/80">
+        <button type="button"
+          class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-emerald-400 hover:text-ebsecondary transition focus:outline-none"
+          onclick="toggleAccordion('permanente')">
+          <span>🔒 Precio Permanente</span>
+          <svg id="icon-permanente" class="w-6 h-6 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="panel-permanente" class="hidden px-6 pb-6 pt-1 text-white/90">
+          <p class="mb-4 text-base text-white/80">Pago único, acceso para siempre a todas las funciones PRO.</p>
+          <div class="flex items-baseline gap-2 mb-3">
+            <span class="text-3xl font-black text-emerald-400">$15</span>
+            <span class="text-base text-white/70">/único</span>
+          </div>
+          <ul class="mb-4 space-y-1 text-sm md:text-base">
+            <li>✔️ Hasta 10 grupos</li>
+            <li>✔️ Funciones IA avanzadas</li>
+            <li>✔️ Antispam avanzado</li>
+            <li>✔️ Personalización básica</li>
+            <li>✔️ Soporte prioritario</li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Permanente%20Eren%20Bot&amount=15.00&currency_code=USD"
+               target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-emerald-400 text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6">Pagar con PayPal
+            </a>
+            <a href="https://wa.me/50493374445?text=Hola%20quiero%20enviar%20el%20comprobante%20de%20pago%20del%20plan%20permanente"
+               target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-ebprimary text-white font-bold hover:bg-ebsecondary hover:text-ebdark transition shine-btn">
+              📩 Enviar comprobante
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personalizado -->
+      <div class="rounded-2xl overflow-hidden shadow-2xl border border-ebprimary/20 bg-ebdark/80">
+        <button type="button"
+          class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-ebsecondary hover:text-emerald-400 transition focus:outline-none"
+          onclick="toggleAccordion('personalizado')">
+          <span>🛠️ Precio Personalizado</span>
+          <svg id="icon-personalizado" class="w-6 h-6 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="panel-personalizado" class="hidden px-6 pb-6 pt-1 text-white/90">
+          <p class="mb-4 text-base text-white/80">Solución a medida para empresas, agencias y grandes comunidades.</p>
+          <div class="flex items-baseline gap-2 mb-3">
+            <span class="text-3xl font-black text-ebsecondary">$25+</span>
+            <span class="text-base text-white/70">/único</span>
+          </div>
+          <ul class="mb-4 space-y-1 text-sm md:text-base">
+            <li>✔️ Grupos ilimitados</li>
+            <li>✔️ Branding y comandos exclusivos</li>
+            <li>✔️ Integraciones API</li>
+            <li>✔️ Soporte VIP dedicado</li>
+          </ul>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://wa.me/50493374445?text=Quiero%20un%20plan%20personalizado%20de%20Eren%20Bot%20IA"
+               target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-xl bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn">
+              📩 Solicitar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <script>
-      // Simple accordion
-      function toggleAccordion(section) {
-        const sections = ['mensual', 'permanente', 'personalizado'];
-        sections.forEach(s => {
-          const panel = document.getElementById('panel-' + s);
-          const icon  = document.getElementById('icon-' + s);
-          if (s === section) {
-            const open = panel.classList.contains('hidden') ? false : true;
-            panel.classList.toggle('hidden');
-            icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
-          } else {
-            panel.classList.add('hidden');
-            icon.style.transform = 'rotate(0deg)';
-          }
-        });
-      }
-    </script>
-  </section>
+
+    <!-- Mensaje adicional -->
+    <p class="mt-10 text-center text-white/70 text-base md:text-lg leading-relaxed">
+      ¿No cuentas con PayPal? Nos puedes contactar vía 
+      <a href="https://wa.me/50493374445" class="underline text-ebsecondary font-bold">WhatsApp</a> 
+      para brindarte otros métodos de pago y soporte personalizado.
+    </p>
+
+  </div>
+
+  <script>
+    // Simple accordion
+    function toggleAccordion(section) {
+      const sections = ['mensual', 'permanente', 'personalizado'];
+      sections.forEach(s => {
+        const panel = document.getElementById('panel-' + s);
+        const icon  = document.getElementById('icon-' + s);
+        if (s === section) {
+          const open = panel.classList.contains('hidden') ? false : true;
+          panel.classList.toggle('hidden');
+          icon.style.transform = open ? 'rotate(0deg)' : 'rotate-180deg';
+        } else {
+          panel.classList.add('hidden');
+          icon.style.transform = 'rotate(0deg)';
+        }
+      });
+    }
+  </script>
+</section>
 
 <!-- SOPORTE -->
 <section id="soporte" class="py-24 bg-ebdark relative overflow-hidden">
