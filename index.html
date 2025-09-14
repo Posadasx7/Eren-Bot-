@@ -1,378 +1,148 @@
-<!-- HERO NUEVO -->
-  <section class="relative bg-gradient-to-br from-purple-950 via-black to-emerald-950 text-white py-20">
-    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
-    <div class="max-w-7xl mx-auto px-6 relative">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Texto -->
-        <div>
-          <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight">
-            Automatiza <span class="text-emerald-400">WhatsApp</span><br/>con Inteligencia Artificial
-          </h1>
-          <p class="mt-6 text-lg text-gray-300">
-            ⚡ Killua-Bot IA es tu asistente multifuncional: administra grupos, responde con IA, protege con seguridad avanzada y mucho más.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a href="#precios" class="px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold shadow-lg shadow-emerald-600/40">
-              🚀 Empezar Ahora
-            </a>
-            <a href="#caracteristicas" class="px-6 py-3 rounded-xl border border-purple-400/50 hover:bg-purple-600/20">
-              Ver Funciones
-            </a>
+// ErenBotLanding.jsx // Página React (single-file) para vender la voz "Eren Bot". // Requisitos: TailwindCSS en el proyecto (o puedes compilar este JSX con Vite/Next.js + Tailwind). // Cómo usar: Copia este archivo a tu proyecto React y rútalo en App.jsx.
+
+import React, { useState } from 'react';
+
+export default function ErenBotLanding() { const [email, setEmail] = useState(''); const [showCheckout, setShowCheckout] = useState(false); const [selectedPlan, setSelectedPlan] = useState(null);
+
+const plans = [ { id: 'basic', title: 'Paquete Básico', price: '9.99', desc: '1 voz personalizada + licencia para uso no comercial' }, { id: 'pro', title: 'Paquete Pro', price: '29.99', desc: '5 voces / 100k chars + licencia comercial' }, { id: 'premium', title: 'Premium', price: '99.99', desc: 'Voz ilimitada + soporte y SLA' } ];
+
+function handleBuy(plan) { setSelectedPlan(plan); setShowCheckout(true); }
+
+function handleCheckoutSubmit(e) { e.preventDefault(); // Aquí deberías integrar Stripe/PayPal o tu backend. alert('Simulación de pago: ' + selectedPlan.title + '\nEmail: ' + email); // reset setShowCheckout(false); setEmail(''); setSelectedPlan(null); }
+
+return ( <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white text-gray-900 font-sans"> <header className="max-w-5xl mx-auto py-12 px-6 flex items-center justify-between"> <div className="flex items-center gap-4"> <div className="w-14 h-14 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-lg font-bold">EB</div> <div> <h1 className="text-2xl font-extrabold">Eren Bot — Tu voz IA profesional</h1> <p className="text-sm text-gray-600">Vende y licencia tu voz para narración, anuncios, videojuegos y más.</p> </div> </div> <nav className="hidden md:flex items-center gap-6 text-sm"> <a href="#features" className="hover:underline">Características</a> <a href="#pricing" className="hover:underline">Precios</a> <a href="#demo" className="hover:underline">Demo</a> <a href="#contact" className="px-4 py-2 bg-indigo-600 text-white rounded-md">Contacto</a> </nav> </header>
+
+<main className="max-w-5xl mx-auto px-6">
+    {/* HERO */}
+    <section className="grid md:grid-cols-2 gap-8 items-center py-12">
+      <div>
+        <h2 className="text-4xl font-extrabold leading-tight">La voz que conecta con tu público — Eren Bot</h2>
+        <p className="mt-4 text-gray-600">Convierte texto en locuciones profesionales con timbre natural. Ideal para anuncios, podcasts, personajes y asistentes virtuales.</p>
+
+        <div className="mt-6 flex gap-4">
+          <button onClick={() => document.getElementById('demo-player')?.play()} className="px-5 py-3 bg-indigo-600 text-white rounded-md">Escuchar demo</button>
+          <button onClick={() => document.getElementById('demo-player')?.pause()} className="px-5 py-3 border rounded-md">Pausar</button>
+        </div>
+
+        <ul className="mt-6 grid grid-cols-2 gap-2 text-sm text-gray-600">
+          <li>✅ Timbre natural</li>
+          <li>✅ Entonación ajustable</li>
+          <li>✅ Licencias comerciales</li>
+          <li>✅ Entrega rápida</li>
+        </ul>
+
+        <div className="mt-8 flex gap-3 items-center">
+          <input className="px-4 py-2 border rounded-md" placeholder="Tu email para demo / cotización" value={email} onChange={e => setEmail(e.target.value)} />
+          <button className="px-4 py-2 bg-emerald-500 text-white rounded-md" onClick={() => alert('Gracias! Te contactaremos pronto al ' + email)}>Solicitar cotización</button>
+        </div>
+      </div>
+
+      <div className="bg-white p-6 rounded-2xl shadow-md">
+        <div className="mb-4">
+          <h3 className="text-lg font-semibold">Demo rápido</h3>
+          <p className="text-sm text-gray-500">Texto de ejemplo convertido a voz por Eren Bot.</p>
+        </div>
+
+        <audio id="demo-player" controls className="w-full">
+          <source src="https://cdn.simpleplaceholder.net/audio/voice-sample-1.mp3" type="audio/mpeg" />
+          Tu navegador no soporta audio.
+        </audio>
+
+        <div className="mt-4 text-sm text-gray-600">Si quieres un demo personalizado con tu guion, solicita una muestra a través del formulario.</div>
+      </div>
+    </section>
+
+    {/* FEATURES */}
+    <section id="features" className="py-12">
+      <h3 className="text-2xl font-bold">¿Por qué elegir Eren Bot?</h3>
+      <div className="mt-6 grid md:grid-cols-3 gap-6">
+        <div className="p-6 bg-white rounded-xl shadow-sm">
+          <h4 className="font-semibold">Calidad humana</h4>
+          <p className="mt-2 text-sm text-gray-600">Gran naturalidad y control de entonación.</p>
+        </div>
+        <div className="p-6 bg-white rounded-xl shadow-sm">
+          <h4 className="font-semibold">Licencias claras</h4>
+          <p className="mt-2 text-sm text-gray-600">Opciones para uso personal y comercial.</p>
+        </div>
+        <div className="p-6 bg-white rounded-xl shadow-sm">
+          <h4 className="font-semibold">Entrega rápida</h4>
+          <p className="mt-2 text-sm text-gray-600">Archivos listos para usar en 24–72 horas.</p>
+        </div>
+      </div>
+    </section>
+
+    {/* PRICING */}
+    <section id="pricing" className="py-12">
+      <h3 className="text-2xl font-bold">Planes</h3>
+      <div className="mt-6 grid md:grid-cols-3 gap-6">
+        {plans.map(plan => (
+          <div key={plan.id} className="p-6 bg-white rounded-xl shadow-sm flex flex-col justify-between">
+            <div>
+              <h4 className="text-lg font-semibold">{plan.title}</h4>
+              <p className="mt-2 text-gray-600 text-sm">{plan.desc}</p>
+            </div>
+            <div className="mt-6 flex items-end justify-between">
+              <div>
+                <div className="text-2xl font-extrabold">${plan.price}</div>
+                <div className="text-xs text-gray-500">pago único</div>
+              </div>
+              <div>
+                <button onClick={() => handleBuy(plan)} className="px-4 py-2 bg-indigo-600 text-white rounded-md">Comprar</button>
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- Imagen -->
-        <div class="relative">
-          <div class="rounded-3xl overflow-hidden shadow-2xl shadow-purple-700/40 border border-white/10 backdrop-blur-xl">
-            <img src="https://cdn.russellxz.click/b3fa23e9.jpeg" alt="Killua Bot IA" class="w-full h-full object-cover">
+        ))}
+      </div>
+    </section>
+
+    {/* FAQ */}
+    <section id="faq" className="py-12">
+      <h3 className="text-2xl font-bold">Preguntas frecuentes</h3>
+      <div className="mt-6 space-y-4 text-sm text-gray-700">
+        <details className="p-4 bg-white rounded-lg shadow-sm">
+          <summary className="font-semibold">¿Puedo usar la voz en proyectos comerciales?</summary>
+          <p className="mt-2 text-gray-600">Sí, si compras la licencia Pro o Premium. Los términos específicos se definen en el contrato.</p>
+        </details>
+        <details className="p-4 bg-white rounded-lg shadow-sm">
+          <summary className="font-semibold">¿Cómo solicito cambios o nuevas entonaciones?</summary>
+          <p className="mt-2 text-gray-600">Incluimos hasta 2 rondas de revisión en los planes Pro y Premium.</p>
+        </details>
+      </div>
+    </section>
+
+    {/* CONTACT / FOOTER */}
+    <section id="contact" className="py-12">
+      <h3 className="text-2xl font-bold">Contacto & Solicitud de demo</h3>
+      <form onSubmit={(e) => { e.preventDefault(); alert('Gracias! Nos pondremos en contacto: ' + e.target.email.value); }} className="mt-6 grid md:grid-cols-2 gap-4">
+        <input name="name" placeholder="Nombre" className="px-4 py-3 border rounded-md" required />
+        <input name="email" placeholder="Email" className="px-4 py-3 border rounded-md" required />
+        <textarea name="message" placeholder="Mensaje / guion para demo" className="md:col-span-2 px-4 py-3 border rounded-md" rows={4}></textarea>
+        <button type="submit" className="md:col-span-2 px-6 py-3 bg-indigo-600 text-white rounded-md">Solicitar demo gratis</button>
+      </form>
+
+      <footer className="mt-10 text-sm text-gray-500">© {new Date().getFullYear()} Eren Bot — Todos los derechos reservados.</footer>
+    </section>
+  </main>
+
+  {/* SIMPLE CHECKOUT MODAL (SIMULACIÓN) */}
+  {showCheckout && selectedPlan && (
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
+      <div className="bg-white rounded-xl w-full max-w-md p-6">
+        <h4 className="text-lg font-bold">Comprar — {selectedPlan.title}</h4>
+        <p className="mt-2 text-sm text-gray-600">Precio: ${selectedPlan.price} (simulación)</p>
+        <form onSubmit={handleCheckoutSubmit} className="mt-4 space-y-3">
+          <input type="email" required placeholder="Tu email" className="w-full px-4 py-2 border rounded-md" value={email} onChange={e => setEmail(e.target.value)} />
+          <div className="flex gap-2">
+            <button type="button" onClick={() => setShowCheckout(false)} className="px-4 py-2 border rounded-md">Cancelar</button>
+            <button type="submit" className="px-4 py-2 bg-emerald-500 text-white rounded-md">Pagar (simulación)</button>
           </div>
-          <div class="absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-emerald-500 blur-3xl opacity-40"></div>
-          <div class="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-purple-500 blur-3xl opacity-40"></div>
-        </div>
+        </form>
+
+        <div className="mt-4 text-xs text-gray-500">Integración real de pagos: conecta Stripe/PayPal en tu backend y redirige/crea sesiones aquí.</div>
       </div>
     </div>
-  </section>
+  )}
+</div>
 
-  <!-- CARACTERÍSTICAS NUEVAS -->
-  <section id="caracteristicas" class="py-24 bg-black relative">
-    <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/40 to-transparent"></div>
-    <div class="max-w-7xl mx-auto px-6 relative">
-      <h2 class="text-center text-4xl lg:text-5xl font-extrabold text-emerald-400 mb-14">
-        🔥 Funcionalidades Épicas
-      </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        
-        <!-- Card -->
-        <div class="rounded-2xl bg-white/5 border border-emerald-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-emerald-500/40 transition">
-          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-emerald-600 text-2xl shadow-md shadow-emerald-500/40">🤖</div>
-          <h3 class="mt-4 text-xl font-bold">Respuestas Inteligentes</h3>
-          <p class="text-gray-300 mt-2 text-sm">Crea respuestas automáticas personalizadas con IA para cualquier situación.</p>
-        </div>
-        
-        <div class="rounded-2xl bg-white/5 border border-purple-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-purple-500/40 transition">
-          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-purple-600 text-2xl shadow-md shadow-purple-500/40">🛡️</div>
-          <h3 class="mt-4 text-xl font-bold">Moderación de Grupos</h3>
-          <p class="text-gray-300 mt-2 text-sm">Gestiona tu comunidad con sistemas de bienvenida, despedida, antilink, antibot y más.</p>
-        </div>
-        
-        <div class="rounded-2xl bg-white/5 border border-emerald-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-emerald-500/40 transition">
-          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-emerald-600 text-2xl shadow-md shadow-emerald-500/40">🧠</div>
-          <h3 class="mt-4 text-xl font-bold">IA Avanzada</h3>
-          <p class="text-gray-300 mt-2 text-sm">Haz que tu bot piense, responda preguntas y hasta genere imágenes realistas.</p>
-        </div>
-        
-        <div class="rounded-2xl bg-white/5 border border-purple-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-purple-500/40 transition">
-          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-purple-600 text-2xl shadow-md shadow-purple-500/40">🎮</div>
-          <h3 class="mt-4 text-xl font-bold">Sistema de Juegos</h3>
-          <p class="text-gray-300 mt-2 text-sm">Juega partidas dinámicas y organiza competiciones automáticas dentro de WhatsApp.</p>
-        </div>
-        
-        <div class="rounded-2xl bg-white/5 border border-emerald-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-emerald-500/40 transition">
-          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-emerald-600 text-2xl shadow-md shadow-emerald-500/40">🔒</div>
-          <h3 class="mt-4 text-xl font-bold">Seguridad Pro</h3>
-          <p class="text-gray-300 mt-2 text-sm">Protección contra abusos, control de accesos y sistemas de bloqueo automático.</p>
-        </div>
-        
-        <div class="rounded-2xl bg-white/5 border border-purple-500/30 p-6 backdrop-blur-md shadow-lg hover:shadow-purple-500/40 transition">
-          <div class="w-14 h-14 rounded-full flex items-center justify-center bg-purple-600 text-2xl shadow-md shadow-purple-500/40">⚡</div>
-          <h3 class="mt-4 text-xl font-bold">Optimizado</h3>
-          <p class="text-gray-300 mt-2 text-sm">Rendimiento rápido, ligero y diseñado para soportar comunidades grandes.</p>
-        </div>
+); }
 
-      </div>
-    </div>
-  </section>
-
-<section id="precios" class="rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-primary/40 transition">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl lg:text-4xl font-extrabold mb-10 text-center">
-      Planes para tu Bot, más abajo encontrarás los métodos de pago
-    </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <!-- PLAN BÁSICO -->
-      <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
-        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-red-600 font-semibold">Básico</span>
-        <h3 class="mt-3 text-xl font-bold">Plan Basic mensual</h3>
-        <p class="mt-1 text-gray-400 text-sm">Ideal para automatiza tús grupos y pruebas de uso</p>
-        <div class="mt-6 text-4xl font-black">$4.50<span class="text-base font-semibold text-gray-400">/mes</span></div>
-        <ul class="mt-6 space-y-2 text-sm text-gray-300">
-          <li>✔️ Respuestas automáticas</li>
-          <li>✔️ Comandos a medida</li>
-          <li>✔️ Instrucciones de uso</li>
-          <li>✔️ Siempre activo 24/7</li>
-          <li>✔️ Soporte limitado</li>
-        </ul>
-
-        <!-- Botón para mostrar métodos -->
-        <button onclick="togglePayment('basic')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
-
-        <!-- Métodos de pago -->
-        <div id="payment-basic" class="hidden mt-6 space-y-3">
-          <!-- PayPal -->
-          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Basic&amount=4.50&currency_code=USD"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6" alt="PayPal">
-            <span class="font-semibold">Pagar con PayPal</span>
-          </a>
-          <!-- Banco Azteca -->
-          <a href="https://wa.link/v743sn"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" class="w-7 h-7" alt="Banco Azteca">
-            <span class="font-semibold">Pagar con Banco Azteca</span>
-          </a>
-          <!-- Banco Ficohsa -->
-          <a href="https://wa.link/86jaue"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" class="w-7 h-7" alt="Banco Ficohsa">
-            <span class="font-semibold">Pagar con Banco Ficohsa</span>
-          </a>
-          <!-- Botón WhatsApp -->
-          <a href="https://wa.me/50493374445"
-             class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" alt="WhatsApp">
-            <span class="font-semibold">Enviar comprobante</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- PLAN PRO MAX -->
-      <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
-        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-blue-500 font-semibold">Popular</span>
-        <h3 class="text-xl font-bold">Plan Pro Max, permanente</h3>
-        <p class="mt-1 text-gray-400 text-sm">El balance perfecto para proyectos y control de tús grupos</p>
-        <div class="mt-6 text-4xl font-black">$15<span class="text-base font-semibold text-gray-400">/Permanente</span></div>
-        <ul class="mt-6 space-y-2 text-sm text-gray-300">
-          <li>✔️ Todas las características del Plan Básico</li>
-          <li>✔️ Integración con IA</li>
-          <li>✔️ Único pago de por vida</li>
-          <li>✔️ Gestión de grupos avanzada</li>
-          <li>✔️ Se le hace cambio de grupo una vez</li>
-          <li>✔️ Soporte prioritario</li>
-        </ul>
-
-        <button onclick="togglePayment('pro')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
-
-        <div id="payment-pro" class="hidden mt-6 space-y-3">
-          <!-- PayPal -->
-          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Pro%20Max&amount=15.00&currency_code=USD"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-9 h-9" alt="PayPal">
-            <span class="font-semibold">Pagar con PayPal</span>
-          </a>
-          <!-- Banco Azteca -->
-          <a href="https://wa.link/v743sn"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" class="w-10 h-10" alt="Banco Azteca">
-            <span class="font-semibold">Pagar con Banco Azteca</span>
-          </a>
-          <!-- Banco Ficohsa -->
-          <a href="https://wa.link/86jaue"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" class="w-10 h-10" alt="Banco Ficohsa">
-            <span class="font-semibold">Pagar con Banco Ficohsa</span>
-          </a>
-          <!-- Botón WhatsApp -->
-          <a href="https://wa.me/50493374445"
-             class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" alt="WhatsApp">
-            <span class="font-semibold">Enviar comprobante</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- PLAN EMPRESARIAL -->
-      <div class="rounded-3xl border border-gray-700 bg-white/5 p-6 flex flex-col relative">
-        <span class="absolute -top-3 right-6 px-3 py-1 text-xs rounded-full bg-green-500 text-gray-900 font-bold uppercase">Personalizado</span>
-        <h3 class="mt-3 text-xl font-bold">Plan Empresarial/Personalizado</h3>
-        <p class="mt-1 text-gray-400 text-sm">Para empresas ventas/comunidades personalizado a tú gusto</p>
-        <div class="mt-6 text-4xl font-black">$35<span class="text-base font-semibold text-gray-400">/Pago único</span></div>
-        <ul class="mt-6 space-y-2 text-sm text-gray-300">
-          <li>✔️ Todas las características del Plan Pro Max</li>
-          <li>✔️ Comandos ilimitados</li>
-          <li>✔️ Personalizacion completa</li>
-          <li>✔️ 5 comandos a tú gusto</li>
-          <li>✔️ Pago único, solo pagas la mensualidad del servidor</li>
-          <li>✔️ No lleva la misma personalización qué Killua-Bot</li>
-          <li>✔️ Servidores dedicados</li>
-          <li>✔️ Soporte 24/7</li>
-        </ul>
-
-        <button onclick="togglePayment('empresarial')" class="mt-8 inline-block text-center px-5 py-3 rounded-2xl bg-primary hover:bg-primary/80 font-semibold transition-colors">Realizar pago</button>
-
-        <div id="payment-empresarial" class="hidden mt-6 space-y-3">
-          <!-- PayPal -->
-          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Plan%20Empresarial&amount=35.00&currency_code=USD"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6" alt="PayPal">
-            <span class="font-semibold">Pagar con PayPal</span>
-          </a>
-          <!-- Banco Azteca -->
-          <a href="https://wa.link/v743sn"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://i.postimg.cc/d0cKGDy9/1756697093159.png" class="w-7 h-7" alt="Banco Azteca">
-            <span class="font-semibold">Pagar con Banco Azteca</span>
-          </a>
-          <!-- Banco Ficohsa -->
-          <a href="https://wa.link/86jaue"
-             target="_blank"
-             class="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 transition">
-            <img src="https://i.postimg.cc/JndrNPxw/1756696824482.png" class="w-7 h-7" alt="Banco Ficohsa">
-            <span class="font-semibold">Pagar con Banco Ficohsa</span>
-          </a>
-<!-- Botón WhatsApp -->
-          <a href="https://wa.me/50493374445?text=¡Hola! Me interesa el Plan Empresarial de Killua Bot IA y me gustaría recibir más información."
-             class="flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" alt="WhatsApp">
-            <span class="font-semibold">Enviar comprobante</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Script para mostrar/ocultar métodos de pago -->
-<script>
-  function togglePayment(plan) {
-    const section = document.getElementById("payment-" + plan);
-    section.classList.toggle("hidden");
-  }
-</script>
-
-<section id="devs" class="py-20 bg-gray-950 border-y border-white/10">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-3xl lg:text-4xl font-extrabold mb-6 text-cyan-400">Creador Oficial</h2>
-    <p class="text-white/70 max-w-2xl mx-auto mb-12">
-      Contrata aquí los servicios de <strong>Killua Bot IA</strong>. 
-      Este es el único contacto oficial para soporte, validación de compras y atención personalizada.
-    </p>
-
-    <div class="max-w-sm mx-auto bg-gray-900 border border-white/10 rounded-2xl shadow-lg hover:shadow-cyan-500/20 transition">
-      <div class="p-8 flex flex-col items-center">
-        <img src="https://cdn.russellxz.click/e0644c8b.jpeg" 
-             class="w-28 h-28 rounded-full mb-4 object-cover ring-4 ring-cyan-500/20" 
-             alt="Cholito_Xyz"/>
-
-        <h3 class="text-xl font-bold">Cholito_Xyz</h3>
-        <p class="text-sm text-white/60 mb-6">Creador & Soporte Oficial</p>
-
-        <a href="https://wa.me/50493374445" target="_blank"
-           class="flex items-center gap-2 px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 transition font-semibold">
-          <!-- Ícono de WhatsApp -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 
-                     11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 
-                     2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 
-                     11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zM6.5 
-                     19.294c1.676.995 3.276 1.591 5.451 1.592 5.448 0 
-                     9.886-4.434 9.889-9.885.002-5.462-4.415-9.889-9.881-9.892-5.466 
-                     0-9.89 4.427-9.892 9.891-.001 2.225.651 3.891 1.746 
-                     5.487l-.999 3.648 3.686-.841zM17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.768.966-.941 
-                     1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.58-.487-.501-.67-.51l-.57-.01c-.198 
-                     0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 
-                     3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 
-                     1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-          </svg>
-          Contactar por WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section id="politicas" class="py-12 bg-gray-900 text-white">
-  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-    <!-- Política de Privacidad -->
-    <div>
-      <h3 class="text-2xl font-bold mb-3">Política de Privacidad</h3>
-      <p class="text-white/80 leading-relaxed">
-        Tu privacidad es nuestra prioridad. <br><br>
-        En <strong>Killua Bot IA</strong> recopilamos únicamente la información necesaria para el correcto funcionamiento del servicio. 
-        <strong>No compartimos tus datos con terceros</strong> y aplicamos medidas de seguridad para proteger tu información personal. 
-        Al usar el bot, aceptas nuestra política de privacidad y el tratamiento de tus datos de acuerdo con estas condiciones.
-      </p>
-    </div>
-
-    <!-- Normas de Seguridad -->
-    <div>
-      <h3 class="text-2xl font-bold mb-3">Normas de Seguridad</h3>
-      <p class="text-white/80 leading-relaxed">
-        Hemos implementado estrictas medidas de seguridad para garantizar la estabilidad del servicio y la protección de tus datos. 
-        Sin embargo, el usuario es responsable de mantener la confidencialidad de sus credenciales. 
-        Está prohibido utilizar el bot para actividades ilegales, fraudulentas o que violen las normas de WhatsApp.
-      </p>
-    </div>
-  </div>
-
-  <!-- Condiciones del Servicio -->
-  <div class="max-w-6xl mx-auto px-6 mt-12">
-    <h3 class="text-2xl font-bold mb-3">Condiciones del Servicio</h3>
-    <ul class="list-disc list-inside text-white/80 leading-relaxed space-y-2">
-      <li>Al contratar el bot, aceptas que <strong>no se realizan reembolsos</strong> bajo ninguna circunstancia.</li>
-      <li>No se permite el cambio de grupos ni transferencias de licencia una vez activado el servicio.</li>
-      <li>El servicio es exclusivo para uso personal o empresarial según lo acordado. El mal uso puede ocasionar la suspensión inmediata.</li>
-      <li>El equipo de <strong>Killua Bot IA</strong> no se hace responsable por el mal uso que los usuarios den a las funciones del bot.</li>
-      <li>Las actualizaciones y mejoras del bot se ofrecen según disponibilidad, sin garantía de soporte ilimitado.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Sección de contacto -->
-<section id="contacto" class="py-12 bg-gray-800">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">¿Tienes alguna pregunta?</h2>
-    <p class="text-lg text-white/80 max-w-2xl mx-auto mb-6">
-      Si necesitas más información, soporte técnico o detalles sobre el servicio, contáctanos a través de los siguientes medios:
-    </p>
-    <div class="flex justify-center gap-6">
-      <a href="mailto:posadaselder2806@gmail.com" class="px-6 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
-        📧 Enviar un correo
-      </a>
-      <a href="https://wa.me/50493374445" class="px-6 py-2 rounded-lg bg-green-600 hover:bg-green-700 transition font-semibold">
-        💬 Contactar por WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="py-6 bg-gray-900 text-center text-white/50 text-sm">
-  <p>&copy; 2025 Killua Bot IA. Todos los derechos reservados.</p>
-  <div class="mt-2 flex justify-center gap-6 text-xs">
-    <a href="#politicas" class="hover:text-white">Términos de Servicio</a>
-    <a href="https://wa.me/50493374445" target="_blank" class="hover:text-white">WhatsApp</a>
-    <a href="#politicas" class="hover:text-white">Política de Privacidad</a>
-  </div>
-</footer>
-
-<script>
-const menuButton = document.getElementById('menu-button');
-const mobileNav = document.getElementById('mobilenav');
-const navLinks = document.querySelectorAll('#mobilenav a');
-const closeMenu = () => { mobileNav.classList.add('hidden'); };
-menuButton.addEventListener('click', (event) => { 
-  event.stopPropagation(); 
-  mobileNav.classList.toggle('hidden'); 
-});
-navLinks.forEach(link => { link.addEventListener('click', closeMenu); });
-document.addEventListener('click', (event) => { 
-  if (!mobileNav.contains(event.target) && !menuButton.contains(event.target)) { 
-    closeMenu(); 
-  } 
-});
-window.addEventListener('resize', () => { 
-  if (window.innerWidth >= 768) { 
-    closeMenu(); 
-  } 
-});
-</script>
