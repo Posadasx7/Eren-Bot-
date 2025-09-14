@@ -64,7 +64,7 @@
 
 <!-- HERO -->
 <section class="relative overflow-hidden bg-ebdark">
-  <!-- Fondo animado (estrellas + ondas suaves) -->
+  <!-- Fondo animado -->
   <div class="absolute inset-0">
     <canvas id="hero-bg" class="w-full h-full"></canvas>
   </div>
@@ -79,7 +79,7 @@
         con <span class="text-ebsecondary">Eren Bot IA</span>
       </h1>
 
-      <!-- Subtítulo destacado -->
+      <!-- Subtítulo -->
       <p class="mt-2 text-lg md:text-xl text-white/80 font-medium max-w-lg leading-relaxed">
         Automatización, seguridad y gestión inteligente para empresas, comunidades y creadores.  
       </p>
@@ -94,19 +94,40 @@
         </a>
       </div>
 
-      <!-- Aviso importante -->
-      <div class="mt-10 bg-ebsecondary/10 border border-ebsecondary/30 rounded-xl p-4 shadow-md text-sm md:text-base">
-        <p class="text-white/90 leading-relaxed">
-          🔒 El único <span class="font-bold text-ebsecondary">vendedor oficial</span> es 
-          <a href="https://wa.me/50493374445" target="_blank" class="underline hover:text-ebprimary font-semibold">Cholito-Xyz</a>.  
-          <br><br>
-          ✅ ¿Quieres probar <span class="text-ebprimary font-bold">Eren Bot</span> antes de contratarlo?  
-          Únete al <a href="https://chat.whatsapp.com/EqJ0U1LY2PUIqVhHdEsKc1?mode=ems_copy_t" target="_blank" class="underline text-ebsecondary hover:text-ebprimary font-semibold">grupo de WhatsApp</a> y vive la experiencia en directo.
+      <!-- Información importante -->
+      <div class="mt-10 space-y-4">
+        <h3 class="text-xl font-bold text-ebsecondary">Información Importante</h3>
+        <p class="text-white/80 leading-relaxed">
+          Bienvenido a la <span class="font-semibold">web oficial de Eren-Bot</span>, un bot de WhatsApp con 
+          <span class="font-semibold">funciones avanzadas</span>, súper automatizado, 
+          <span class="font-semibold">súper estable</span>, sin caídas y activo <span class="font-semibold">24/7</span>, 
+          con comandos únicos y exclusivos.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          🔑 Único creador y vendedor oficial: 
+          <a href="https://wa.me/50493374445" target="_blank" class="underline text-ebsecondary hover:text-ebprimary font-semibold">Cholito-Xyz</a>, 
+          con más de <span class="font-semibold">3 años de experiencia</span>.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          🛠️ Eren-Bot fue creado desde cero con la finalidad de ser un bot 
+          <span class="font-semibold">súper estable y optimizado</span>.  
+          Actualmente los únicos proyectos oficiales son 
+          <span class="font-semibold text-ebprimary">Eren-Bot</span> y 
+          <a href="https://killua-bot.vercel.app" target="_blank" class="underline text-ebsecondary hover:text-ebprimary font-semibold">Killua-Bot</a>.
+        </p>
+        <p class="text-white/80 leading-relaxed">
+          ✅ ¿Quieres probar <span class="font-semibold">Eren-Bot</span> antes de adquirirlo?  
+          Únete a nuestro <a href="https://chat.whatsapp.com/EqJ0U1LY2PUIqVhHdEsKc1?mode=ems_copy_t" target="_blank" class="underline text-ebsecondary hover:text-ebprimary font-semibold">grupo oficial de WhatsApp</a> y disfruta sus funciones en vivo.
+        </p>
+        <p class="text-white/90 font-semibold">
+          🚀 Únicos proyectos: <span class="text-ebsecondary">Eren-Bot</span> y 
+          <a href="https://killua-bot.vercel.app" target="_blank" class="underline text-ebsecondary hover:text-ebprimary">Killua-Bot</a>.  
+          ¡Elige tu mejor opción!
         </p>
       </div>
     </div>
 
-    <!-- Imagen opcional -->
+    <!-- Imagen -->
     <div class="hidden md:block md:w-1/2 text-center">
       <img src="https://cdn.russellxz.click/a0d2a3d4.jpeg" alt="Eren Bot Ilustración"
            class="w-80 mx-auto drop-shadow-2xl rounded-2xl border-4 border-ebprimary/40">
@@ -123,7 +144,7 @@
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = 400; // solo el alto del hero
+    canvas.height = 400;
     stars = Array.from({length: 80}, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -137,7 +158,7 @@
     stars.forEach(star => {
       ctx.beginPath();
       ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(124,58,237,0.8)"; // morado
+      ctx.fillStyle = "rgba(124,58,237,0.8)";
       ctx.fill();
       star.y += star.speed;
       if (star.y > canvas.height) star.y = 0;
