@@ -64,33 +64,32 @@
 
 <!-- HERO -->
 <section class="relative overflow-hidden bg-ebdark">
-  <!-- Fondo animado -->
+  <!-- Fondo animado (estrellas + ondas suaves) -->
   <div class="absolute inset-0">
     <canvas id="hero-bg" class="w-full h-full"></canvas>
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center md:items-start justify-between relative z-10">
-    
+  <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center md:items-start justify-between relative z-10">
+
     <!-- Texto -->
     <div class="w-full md:w-1/2 text-left">
       <!-- Título principal -->
-      <h1 class="text-4xl md:text-6xl font-black leading-tight mb-3">
-        <span class="gradient-text">Eren Bot IA</span><br>
-        Haz que tu WhatsApp <br class="hidden md:block">
-        sea <span class="text-ebsecondary">más inteligente</span>
+      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-2">
+        Potencia tu <span class="gradient-text">WhatsApp</span><br>
+        con <span class="text-ebsecondary">Eren Bot IA</span>
       </h1>
-      
+
       <!-- Subtítulo -->
-      <p class="mt-2 text-lg md:text-xl text-white/75 max-w-lg leading-relaxed">
-        Automatiza respuestas, organiza grupos y protege tu comunidad con el poder de la inteligencia artificial.
+      <p class="mt-1 text-base md:text-lg text-white/70 max-w-md leading-relaxed">
+        Automatización, seguridad y gestión inteligente para empresas, comunidades y creadores.
       </p>
-      
+
       <!-- Botones -->
       <div class="mt-6 flex flex-wrap gap-4">
-        <a href="#precios" class="px-7 py-3 rounded-xl bg-ebprimary hover:bg-ebsecondary font-bold transition shine-btn text-base md:text-lg">
+        <a href="#precios" class="px-6 py-2.5 rounded-xl bg-ebprimary hover:bg-ebsecondary font-semibold transition shine-btn text-sm md:text-base">
           Ver planes
         </a>
-        <a href="#funcionalidades" class="px-7 py-3 rounded-xl border-2 border-ebprimary hover:border-ebsecondary text-ebprimary hover:text-ebsecondary font-bold transition text-base md:text-lg">
+        <a href="#funcionalidades" class="px-6 py-2.5 rounded-xl border-2 border-ebprimary hover:border-ebsecondary text-ebprimary hover:text-ebsecondary font-semibold transition text-sm md:text-base">
           Explorar funciones
         </a>
       </div>
@@ -99,29 +98,46 @@
     <!-- Imagen opcional -->
     <div class="hidden md:block md:w-1/2 text-center">
       <img src="https://cdn.russellxz.click/a0d2a3d4.jpeg" alt="Eren Bot Ilustración"
-           class="w-96 mx-auto drop-shadow-2xl rounded-2xl border-4 border-ebprimary/40">
+           class="w-80 mx-auto drop-shadow-2xl rounded-2xl border-4 border-ebprimary/40">
     </div>
 
-  </div>
-
-  <!-- Sección extra debajo del hero -->
-  <div class="relative z-10 border-t border-white/10 bg-ebdark/80">
-    <div class="max-w-6xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-      <div>
-        <p class="text-2xl font-extrabold text-ebsecondary">+500</p>
-        <p class="text-sm text-white/70">Usuarios activos diarios</p>
-      </div>
-      <div>
-        <p class="text-2xl font-extrabold text-ebsecondary">24/7</p>
-        <p class="text-sm text-white/70">Soporte en todo momento</p>
-      </div>
-      <div>
-        <p class="text-2xl font-extrabold text-ebsecondary">99.9%</p>
-        <p class="text-sm text-white/70">Estabilidad garantizada</p>
-      </div>
-    </div>
   </div>
 </section>
+
+<script>
+  // Fondo animado simple (estrellas en movimiento)
+  const canvas = document.getElementById("hero-bg");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = 400; // solo el alto del hero
+    stars = Array.from({length: 80}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5,
+      speed: 0.3 + Math.random() * 0.5
+    }));
+  }
+
+  function animateStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(124,58,237,0.8)"; // morado
+      ctx.fill();
+      star.y += star.speed;
+      if (star.y > canvas.height) star.y = 0;
+    });
+    requestAnimationFrame(animateStars);
+  }
+
+  resizeCanvas();
+  animateStars();
+  window.addEventListener("resize", resizeCanvas);
+</script>
 
 <!-- FUNCIONALIDADES -->
 <section id="funcionalidades" class="py-16">
