@@ -1,185 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eren Bot — WhatsApp</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eren-Bot — Bot de WhatsApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #000;
-      color: #0ff;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
+    :root{
+      --bg:#060607;
+      --neon-cyan:#00fff0;
+      --neon-pink:#ff4dff;
+      --neon-yellow:#ffef5a;
+      --card:#0b0b0d;
+      --muted:#9aa0a6;
+      --glass: rgba(255,255,255,0.03);
     }
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Poppins,system-ui,Arial;background:var(--bg);color:#e8edef}
+    header{padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--neon-cyan),var(--neon-pink));
+      font-family:Orbitron,monospace;font-weight:700;color:#050505
     }
-    header h1 {
-      font-size: 2em;
-      color: #0ff;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.1em;
-      color: #0ff;
-    }
-    .imagen-bot {
-      text-align: center;
-      margin: 20px 0;
-    }
-    .imagen-bot img {
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
-      border: 2px solid #0ff;
-    }
-    section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    section h2 {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-      color: #0ff;
-      border-bottom: 2px solid #0ff;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      padding: 8px 0;
-      font-size: 1em;
-      color: #0ff;
-      display: flex;
-      align-items: center;
-    }
-    ul li::before {
-      content: "•";
-      color: #0ff;
-      font-size: 1.3em;
-      margin-right: 8px;
-    }
-    .botones {
-      text-align: center;
-      margin: 30px 0;
-    }
-    .botones a {
-      background-color: #0ff;
-      color: #000;
-      text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin: 10px;
-      display: inline-block;
-      font-weight: bold;
-    }
-    .botones a:hover {
-      background-color: #00bfbf;
-    }
+    h1.site-title{font-family:Orbitron,monospace;margin:0;font-size:20px;letter-spacing:1px}
+    .tag{font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;transition:0.2s}
+    nav a:hover{color:var(--neon-cyan)}
+    nav a.cta{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#050505;font-weight:600}
+    
+    .hero{text-align:center;padding:50px 20px}
+    .hero h2{font-family:Orbitron,monospace;font-size:34px;margin-bottom:12px;color:var(--neon-cyan)}
+    .hero p{max-width:600px;margin:0 auto 22px;color:var(--muted);line-height:1.6}
+    .hero img{max-width:420px;width:100%;border-radius:14px;box-shadow:0 6px 30px rgba(0,0,0,0.5)}
+    
+    .features{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+    .feat{background:var(--glass);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);font-size:14px;color:var(--muted)}
+    
+    .pricing{padding:50px 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+    .plan{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);text-align:center}
+    .plan h3{font-family:Orbitron,monospace;margin:0 0 6px}
+    .plan .price{font-size:22px;font-weight:700;margin:6px 0}
+    .perk{font-size:14px;color:var(--muted);margin:8px 0}
+    .btn-primary,.btn-ghost{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;margin-top:12px}
+    .btn-primary{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#050505}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.06);color:var(--neon-cyan)}
+    
+    footer{padding:24px 20px;border-top:1px solid rgba(255,255,255,0.05);background:#111;text-align:center;color:#aaa;font-size:14px}
+    footer a{color:#aaa;margin:0 8px;text-decoration:none}
+    footer a:hover{color:#fff}
   </style>
 </head>
 <body>
   <header>
-    <h1>Hola, bienvenido 👋</h1>
-    <p>Soy <strong>Eren Bot</strong>, un bot automatizado para WhatsApp que te ayuda con muchas funciones.</p>
+    <div class="brand">
+      <div class="logo">E</div>
+      <div>
+        <h1 class="site-title">Eren-Bot</h1>
+        <div class="tag">Bot de WhatsApp automatizado</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#features">Funciones</a>
+      <a href="#planes">Planes</a>
+      <a href="https://wa.me/50493374445" target="_blank" class="cta">WhatsApp</a>
+    </nav>
   </header>
 
-  <div class="imagen-bot">
-    <!-- Pon aquí la imagen o logo -->
-    <img src="https://via.placeholder.com/200x200.png?text=ErenBot" alt="Eren Bot Logo">
-  </div>
-
-  <section>
-    <h2>Funciones principales</h2>
-    <ul>
-      <li>Responde automáticamente a mensajes</li>
-      <li>Descargas de YouTube, TikTok, etc.</li>
-      <li>Juegos interactivos en grupos</li>
-      <li>Administración y moderación de chats</li>
-    </ul>
+  <!-- Bienvenida arriba -->
+  <section class="hero">
+    <h2>👋 Hola, bienvenido</h2>
+    <p>Soy <strong>Eren-Bot</strong>, un bot automatizado para WhatsApp que te ayuda a moderar, entretener y potenciar tus grupos con música, juegos y utilidades profesionales.</p>
+    <img src="https://cdn.russellxz.click/a0d2a3d4.jpeg" alt="Eren Bot">
+    
+    <div class="features" id="features">
+      <div class="feat">🎵 Música y descargas</div>
+      <div class="feat">👑 Comandos personalizados</div>
+      <div class="feat">🛡️ Moderación automática</div>
+      <div class="feat">🧩 Mini-juegos</div>
+      <div class="feat">🔒 Roles y permisos</div>
+    </div>
   </section>
 
-  <section>
-    <h2>Cómo funciona</h2>
-    <ul>
-      <li>Escríbeme en WhatsApp para iniciar</li>
-      <li>Usa comandos para acceder a cada función</li>
-      <li>Actualizaciones frecuentes con nuevas herramientas</li>
-    </ul>
-  </section>
-
-  <div class="botones">
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me/tu_numero">Contactar por WhatsApp</a>
-    <!-- Botón Gmail -->
-    <a href="mailto:tu_correo@gmail.com">Enviar Correo</a>
-  </div>
-</body>
-</html>
-
+  <!-- Planes -->
   <section id="planes" class="pricing">
     <div class="plan">
-      <h3 class="accent">Básico</h3>
-      <div style="font-size:22px;font-weight:700;margin-top:6px">$3 / mes</div>
-      <div class="perk">• Moderación básica (filtros, advertencias)</div>
+      <h3>Básico</h3>
+      <div class="price">$3 / mes</div>
+      <div class="perk">• Moderación básica</div>
       <div class="perk">• Comandos principales</div>
-      <div class="perk">• Soporte por chat</div>
-      <div style="margin-top:12px">
-        <a class="btn-ghost" target="_blank" href="https://www.paypal.com/paypalme/posadaselder2806/3">Contratar</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.paypal.com/paypalme/posadaselder2806/3">Contratar</a>
     </div>
-    <div class="plan" style="border:2px solid rgba(0,255,240,0.12);box-shadow:0 8px 40px rgba(0,255,240,0.03)">
-      <h3 class="accent">Pro</h3>
-      <div style="font-size:22px;font-weight:700;margin-top:6px">$8 / mes</div>
-      <div class="perk">• Todas las funciones del Básico</div>
-      <div class="perk">• Reproducción de música y descargas</div>
+    <div class="plan" style="border:2px solid var(--neon-cyan)">
+      <h3>Pro</h3>
+      <div class="price">$8 / mes</div>
+      <div class="perk">• Todo lo del Básico</div>
+      <div class="perk">• Música y descargas</div>
       <div class="perk">• Comandos personalizados</div>
-      <div class="perk">• Prioridad en soporte</div>
-      <div style="margin-top:12px">
-        <a class="btn-primary" target="_blank" href="https://www.paypal.com/paypalme/posadaselder2806/8">Me interesa</a>
-      </div>
+      <a class="btn-primary" target="_blank" href="https://www.paypal.com/paypalme/posadaselder2806/8">Me interesa</a>
     </div>
     <div class="plan">
-      <h3 class="accent">Premium</h3>
-      <div style="font-size:22px;font-weight:700;margin-top:6px">$20 / mes</div>
+      <h3>Premium</h3>
+      <div class="price">$20 / mes</div>
       <div class="perk">• Todo en Pro</div>
       <div class="perk">• Instancia dedicada</div>
-      <div class="perk">• Integraciones API</div>
       <div class="perk">• Soporte 24/7</div>
-      <div style="margin-top:12px">
-        <a class="btn-ghost" target="_blank" href="https://www.paypal.com/paypalme/posadaselder2806/20">Contactar ventas</a>
-      </div>
+      <a class="btn-ghost" target="_blank" href="https://www.paypal.com/paypalme/posadaselder2806/20">Contactar</a>
     </div>
-  </section>
-
-  <section id="faq" class="faq">
-    <h3 class="neon">Preguntas frecuentes</h3>
-    <details>
-      <summary>¿Cómo instalo Eren-Bot en mi grupo?</summary>
-      <div style="margin-top:8px;color:var(--muted)">Añade el número del bot y envía el comando de invitación desde tu grupo. Te damos guía paso a paso tras la contratación.</div>
-    </details>
-    <details>
-      <summary>¿Puedo personalizar comandos?</summary>
-      <div style="margin-top:8px;color:var(--muted)">Sí, en planes Pro y Premium puedes solicitar comandos y respuestas personalizadas.</div>
-    </details>
-    <details>
-      <summary>¿Hay reembolso?</summary>
-      <div style="margin-top:8px;color:var(--muted)">Ofrecemos reembolso dentro de los primeros 7 días si el servicio no funciona según lo prometido.</div>
-    </details>
   </section>
 
   <footer>
-    <p>&copy; 2025 Eren-Bot. Todos los derechos reservados.</p>
-    <div style="margin-top:8px">
+    <p>&copy; 2025 Eren-Bot — Todos los derechos reservados.</p>
+    <div>
       <a href="https://wa.me/50493374445" target="_blank">WhatsApp</a> |
       <a href="mailto:onanposadas7@gmail.com">Email</a> |
-      <a href="#">Términos</a>
+      <a href="#">Políticas</a>
     </div>
   </footer>
 </body>
