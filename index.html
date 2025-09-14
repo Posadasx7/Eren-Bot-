@@ -1,105 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Eren-Bot — Bot de WhatsApp</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eren Bot — WhatsApp</title>
   <style>
-    :root{
-      --bg:#060607;
-      --neon-cyan:#00fff0;
-      --neon-pink:#ff4dff;
-      --neon-yellow:#ffef5a;
-      --card:#0b0b0d;
-      --muted:#9aa0a6;
-      --glass: rgba(255,255,255,0.03);
+    body {
+      background-color: #000;
+      color: #0ff;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Poppins,system-ui,Arial;background:radial-gradient(1200px 400px at 10% 10%, rgba(0,255,240,0.04), transparent), radial-gradient(800px 300px at 90% 90%, rgba(255,77,255,0.03), transparent), var(--bg);color:#e8edef}
-    header{padding:32px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{
-      width:64px;height:64px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--neon-cyan),var(--neon-pink));box-shadow:0 6px 30px rgba(0,255,240,0.08), 0 2px 6px rgba(255,77,255,0.06);font-family:Orbitron,monospace;font-weight:700;color:#050505
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
     }
-    h1.site-title{font-family:Orbitron,monospace;margin:0;font-size:20px;letter-spacing:1px}
-    .tag{font-size:12px;color:var(--muted)}
-    nav{display:flex;gap:12px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;transition:0.2s}
-    nav a:hover{color:var(--neon-cyan)}
-    nav a.cta{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#050505;font-weight:600}
-    .hero{padding:60px 20px;display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.04);padding:28px;border-radius:16px;backdrop-filter: blur(6px)}
-    .eyebrow{font-size:13px;color:var(--neon-yellow);font-weight:600;letter-spacing:0.6px}
-    h2{font-family:Orbitron,monospace;font-size:38px;margin:8px 0}
-    p.lead{color:var(--muted);margin:0 0 18px;font-size:16px;line-height:1.6}
-    .features{display:flex;gap:12px;flex-wrap:wrap}
-    .feat{background:var(--glass);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);font-size:14px;color:var(--muted)}
-    .card-right{position:relative;padding:0;border-radius:12px;overflow:hidden}
-    .card-right img{width:100%;height:100%;object-fit:cover;border-radius:12px}
-    .price-big{font-family:Orbitron,monospace;font-size:28px}
-    .small-muted{font-size:13px;color:var(--muted)}
-    .pricing{padding:50px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .plan{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03)}
-    .plan h3{font-family:Orbitron,monospace;margin:0 0 6px}
-    .perk{font-size:14px;color:var(--muted);margin:8px 0}
-    .btn-ghost{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);text-decoration:none;color:var(--neon-cyan);font-weight:600;transition:0.2s}
-    .btn-ghost:hover{border-color:var(--neon-cyan)}
-    .btn-primary{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));color:#050505;text-decoration:none;font-weight:700}
-    .faq{padding:24px 20px}
-    details{background:var(--card);padding:14px;border-radius:10px;margin-bottom:10px;border:1px solid rgba(255,255,255,0.02)}
-    summary{font-weight:600;cursor:pointer}
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .pricing{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start}
-      nav{width:100%;justify-content:flex-end}
+    header h1 {
+      font-size: 2em;
+      color: #0ff;
+      margin-bottom: 10px;
     }
-    .neon{color:var(--neon-cyan);text-shadow:0 0 8px rgba(0,255,240,0.25),0 0 24px rgba(0,255,240,0.06)}
-    .accent{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-    footer{padding:24px 20px;border-top:1px solid rgba(255,255,255,0.03);background:#111;text-align:center;color:#aaa;font-size:14px}
-    footer a{color:#aaa;margin:0 8px;text-decoration:none}
-    footer a:hover{color:#fff}
+    header p {
+      font-size: 1.1em;
+      color: #0ff;
+    }
+    .imagen-bot {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .imagen-bot img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #0ff;
+    }
+    section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #0ff;
+      border-bottom: 2px solid #0ff;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      padding: 8px 0;
+      font-size: 1em;
+      color: #0ff;
+      display: flex;
+      align-items: center;
+    }
+    ul li::before {
+      content: "•";
+      color: #0ff;
+      font-size: 1.3em;
+      margin-right: 8px;
+    }
+    .botones {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .botones a {
+      background-color: #0ff;
+      color: #000;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin: 10px;
+      display: inline-block;
+      font-weight: bold;
+    }
+    .botones a:hover {
+      background-color: #00bfbf;
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">
-      <div class="logo">E</div>
-      <div>
-        <h1 class="site-title">Eren-Bot <span class="tag">— Bot de WhatsApp</span></h1>
-        <div class="tag">Automatiza, modera y potencia tu comunidad</div>
-      </div>
-    </div>
-    <nav>
-      <a href="#features">Características</a>
-      <a href="#planes">Planes</a>
-      <a href="#faq">FAQ</a>
-      <a href="https://wa.me/50493374445" target="_blank" class="cta">WhatsApp</a>
-    </nav>
+    <h1>Hola, bienvenido 👋</h1>
+    <p>Soy <strong>Eren Bot</strong>, un bot automatizado para WhatsApp que te ayuda con muchas funciones.</p>
   </header>
 
-  <section class="hero">
-    <div class="hero-card">
-      <div class="eyebrow">Bot inteligente • Moderación • Música • Utilidades</div>
-      <h2 class="neon">Eren-Bot — Tu asistente de WhatsApp</h2>
-      <p class="lead">Automatiza tareas, modera chats, reproduce música, organiza partidas y mucho más. Diseñado para comunidades que buscan control, estilo y soporte profesional.</p>
-      <div class="features">
-        <div class="feat">👑 Comandos personalizados</div>
-        <div class="feat">🎵 Reproducción y descargas</div>
-        <div class="feat">🛡️ Moderación automática</div>
-        <div class="feat">🧩 Mini-juegos y scrims</div>
-        <div class="feat">🔒 Roles y permisos</div>
-      </div>
-      <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
-        <a class="btn-primary" href="#planes">Ver planes</a>
-        <a class="btn-ghost" href="mailto:onanposadas7@gmail.com">Email</a>
-      </div>
-    </div>
-    <aside class="card-right">
-      <img src="https://cdn.russellxz.click/a0d2a3d4.jpeg" alt="Eren-Bot">
-    </aside>
+  <div class="imagen-bot">
+    <!-- Pon aquí la imagen o logo -->
+    <img src="https://via.placeholder.com/200x200.png?text=ErenBot" alt="Eren Bot Logo">
+  </div>
+
+  <section>
+    <h2>Funciones principales</h2>
+    <ul>
+      <li>Responde automáticamente a mensajes</li>
+      <li>Descargas de YouTube, TikTok, etc.</li>
+      <li>Juegos interactivos en grupos</li>
+      <li>Administración y moderación de chats</li>
+    </ul>
   </section>
+
+  <section>
+    <h2>Cómo funciona</h2>
+    <ul>
+      <li>Escríbeme en WhatsApp para iniciar</li>
+      <li>Usa comandos para acceder a cada función</li>
+      <li>Actualizaciones frecuentes con nuevas herramientas</li>
+    </ul>
+  </section>
+
+  <div class="botones">
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/tu_numero">Contactar por WhatsApp</a>
+    <!-- Botón Gmail -->
+    <a href="mailto:tu_correo@gmail.com">Enviar Correo</a>
+  </div>
+</body>
+</html>
 
   <section id="planes" class="pricing">
     <div class="plan">
