@@ -16,9 +16,9 @@
       theme: {
         extend: {
           colors: {
-            ebprimary: { DEFAULT: '#7c3aed' }, // Morado moderno
-            ebsecondary: '#06b6d4',           // Cyan
-            ebdark: '#18181b'                 // Gris oscuro elegante
+            ebprimary: { DEFAULT: '#7c3aed' },
+            ebsecondary: '#06b6d4',
+            ebdark: '#18181b'
           },
           boxShadow: { 'ebglow': '0 0 24px 0 rgba(124,58,237,0.14)' },
           fontFamily: { eren: ['Inter', 'sans-serif'] }
@@ -34,7 +34,7 @@
 </head>
 <body class="min-h-screen bg-ebdark text-white font-eren selection:bg-ebsecondary/40 selection:text-white">
 
-  <!-- HEADER NUEVO -->
+  <!-- HEADER -->
   <header class="sticky top-0 z-40 bg-ebdark/90 backdrop-blur border-b border-white/10">
     <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="flex items-center gap-4">
@@ -124,91 +124,120 @@
     </div>
   </section>
 
-  <!-- PRECIOS PREMIUM -->
+  <!-- PRECIOS ACORDEÓN -->
   <section id="precios" class="py-20 bg-ebprimary/5 border-y border-white/10">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-3xl md:text-5xl font-extrabold mb-8 text-center gradient-text">Planes y Precios</h2>
-      <div class="overflow-x-auto rounded-2xl shadow-lg bg-ebdark/80 border border-ebprimary/20">
-        <table class="min-w-full text-base text-white/90 text-center">
-          <thead>
-            <tr class="text-ebsecondary border-b border-ebprimary/30">
-              <th class="py-4 px-2 font-bold text-lg">Plan</th>
-              <th class="py-4 px-2 font-bold text-lg">Características</th>
-              <th class="py-4 px-2 font-bold text-lg">Precio</th>
-              <th class="py-4 px-2 font-bold text-lg">Pagar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Starter -->
-            <tr class="border-b border-ebprimary/20 hover:bg-ebprimary/10 transition">
-              <td class="py-6 px-2 font-bold text-xl text-emerald-400">Starter</td>
-              <td class="py-6 px-2 text-left">
-                <ul class="space-y-2">
-                  <li>✔️ Hasta 3 grupos</li>
-                  <li>✔️ Descargas básicas</li>
-                  <li>✔️ Respuestas IA básicas</li>
-                  <li>✔️ Soporte WhatsApp</li>
-                </ul>
-              </td>
-              <td class="py-6 px-2 text-3xl font-black text-ebprimary">$3<span class="text-base text-white/70">/mes</span></td>
-              <td class="py-6 px-2">
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Starter%20Eren%20Bot&amount=3.00&currency_code=USD"
-                   target="_blank"
-                   class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-400 text-emerald-900 font-bold hover:bg-ebprimary hover:text-white transition shadow-ebglow">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="w-6 h-6">
-                  Pagar con PayPal
-                </a>
-              </td>
-            </tr>
-            <!-- Pro -->
-            <tr class="border-b border-ebprimary/20 hover:bg-ebprimary/10 transition">
-              <td class="py-6 px-2 font-bold text-xl text-ebsecondary">Pro</td>
-              <td class="py-6 px-2 text-left">
-                <ul class="space-y-2">
-                  <li>✔️ Hasta 10 grupos</li>
-                  <li>✔️ Todas las funciones IA</li>
-                  <li>✔️ Antispam avanzado</li>
-                  <li>✔️ Personalización de comandos</li>
-                </ul>
-              </td>
-              <td class="py-6 px-2 text-3xl font-black text-ebsecondary">$7<span class="text-base text-white/70">/mes</span></td>
-              <td class="py-6 px-2">
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Pro%20Eren%20Bot&amount=7.00&currency_code=USD"
-                   target="_blank"
-                   class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shadow-ebglow">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="w-6 h-6">
-                  Pagar con PayPal
-                </a>
-              </td>
-            </tr>
-            <!-- Empresarial -->
-            <tr class="hover:bg-ebprimary/10 transition">
-              <td class="py-6 px-2 font-bold text-xl text-emerald-400">Empresarial</td>
-              <td class="py-6 px-2 text-left">
-                <ul class="space-y-2">
-                  <li>✔️ Grupos ilimitados</li>
-                  <li>✔️ Branding personalizado</li>
-                  <li>✔️ Comandos exclusivos</li>
-                  <li>✔️ Soporte 24/7 VIP</li>
-                </ul>
-              </td>
-              <td class="py-6 px-2 text-3xl font-black text-emerald-400">$25<span class="text-base text-white/70">/único</span></td>
-              <td class="py-6 px-2">
-                <a href="https://wa.me/50493374445?text=Quiero%20el%20Plan%20Corporativo%20de%20Eren%20Bot%20IA"
-                   target="_blank"
-                   class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-400 text-emerald-900 font-bold hover:bg-ebprimary hover:text-white transition shadow-ebglow">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zM6.5 19.294c1.676.995 3.276 1.591 5.451 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.889-9.881-9.892-5.466 0-9.89 4.427-9.892 9.891-.001 2.225.651 3.891 1.746 5.487l-.999 3.648 3.686-.841zM17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.768.966-.941 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.58-.487-.501-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                  Solicitar por WhatsApp
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl md:text-5xl font-extrabold mb-10 text-center gradient-text">Planes Eren Bot IA</h2>
+      <div class="space-y-4">
+        <!-- Mensual -->
+        <div class="rounded-xl overflow-hidden shadow-lg border border-ebprimary/20 bg-ebdark/80">
+          <button type="button"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-ebprimary hover:text-ebsecondary transition focus:outline-none"
+            onclick="toggleAccordion('mensual')">
+            <span>💎 Precio Mensual</span>
+            <svg id="icon-mensual" class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="panel-mensual" class="hidden px-6 pb-6 pt-1 text-white/90">
+            <p class="mb-4 text-base text-white/80">Acceso a todas las funciones esenciales para grupos pequeños y prueba de uso.</p>
+            <div class="flex items-baseline gap-2 mb-3">
+              <span class="text-3xl font-black text-ebprimary">$3</span>
+              <span class="text-base text-white/70">/mes</span>
+            </div>
+            <ul class="mb-4 space-y-1 text-sm">
+              <li>✔️ Hasta 3 grupos</li>
+              <li>✔️ Descargas ilimitadas</li>
+              <li>✔️ Respuestas IA básicas</li>
+              <li>✔️ Soporte por WhatsApp</li>
+            </ul>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Mensual%20Eren%20Bot&amount=3.00&currency_code=USD"
+               target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn mt-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6">Pagar con PayPal
+            </a>
+          </div>
+        </div>
+        <!-- Permanente -->
+        <div class="rounded-xl overflow-hidden shadow-lg border border-ebprimary/20 bg-ebdark/80">
+          <button type="button"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-emerald-400 hover:text-ebsecondary transition focus:outline-none"
+            onclick="toggleAccordion('permanente')">
+            <span>🔒 Precio Permanente</span>
+            <svg id="icon-permanente" class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="panel-permanente" class="hidden px-6 pb-6 pt-1 text-white/90">
+            <p class="mb-4 text-base text-white/80">Pago único, acceso para siempre a todas las funciones PRO.</p>
+            <div class="flex items-baseline gap-2 mb-3">
+              <span class="text-3xl font-black text-emerald-400">$15</span>
+              <span class="text-base text-white/70">/único</span>
+            </div>
+            <ul class="mb-4 space-y-1 text-sm">
+              <li>✔️ Hasta 10 grupos</li>
+              <li>✔️ Funciones IA avanzadas</li>
+              <li>✔️ Antispam avanzado</li>
+              <li>✔️ Personalización básica</li>
+              <li>✔️ Soporte prioritario</li>
+            </ul>
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=posadaselder2806@gmail.com&item_name=Permanente%20Eren%20Bot&amount=15.00&currency_code=USD"
+               target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-emerald-400 text-emerald-900 font-bold hover:bg-ebprimary hover:text-white transition shine-btn mt-2">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" class="w-6 h-6">Pagar con PayPal
+            </a>
+          </div>
+        </div>
+        <!-- Personalizado -->
+        <div class="rounded-xl overflow-hidden shadow-lg border border-ebprimary/20 bg-ebdark/80">
+          <button type="button"
+            class="w-full flex items-center justify-between px-6 py-5 text-left text-lg font-bold text-ebsecondary hover:text-emerald-400 transition focus:outline-none"
+            onclick="toggleAccordion('personalizado')">
+            <span>🛠️ Precio Personalizado</span>
+            <svg id="icon-personalizado" class="w-5 h-5 ml-2 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+              viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div id="panel-personalizado" class="hidden px-6 pb-6 pt-1 text-white/90">
+            <p class="mb-4 text-base text-white/80">Solución a medida para empresas, agencias y grandes comunidades.</p>
+            <div class="flex items-baseline gap-2 mb-3">
+              <span class="text-3xl font-black text-ebsecondary">$25+</span>
+              <span class="text-base text-white/70">/único</span>
+            </div>
+            <ul class="mb-4 space-y-1 text-sm">
+              <li>✔️ Grupos ilimitados</li>
+              <li>✔️ Branding y comandos exclusivos</li>
+              <li>✔️ Integraciones API</li>
+              <li>✔️ Soporte VIP dedicado</li>
+            </ul>
+            <a href="https://wa.me/50493374445?text=Quiero%20un%20plan%20personalizado%20de%20Eren%20Bot%20IA"
+               target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-ebsecondary text-ebdark font-bold hover:bg-ebprimary hover:text-white transition shine-btn mt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zM6.5 19.294c1.676.995 3.276 1.591 5.451 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.889-9.881-9.892-5.466 0-9.89 4.427-9.892 9.891-.001 2.225.651 3.891 1.746 5.487l-.999 3.648 3.686-.841zM17.472 14.382c-.297-.149-1.758-.867-2.031-.967-.273-.099-.471-.148-.67.15-.197.297-.768.966-.941 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.58-.487-.501-.67-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+              Solicitar por WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
       <p class="mt-8 text-center text-white/70 text-sm">
-        ¿Necesitas otro método de pago? <a href="https://wa.me/50493374445" class="underline text-ebsecondary">¡Contáctanos!</a>
+        ¿Tienes dudas? <a href="https://wa.me/50493374445" class="underline text-ebsecondary">¡Contáctanos!</a>
       </p>
     </div>
+    <script>
+      // Simple accordion
+      function toggleAccordion(section) {
+        const sections = ['mensual', 'permanente', 'personalizado'];
+        sections.forEach(s => {
+          const panel = document.getElementById('panel-' + s);
+          const icon  = document.getElementById('icon-' + s);
+          if (s === section) {
+            const open = panel.classList.contains('hidden') ? false : true;
+            panel.classList.toggle('hidden');
+            icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+          } else {
+            panel.classList.add('hidden');
+            icon.style.transform = 'rotate(0deg)';
+          }
+        });
+      }
+    </script>
   </section>
 
   <!-- SOPORTE -->
